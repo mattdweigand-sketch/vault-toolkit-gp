@@ -46,5 +46,10 @@ Format:
 ## Done Looks Like
 A data pack where every headline figure is tied to source and every notable variance is explained. If the writer in stage 02 has to open the accounting export to check a number, this stage did not finish its job.
 
+## Common Failure Modes
+- **Blending figures across export versions.** When two versions of an export exist, pick the authoritative one and pull every figure from it. Mixing a NAV from one version with a distribution from another produces a pack that ties to nothing.
+- **Letting a figure through without a tie-out.** A headline number with no source note is a number nobody can defend when an LP asks. Reconciliation status "no" never reaches the draft stage.
+- **Dropping the flags.** Preliminary, estimated, and unaudited labels have to travel with the figure all the way to the letter. Stripping them here is how an unaudited mark reaches an investor with no caveat.
+
 ## Layer Annotation
 This is an L2 stage contract. It loads only when working in this stage. The accounting export and asset reports loaded here are L4 (working artifacts specific to this cycle). The prior letter from _config/ is L3 (reference, stable across cycles).

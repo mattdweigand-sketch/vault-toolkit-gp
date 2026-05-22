@@ -46,5 +46,10 @@ Send date: [date]
 ## Done Looks Like
 A communication that is ready to send through the investor portal or email. No further editing should be needed. If you find yourself editing the output of this stage before sending, either the compliance pass was insufficient or the draft stage produced something not ready for distribution.
 
+## Common Failure Modes
+- **Rewriting the narrative in a compliance pass.** This stage finalizes; it does not re-draft. If the letter needs real rewriting, return it to stage 02. Quietly reworking the prose here bypasses the review the draft stage already cleared.
+- **Treating the compliance pass as a creative read.** It is a line-by-line checklist against the constraints file — disclosures, footers, forward-looking language present and correct. Skimming for "feel" instead of checking each rule is how a missing disclosure ships.
+- **Generating or adjusting per-LP figures.** Investor-specific numbers merge from the platform source, not the model. AI formats and assembles; if a per-LP figure looks wrong, fix it at the source, never in the draft.
+
 ## Layer Annotation
 This is an L2 stage contract. The draft from 02_draft/output/ is L4 (working artifact, specific to this cycle). The constraints file is L3 (reference, stable across cycles). Distribution requirements are L4 (specific to this cycle and audience).

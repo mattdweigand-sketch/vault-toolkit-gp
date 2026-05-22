@@ -74,5 +74,10 @@ Also copy the investment thesis to _config/investment-thesis.md so all subsequen
 ## Done Looks Like
 The deal has a go decision. The investment thesis captures not just the seller's pitch but your own underwrite and the conditions the deal depends on. Diligence can start without ambiguity about what "win" means on this deal.
 
+## Common Failure Modes
+- **Paraphrasing the pitch as your own view.** "Our View" has to be an independent read of what the asset and market support, not a reworded OM. If the two sections say the same thing, you have not done the sourcing work.
+- **Suppressing the deal breakers to keep the deal alive.** The whole point of this stage is to find the two or three things that kill the deal cheaply, before diligence spend. Burying them to justify a "go" is the most expensive mistake in the pipeline.
+- **Anchoring the thesis to the asking price.** The quick underwrite tests whether the story pencils on its own; it should not reverse-engineer a return to fit the seller's number. If the deal only works at the asking price, that is a finding, not a thesis.
+
 ## Layer Annotation
 L2 stage contract. Deal brief and terms from _config/ are L3. Market data and comps pasted in are L4. Underwriting standards from _references/ are L3.

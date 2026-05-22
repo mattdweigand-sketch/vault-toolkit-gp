@@ -90,5 +90,10 @@ to close.]
 ## Done Looks Like
 The committee has reviewed the deal and either approved it for close or returned it with specific conditions that have been scoped. There is no ambiguity about what was approved and what still has to clear.
 
+## Common Failure Modes
+- **Taking a deal to committee before internal review passes.** The two phases exist precisely so a half-finished underwrite never reaches the committee room. Internal review is a gate, not a formality — under deadline pressure it is the first thing teams are tempted to skip.
+- **Vague feedback to diligence.** "Tighten the model" sends the deal in a circle. Name the figure, the assumption, or the report that has to change, and why. Actionable return notes are the difference between one more diligence pass and three.
+- **Burying a high-severity risk in the memo.** The IC memo must surface every risk that survived diligence with its mitigant. A material risk the committee discovers on its own costs more in credibility than the risk itself.
+
 ## Layer Annotation
 L2 stage contract. Diligence output is L4. Thesis and screen memo are L4 (deal-specific). Underwriting standards are L3 (stable across deals).

@@ -39,6 +39,9 @@ lp-reporting/
 - **Output directories are the handoff points.** Stage 01 writes the verified data pack to 01_data/output/. Stage 02 writes from there. This makes the data flow explicit and gives you a clear place to reconcile numbers before they reach the narrative.
 - **No deal-underwriting in this architecture.** Investment analysis is a different workflow (see the deal-pipeline architecture). This workspace reports on what the fund already owns. Mixing underwriting with reporting clutters the data stage.
 
+## Constraints That Apply
+Built against the GP Operating Toolkit. Most relevant: **01 (AI Writing Patterns)** and **02 (Output Drift)** so the letter reads clean and stays consistent cycle to cycle, **05 (Voice Architecture)** so it sounds like the firm regardless of who runs the cycle, and the universal **06 (Layer Triage)** and **09 (Platform Boundary)** so the model narrates verified figures and never generates or adjusts an investor's numbers. Pull **10 (Source Provenance)** when more than one version of an export or asset report is in play.
+
 ## Layer Annotations
 - CLAUDE.md: L0 (always loaded, ~800 tokens, orientation)
 - CONTEXT.md: L1 (loaded on workspace entry, routing)

@@ -71,3 +71,4 @@ After building, walk the user through:
 - Compliance is a real constraint surface here, not a style preference. Where the user is unsure about disclosure or performance language, tell them to confirm with compliance rather than guessing.
 - If the user's process has fewer than 3 distinct steps, do not force more stages. Verify-then-send is valid if that is their actual workflow.
 - Always annotate files with their ICM layer (L0-L4) so the user understands the architecture, not just the files.
+- Load and name the constraints this workflow uses: 01 (AI Writing), 02 (Output Drift), 05 (Voice Architecture), plus the universal 06 and 09; pull 10 (Source Provenance) when more than one version of an export or asset report is in play.

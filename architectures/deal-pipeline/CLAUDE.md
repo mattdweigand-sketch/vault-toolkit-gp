@@ -42,6 +42,9 @@ deal-pipeline/
 - **Close is its own stage.** Funding a deal without a clean transition to asset management creates day-one chaos. The close stage produces the closing checklist and handoff materials so the asset manager can operate from day one.
 - **_references/ is separate from _config/.** Config holds deal-specific context (this property, this sponsor, these terms). References hold knowledge that applies across deals (underwriting standards, market comps, prior deal records). Separating them means you can share references across deals without dragging one deal's confidential terms into another.
 
+## Constraints That Apply
+Built against the GP Operating Toolkit. Most relevant: **01 (AI Writing Patterns)** and **02 (Output Drift)** so the memo and thesis read clean and stay comparable deal to deal, **08 (Handoff Readiness)** so the deal survives the handoff to asset management at close, the universal **06 (Layer Triage)** and **09 (Platform Boundary)** so the model narrates and never recomputes a return, and **10 (Source Provenance)** when diligence opens on an unvetted data room.
+
 ## Layer Annotations
 - CLAUDE.md: L0 (always loaded, orientation)
 - CONTEXT.md: L1 (deal workflow routing)
