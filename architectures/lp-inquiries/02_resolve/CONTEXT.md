@@ -8,14 +8,14 @@ Answer the classified inquiry. Retrieve the governed data or the vetted answer, 
 - **_config/faq-bank.md**: Vetted answers to recurring questions. Check here first.
 - **_config/investor-context.md**: Entity details and history relevant to the answer.
 - **_config/response-standards.md**: The voice and the answer-vs-refer line.
-- **Platform data**: The capital-account balance, performance figure, distribution record, or document — retrieved from Juniper Square. This is the source of any number. Load only what this inquiry needs.
+- **Platform data**: The capital-account balance, performance figure, distribution record, or document — retrieved from the platform. This is the source of any number. Load only what this inquiry needs.
 
 ## Process
 1. Read the ticket. If it is flagged sensitive, do not draft an answer. Draft an acknowledgment and route it to the named owner (see Output, escalation form). Stop there.
 2. For non-sensitive inquiries, check the FAQ bank. If a vetted answer exists and fits, use it as the basis — do not reinvent an answer the firm has already settled.
 3. Retrieve any figure or document from the platform of record. Never state a balance, performance number, or distribution amount from memory or inference. If the platform value is not available, say so in the draft and flag it for the responder, rather than estimating.
 4. Draft the response in the firm's voice (see response-standards.md). Answer the real need from the ticket, not just the literal question. Keep it accurate, complete, and on-tone.
-5. Mark the source of every figure inline for the reviewer (e.g., "[balance per JSQ as of DATE]"). The responder confirms these; they are not sent to the LP as-is unless the standards say so.
+5. Mark the source of every figure inline for the reviewer (e.g., "[balance per platform as of DATE]"). The responder confirms these; they are not sent to the LP as-is unless the standards say so.
 6. Note anything the responder must verify before sending.
 
 ## Output

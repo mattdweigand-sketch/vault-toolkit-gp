@@ -5,7 +5,7 @@ ANNOTATION: The recurring investor record this workspace needs to identify a
 requester, route correctly, and answer with the right history and sensitivities
 in mind. This is L3 reference, updated as investors and entities evolve.
 
-This is NOT the system of record. Juniper Square holds the authoritative
+This is NOT the system of record. The platform holds the authoritative
 investor data, balances, and entitlements. This file holds the working context
 the model needs to handle an inquiry well: who is who, what they care about,
 what has come up before. Keep figures OUT of this file — those come from the

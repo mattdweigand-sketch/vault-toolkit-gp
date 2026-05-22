@@ -29,7 +29,7 @@ This is the workflow where the boundary is least negotiable. The numbers come fr
 
 | Step in this workflow | Layer | Who owns it |
 |---|---|---|
-| Verified NAV, capital accounts, performance figures, the single source of truth, the audit trail | Platform / data foundation | Enterprise platform (Juniper Square and the fund admin underneath it) |
+| Verified NAV, capital accounts, performance figures, the single source of truth, the audit trail | Platform / data foundation | Enterprise platform (fund admin and the software underneath it) |
 | The waterfall and allocation math of record | Deterministic | The platform's calculation engine |
 | Drafting the letter narrative, explaining variances, summarizing portfolio activity, tailoring tone | AI | You, on top of governed data |
 | Sign-off and compliance approval before anything reaches an LP | Human in the loop | Finance and compliance |

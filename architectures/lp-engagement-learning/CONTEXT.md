@@ -37,7 +37,7 @@ The temptation here is to let the model recall an interaction or assert a "why" 
 
 | Step in this workflow | Layer | Who owns it |
 |---|---|---|
-| Touchpoints, timeline, materials shared, who was involved, the outcome of record | Platform / data foundation | Juniper Square CRM |
+| Touchpoints, timeline, materials shared, who was involved, the outcome of record | Platform / data foundation | Enterprise CRM |
 | Assembling the record, structuring the analysis, proposing the why, detecting patterns across the store | AI | You, on top of governed data |
 | Validating the causal explanation before it is captured | Human in the loop | The IR / capital-raising owner |
 | The accumulated store and its patterns | Firm intelligence | This workspace (handle as confidential) |

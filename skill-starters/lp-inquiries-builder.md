@@ -50,6 +50,6 @@ After building, walk the user through:
 ## Important Notes
 - Do not build before completing the diagnosis. The questions are the skill.
 - The answer-vs-refer line in response-standards.md is the highest-stakes config. Where the user is unsure, tell them to confirm with compliance rather than guess.
-- This is inquiry traffic, not transactions. If they describe capital calls or distributions, those are platform-governed operations handled in the fund-administration platform (Juniper Square), not a workspace to build (Constraint 09).
+- This is inquiry traffic, not transactions. If they describe capital calls or distributions, those are platform-governed operations handled in the fund-administration platform, not a workspace to build (Constraint 09).
 - Load and name the constraints this workflow uses: 02 (Output Drift), 04 (Session Consistency), 05 (Voice Architecture), plus the universal 06 and 09.
 - Always annotate files with their ICM layer (L0–L4).

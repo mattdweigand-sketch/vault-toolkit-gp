@@ -37,7 +37,7 @@ The temptation here is to let the model answer a balance or performance question
 
 | Step in this workflow | Layer | Who owns it |
 |---|---|---|
-| Capital accounts, balances, performance figures, distribution history, the investor record, the audit trail | Platform / data foundation | Enterprise platform (Juniper Square and the fund admin underneath it) |
+| Capital accounts, balances, performance figures, distribution history, the investor record, the audit trail | Platform / data foundation | Enterprise platform (fund admin and the software underneath it) |
 | Whether the requester is authorized to receive the information | Deterministic / control | Platform entitlements plus a human check |
 | Classifying the inquiry, retrieving and phrasing the answer, drafting the response, flagging escalations | AI | You, on top of governed data |
 | Anything that commits the firm — a redemption, a side-letter reading, a complaint resolution | Human in the loop | IR principal, compliance, or counsel |

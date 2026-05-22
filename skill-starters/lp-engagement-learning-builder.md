@@ -16,7 +16,7 @@ Ask the following questions one at a time. Wait for each answer before proceedin
 "When an engagement resolves, do you capture why — formally, informally, or not at all? If you do, what happens to it?"
 
 **Question 2: Where does the engagement record live?**
-"Where is the history of an LP engagement — touchpoints, meetings, materials, the outcome? Is it in your CRM (Juniper Square), and how complete is it?"
+"Where is the history of an LP engagement — touchpoints, meetings, materials, the outcome? Is it in your CRM, and how complete is it?"
 
 **Question 3: What would you want to know about every engagement?**
 "If you could answer the same set of questions about every LP that commits or passes, what would those questions be? This becomes the canonical debrief set that makes records comparable."

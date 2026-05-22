@@ -67,5 +67,5 @@ interest and are as of March 31, 2026.*
 
 ## Delivery Notes
 Disclosures/footers: confirmed present (per _config/constraints.md)
-Distribution list source: Juniper Square — investor register, as of 2026-04-10
+Distribution list source: fund admin — investor register, as of 2026-04-10
 Send date: 2026-04-22

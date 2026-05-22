@@ -3,7 +3,7 @@
 ## What This Is
 A workspace for handling inbound investor inquiries: the ad hoc questions and soft requests LPs send between formal events. "What is my current capital balance?" "Can you re-send my K-1?" "What is your view on the office exposure in Fund II?" "We are thinking about increasing our commitment — who do we talk to?" This architecture fits an investor relations, IR-finance, or fund finance team that fields a steady stream of LP questions and wants consistent, accurate, on-voice responses without each one becoming a fire drill.
 
-This is not capital-event processing. Capital calls, distributions, transfers, and onboarding are platform-governed transactions handled in your fund-administration platform (Juniper Square), not in an AI workspace (see Constraint 09). This workspace is for the inquiry traffic that arrives in between — informational, document, and light action requests.
+This is not capital-event processing. Capital calls, distributions, transfers, and onboarding are platform-governed transactions handled in your fund-administration platform, not in an AI workspace (see Constraint 09). This workspace is for the inquiry traffic that arrives in between — informational, document, and light action requests.
 
 ## Current State
 - This is a reference architecture. No active inquiry queue.
@@ -36,7 +36,7 @@ lp-inquiries/
 
 ## Key Decisions
 - **Classification is the first job, not answering.** The intake stage sorts each inquiry by type (informational / document request / action request / sensitive) before anyone drafts a word. A balance question and a "we are considering redeeming" message look similar in an inbox and could not be more different in stakes. Classifying first is what keeps the sensitive ones from being answered casually.
-- **The platform is the source of every figure.** A capital-account balance, a performance number, a distribution amount — those come from Juniper Square, not from the model. The model retrieves and phrases; it never computes or recalls a number from memory. See Constraint 09. This is the difference between an IR assistant and an IR liability.
+- **The platform is the source of every figure.** A capital-account balance, a performance number, a distribution amount — those come from the platform, not from the model. The model retrieves and phrases; it never computes or recalls a number from memory. See Constraint 09. This is the difference between an IR assistant and an IR liability.
 - **Escalation is a designed step, not an exception.** Some inquiries are not IR's to answer: a redemption signal, a side-letter interpretation, a complaint, a request that touches legal or compliance. The resolve stage flags these explicitly and routes them, rather than improvising an answer that commits the firm to something.
 - **The FAQ bank compounds.** Every answered inquiry that could recur gets captured. Over time the bank turns the same questions from research tasks into lookups, and keeps the firm's answers consistent across every person who responds. This is Constraint 04 (session consistency) made concrete.
 - **_templates is separate from _config.** Templates are response structures (balance confirmation, document re-send, holding statement). Config is operating logic (what IR can answer vs. refer, the investor record, the FAQ bank). They change at different rates.

@@ -37,7 +37,7 @@ The temptation here is to let the model compute the return or set the mark from 
 |---|---|---|
 | Operating actuals, GL, rent roll, occupancy, NOI, the property-level record | Platform / data foundation | Property systems (Yardi / MRI / RealPage) |
 | The underwriting model, IRR, equity multiple, valuation and the mark | Deterministic / modeled | Argus or your model; your valuation process |
-| Recorded fund-level figures and investor reporting | Platform | Juniper Square and fund admin |
+| Recorded fund-level figures and investor reporting | Platform | Fund administration platform |
 | Analyzing actuals vs. plan, attributing variance, flagging risks, building the watchlist, drafting the review | AI | You, on top of governed data |
 | The hold / sell / refinance decision | Human in the loop | Asset management lead and the investment committee |
 

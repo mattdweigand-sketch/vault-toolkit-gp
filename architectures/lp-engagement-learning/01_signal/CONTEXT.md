@@ -5,7 +5,7 @@ Assemble the factual engagement record for an LP whose engagement has resolved. 
 
 ## Inputs
 - **The trigger**: an LP has committed or passed. Name the LP, the fund, and the outcome.
-- **CRM engagement data** (Juniper Square): the touchpoint timeline, meetings, materials shared, who was involved on both sides, questions and objections logged, and the outcome with its date.
+- **CRM engagement data**: the touchpoint timeline, meetings, materials shared, who was involved on both sides, questions and objections logged, and the outcome with its date.
 - **_store/** (for context): any prior record for this LP, and the records for similar-segment LPs, so this record is assembled with awareness of what is already known.
 - **_config/segment-taxonomy.md**: to tag the LP's segment and check-size band.
 

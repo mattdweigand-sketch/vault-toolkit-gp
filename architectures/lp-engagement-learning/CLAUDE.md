@@ -3,7 +3,7 @@
 ## What This Is
 A workspace for learning, systematically, why LPs commit or pass — and turning that into intelligence that sharpens the next raise. When an LP's engagement resolves (a commitment, or a decline), this workspace assembles the engagement record, runs a consistent forensic on what actually drove the outcome, and captures a structured record into an accumulating store. The store is the point: over many records it reveals which LP segments convert, which objections recur, where the firm's raise consistently stalls. Built for an IR, capital-raising, or partner team that wants its fundraising to compound instead of restarting every fund.
 
-This is not a CRM and it does not track the pipeline — Juniper Square owns that. This workspace does the one thing the CRM does not: it explains *why*, and remembers.
+This is not a CRM and it does not track the pipeline — your CRM owns that. This workspace does the one thing the CRM does not: it explains *why*, and remembers.
 
 ## A Different Shape: the Learning Loop
 The other workspaces in this toolkit are linear — a request or a deal or a reporting cycle flows through stages and the output leaves: a notice sent, a deal decided, a letter distributed. This workspace is a **loop**. Its output does not leave; it is deposited into the workspace's own memory (`_store/`) and read back to inform future runs and other workspaces. Three properties make it different:
@@ -46,7 +46,7 @@ lp-engagement-learning/
 ## Key Decisions
 - **The store is the deliverable.** Treat the per-LP record as an input to the asset, not the asset. Resist the urge to make any single write-up perfect; invest instead in making records comparable so the corpus is queryable.
 - **Comparability over richness.** Every record answers the same canonical questions from _config, in the same structure. A pile of beautifully written but non-comparable narratives cannot reveal a pattern. This is Constraint 04 (Session Consistency) as the core design principle.
-- **The CRM is the source; the model never invents the record.** Touchpoints, timeline, materials, and the outcome come from Juniper Square. The model assembles and analyzes; it does not recall an interaction from memory. See Constraint 09.
+- **The CRM is the source; the model never invents the record.** Touchpoints, timeline, materials, and the outcome come from the CRM. The model assembles and analyzes; it does not recall an interaction from memory. See Constraint 09.
 - **A human validates the why before it is captured.** The analysis is the model's proposed explanation. Causal claims about why an LP committed or passed are exactly the thing that, if wrong, poisons the store. A person confirms the "why" before it becomes institutional memory.
 - **The store feeds other workspaces.** `_store/patterns.md` is meant to be read by capital-raising prep and prospect work, not just by this workspace. The loop's value is realized when its intelligence shapes a future engagement.
 - **Treat the store as sensitive.** Why an LP passed, an objection, a relationship dynamic — this is confidential internal intelligence. Handle and store it accordingly.

@@ -38,7 +38,7 @@ The temptation here is to let the model produce the return that decides the exit
 |---|---|---|
 | Asset operating data, ownership, the property record | Platform / data foundation | Property systems (Yardi / MRI / RealPage) |
 | Hold-vs-sell return scenarios, net-proceeds and valuation math, the BOV | Deterministic / modeled | Argus or your model; the broker |
-| Capital-return mechanics, the investor record, the audit trail | Platform | Juniper Square and fund admin |
+| Capital-return mechanics, the investor record, the audit trail | Platform | Fund administration platform |
 | Framing the hold/sell case, the timing thesis, the disposition strategy and package narrative | AI | You, on top of governed data |
 | The hold/sell decision and the buyer selection | Human in the loop | Asset management lead and the investment committee |
 
