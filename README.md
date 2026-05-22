@@ -66,4 +66,4 @@ If you find yourself reaching for Claude to recalculate a waterfall that a sprea
 
 ---
 
-Built by Juniper Square, the Operations Partner for Private Markets. Learn more at junipersquare.com.
+Built by Matt Weigand.
