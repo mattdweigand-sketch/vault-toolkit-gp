@@ -184,3 +184,11 @@ applied to a GP workflow. The skill-starters turn an architecture into a customi
 for one firm. You move left to right: understand the constraint, study the architecture, run
 the builder. Each workspace, once built, is self-documenting — its own `CLAUDE.md` is the map
 for that workspace, the same way this file is the map for the toolkit.
+
+A note on support-folder naming: every workspace has a `_config/` (the firm's own rules, voice,
+and terms). The second support folder is named for the job that workspace does, not by accident —
+`_references/` for cross-deal knowledge shared across runs (comps, standards, prior records),
+`_prompts/` for reusable prompt fragments, `_store/` for the accumulating memory of a learning-loop
+workspace (where the store *is* the deliverable), `_templates/` for reusable output patterns, and
+`_example/` for a fully worked sample run. The variation is deliberate; match the folder to the
+work, not to a uniform name.
