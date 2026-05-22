@@ -12,12 +12,13 @@ estate firms. It has three parts:
 
 - **/constraints** — ten reference files, each solving a specific problem GPs hit when
   working with AI. You load these selectively, matched to the workflow being built.
-- **/architectures** — nine reference workspaces spanning the GP lifecycle (deal-screening,
+- **/architectures** — ten reference workspaces. Nine span the GP lifecycle (deal-screening,
   deal-pipeline, asset-management, disposition, lp-reporting, lp-inquiries,
-  lp-engagement-learning, deal-win-loss-learning, market-thesis). Each is a working folder
-  structure with its own `CLAUDE.md`, `CONTEXT.md`, and stage contracts. You copy and customize
-  one to build the user's workspace.
-- **/skill-starters** — nine builder skills, one per architecture. Each runs a diagnostic
+  lp-engagement-learning, deal-win-loss-learning, market-thesis); the tenth, one-off-deliverable,
+  produces a single deliverable from an unvetted source set when the work maps to no lifecycle
+  stage. Each is a working folder structure with its own `CLAUDE.md`, `CONTEXT.md`, and stage
+  contracts. You copy and customize one to build the user's workspace.
+- **/skill-starters** — ten builder skills, one per architecture. Each runs a diagnostic
   interview, then assembles a workspace from the answers. These do the actual building.
 
 ## Start Here
@@ -78,6 +79,7 @@ Match the user's primary work to a workflow and its builder.
 | Learning why LPs commit or pass to sharpen the next raise | lp-engagement-learning | `skill-starters/lp-engagement-learning-builder.md` |
 | Learning why we win or lose competitive deals to sharpen the next bid | deal-win-loss-learning | `skill-starters/deal-win-loss-learning-builder.md` |
 | Building the firm's market/sector view to guide acquisitions | market-thesis | `skill-starters/market-thesis-builder.md` |
+| Producing one serious deliverable from a messy, unvetted source set, with no recurring cycle | one-off-deliverable | `skill-starters/one-off-deliverable-builder.md` |
 
 If the user is unsure which they need, or wants to know where AI belongs at all before
 building anything, start them with **Constraint 06 (Layer Triage)** and **Constraint 09
@@ -107,7 +109,10 @@ row by topic. Classify it by shape first:
   (see Constraint 09).
 - **Recurring document production** (lp-reporting, asset-management, market-thesis): verified
   data → drafted narrative → distribution, on a cycle. Use when you produce a document from
-  numbers you do not invent (e.g., a JV/co-GP partner report, an internal IC update).
+  numbers you do not invent (e.g., a JV/co-GP partner report, an internal IC update). The
+  *non-recurring* version of this shape — one serious deliverable from an unvetted source set,
+  no cycle — has its own architecture, **one-off-deliverable**: inventory the sources, review,
+  then draft. Reach for it when the deliverable matters but maps to no lifecycle stage.
 - **Learning loop** (lp-engagement-learning, deal-win-loss-learning): capture an outcome →
   analyze why → write to a store → read it back to inform the next time. Use when the goal is to
   make a repeated activity compound — the deliverable is the accumulating store, not any single
@@ -153,6 +158,7 @@ whole library.
 | **lp-engagement-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff) | Records must be comparable to aggregate; the store stays clean and handoff-readable. |
 | **deal-win-loss-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff) | Records must be comparable to aggregate; the store stays clean and handoff-readable, and broker spin must be kept out of it. |
 | **market-thesis** | + 01 (AI Writing), 02 (Output Drift), 10 (Source Provenance) | The thesis must read sharp, stay consistent, and rest on vetted sources. |
+| **one-off-deliverable** | + 10 (Source Provenance), 01 (AI Writing), 02 (Output Drift) | The workspace *is* a provenance pass made concrete; the deliverable must also read clean and stay internally consistent. |
 | **Scaling any workflow** | + 07 (Scaling vs. Automating) | When the same workflow runs many times, decide what to template vs. automate. |
 | **Context degrading mid-build** | + 03 (Context Hygiene) | If your own context gets noisy during a long onboarding, this is the fix. |
 | **Ingesting a data room or unvetted source set** | + 10 (Source Provenance) | Inventory and rank inputs before any stage drafts. AI flags provenance, duplicates, and conflicts; the platform owns the figures. |
