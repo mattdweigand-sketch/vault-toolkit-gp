@@ -1,0 +1,65 @@
+# The GP Operating Toolkit
+
+A constraint library, reference architecture gallery, and skill starter collection for private equity and commercial real estate GPs who want to build with AI instead of just use it.
+
+## What This Is
+
+This is not a prompt library. There are no copy-paste templates here.
+
+This is a set of tools organized around problems your firm has already encountered. Each one follows the same structure: the principle that solves the problem (most of which predate AI by decades), the existing tools or skills that handle it, and the deeper architectural thinking that makes the fix permanent instead of temporary.
+
+Every constraint file includes tuning questions. These are not decorative. They exist because a constraint that does not fit your specific workflow will either be ignored or will make your output worse. Answer them before you use the file. The constraint adapts to your firm, not the other way around.
+
+## How to Use This
+
+**If you are setting this up with an AI agent:** Clone or download this repository to your working directory, then point your agent at `CLAUDE.md` at the root. That file is the agent's map. It runs the onboarding sequence, routes you to the right builder, names the constraints to load, and finishes with a working, populated workspace. Start there and the rest of this section is optional reading.
+
+**If you work in Claude Code, Cursor, or VS Code:** Drop the constraint files into your workspace. Reference them from your CLAUDE.md or CONTEXT.md. Load them selectively based on the stage of work you are in. Do not load all of them at once.
+
+**If you work in Claude Projects:** Add the relevant constraint files as knowledge sources. Use one or two at a time, matched to the task. The whole point of separation of concerns is that each piece of context has a job.
+
+**If you work in Claude Desktop, ChatGPT, Copilot, or any other chat interface:** Copy the constraint content into your conversation when you need it. These are portable. The principles work regardless of which model or tool you are using.
+
+**If you are non-technical:** Start with constraint 06 (Layer Triage). It will help you figure out which problems at your firm actually need AI and which ones need a spreadsheet or your fund administrator. If you are weighing what to build versus what to source from a platform, read constraint 09 (Platform Boundary) next. Then move to whichever constraint matches your most frequent frustration.
+
+## What Is in Here
+
+### /constraints (10 files)
+Problem-organized reference files. Each one addresses a specific frustration GPs hit when working with AI on deal, investor, and fund work. Each one has three layers: traditional solutions that predate AI, existing skills and tools that handle part of the problem, and the architectural principle that makes the fix stick. Each one has tuning questions that customize the constraint to your firm. Constraint 06 (Layer Triage) and Constraint 09 (Platform Boundary) together answer the question most GPs get wrong: where to apply AI for real value, and where to rely on an enterprise data foundation instead of building it yourself.
+
+### /architectures (9 annotated workspaces)
+Real folder structures you can copy, explore, and study, each modeled on a GP workflow and built on one of four structural shapes (gated pipeline, operations queue, document production, learning loop). They span the GP lifecycle:
+- **deal-screening**: triaging inbound deal flow against the investment box — capture, screen, decide. Feeds deal-pipeline.
+- **deal-pipeline**: an acquisition from sourcing through diligence, investment committee, and close.
+- **asset-management**: portfolio monitoring — business-plan-vs-actual reviews and a watchlist; hosts JV/co-GP and special-servicing report variants.
+- **disposition**: the exit — hold/sell decision through marketing and close to capital return.
+- **lp-reporting**: investor communications from data through drafting through distribution.
+- **lp-inquiries**: inbound LP questions between formal events — intake, resolve, respond.
+- **lp-engagement-learning**: a learning loop that captures why LPs commit or pass and accumulates the patterns to sharpen the next raise.
+- **deal-win-loss-learning**: a learning loop that captures why the firm wins or loses competitive acquisitions and accumulates bid and sourcing intelligence to sharpen the next bid.
+- **market-thesis**: building the firm's defensible market/sector view to focus screening and sourcing.
+
+Every file is annotated with what layer it sits on, why it exists, and what would change if your workflow were different. Each one also carries an "AI vs. Platform" decision map showing which steps belong to AI, which to a deterministic tool, and which to your enterprise data foundation. These are reference pieces, not templates. Study them, then build your own.
+
+### /skill-starters (9 diagnostic skills)
+Skills that ask before they build. Each one opens with diagnostic questions about your specific workflow, then assembles a workspace skeleton based on your answers. The decomposition logic is built in. Your answers provide the specifics. One per architecture: deal-screening-builder, deal-pipeline-builder, asset-management-builder, disposition-builder, lp-reporting-builder, lp-inquiries-builder, lp-engagement-learning-builder, deal-win-loss-learning-builder, market-thesis-builder.
+
+## The Principle Behind All of This
+
+Every repeatable workflow has steps. Every step has a scope of information it actually needs. The job is to match those two things so each step runs with signal instead of noise.
+
+Whatever your environment supports for separating information is your implementation layer. Folders, tabs, knowledge sources, your data room, SharePoint libraries. The medium changes. The logic does not.
+
+The question is always the same: does this piece of information belong at this step, or am I just carrying it because I do not know where else to put it?
+
+## A Note on the Three Layers
+
+Each constraint file references solutions at three levels, following the 60/30/10 framework.
+
+Roughly 60% of the problems people throw at AI are better solved by traditional tools, databases, or established processes. Another 30% are handled well by rule-based systems, existing skills, or purpose-built software. Only about 10% genuinely benefit from the probabilistic reasoning that a language model provides.
+
+If you find yourself reaching for Claude to recalculate a waterfall that a spreadsheet handles, you are spending tokens on something deterministic. The constraint files will tell you when that is the case.
+
+---
+
+Built by Juniper Square, the Operations Partner for Private Markets. Learn more at junipersquare.com.

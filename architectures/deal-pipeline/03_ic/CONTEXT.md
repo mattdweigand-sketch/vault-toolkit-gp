@@ -1,0 +1,68 @@
+# Stage 03: Investment Committee
+
+## Purpose
+Evaluate the underwriting against standards and the thesis, then take the deal to committee. This stage happens in two phases: internal review first, then the committee. Never put a deal in front of the IC that has not survived internal review.
+
+## Inputs
+- **02_diligence/output/**: Underwriting, findings, risk register.
+- **_config/investment-thesis.md**: The thesis the deal has to satisfy.
+- **01_sourcing/output/screen-memo.md**: The original deal breakers and quick underwrite.
+- **Underwriting standards** (if you have them in _references/): The firm's return hurdles and credit box.
+
+## Process
+
+### Phase 1: Internal Review
+1. Read the underwriting and findings.
+2. Check against the firm's standards. Return hurdles, leverage limits, concentration rules. Pass/fail each.
+3. Check against the thesis. Did diligence confirm the conditions that must hold?
+4. Work the risk register. Investigate any unresolved or high-severity item.
+5. Produce an internal review document. If issues found, return to diligence with specific, actionable items. Do not send vague feedback like "tighten the model." Specify what needs to change and why.
+
+### Phase 2: Investment Committee
+6. Once internal review passes, prepare the IC memo.
+7. Write the memo for the committee: the thesis, the underwrite, the risks, the recommendation, and the specific approval being requested (price, structure, equity).
+8. Present to committee. Document every question and condition.
+9. Categorize committee feedback: in-scope condition (goes back to diligence), structural change (re-underwrite), approve as-is.
+
+## Output
+Write to: 03_ic/output/
+
+**review-internal.md** (after phase 1):
+```
+# Internal Review: [Deal Name]
+
+## Standards Check
+[For each hurdle/limit: pass / fail with explanation]
+
+## Thesis Confirmation
+[For each condition: confirmed / contradicted / unresolved]
+
+## Issues for Diligence
+[Specific, actionable items to resolve. Reference exact figures
+or reports.]
+
+## Approved for IC: [Yes / No - return to diligence]
+```
+
+**ic-memo.md** (for committee) and **ic-decision.md** (after phase 2):
+```
+# IC Decision: [Deal Name]
+
+## Conditions and Questions
+[Numbered list. For each item:
+ - What the committee raised
+ - Category: diligence condition / structural change / cosmetic
+ - Action: return to diligence / re-underwrite / proceed]
+
+## Approval
+[What was approved: price, structure, equity check. Any conditions
+to close.]
+
+## Approved for Close: [Yes / No - conditions required]
+```
+
+## Done Looks Like
+The committee has reviewed the deal and either approved it for close or returned it with specific conditions that have been scoped. There is no ambiguity about what was approved and what still has to clear.
+
+## Layer Annotation
+L2 stage contract. Diligence output is L4. Thesis and screen memo are L4 (deal-specific). Underwriting standards are L3 (stable across deals).
