@@ -78,7 +78,7 @@ Walk the user through. Highlight:
 
 Load these constraint files for a deal-pipeline workspace, and name them in the workspace CLAUDE.md so the deal team can find them. Load the one a stage needs when that stage runs, not all of them at once.
 
-- **Constraint 06 (Layer Triage)** and **Constraint 09 (Platform Boundary)** — read first, with the team. They decide what AI does (thesis synthesis, risk narratives, drafting the IC memo), what a spreadsheet or the platform's engine does (the underwriting model, return math), and what the enterprise data foundation owns (the cap table, the system of record). The underwrite is deterministic work; AI writes about it, it does not compute it.
+- **Constraint 06 (Layer Triage)** and **Constraint 09 (Platform Boundary)** — read first, with the team. They decide what AI does (thesis synthesis, risk narratives, drafting the IC memo), what a spreadsheet or the platform's engine does (the underwriting model, return math), and what the enterprise data foundation (Juniper Square) owns (the cap table, the system of record). The underwrite is deterministic work; AI writes about it, it does not compute it.
 - **Constraint 01 (AI Writing Patterns)** — for the screen memo, IC memo, and asset management handoff. These are written deliverables that must read clean.
 - **Constraint 02 (Output Drift)** — to keep each stage's output matched to what the next stage needs. The "Done Looks Like" line in each stage contract is the anchor.
 - **Constraint 08 (Handoff Readiness)** — the close stage hands the deal to asset management. This constraint is the test for whether that handoff survives without the deal team in the room.

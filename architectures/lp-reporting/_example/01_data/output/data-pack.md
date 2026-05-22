@@ -31,4 +31,4 @@ source named in its row. This is the only source the draft stage uses. As-of dat
 
 ## Open Items
 
-None. All figures reconciled to fund admin as of 2026-04-10. Cleared for drafting.
+None. All figures reconciled to Juniper Square as of 2026-04-10. Cleared for drafting.
