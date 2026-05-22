@@ -44,7 +44,33 @@ or reports.]
 ## Approved for IC: [Yes / No - return to diligence]
 ```
 
-**ic-memo.md** (for committee) and **ic-decision.md** (after phase 2):
+**ic-memo.md** (for committee, before phase 2):
+```
+# IC Memo: [Deal Name]
+
+## Recommendation
+[The ask in one line: approve [equity check] for [deal] at [price/structure].]
+
+## Thesis
+[Why this deal, in the firm's terms. The conditions that must hold,
+carried forward from sourcing and confirmed in diligence.]
+
+## The Underwrite
+[Headline returns against the firm's hurdles, the basis, the leverage
+and structure. Figures tie to 02_diligence/output/; do not restate or
+recompute a return here.]
+
+## Key Risks
+[The risks that survived diligence, each with its mitigant or the
+reason it is acceptable. Pull from the risk register; do not bury a
+high-severity item.]
+
+## The Approval Requested
+[Exactly what the committee is being asked to authorize: price,
+structure, equity check, and any pre-approved range or conditions.]
+```
+
+**ic-decision.md** (after phase 2):
 ```
 # IC Decision: [Deal Name]
 
