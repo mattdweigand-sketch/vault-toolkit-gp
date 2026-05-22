@@ -41,6 +41,10 @@ Real folder structures you can copy, explore, and study, each modeled on a GP wo
 
 Every file is annotated with what layer it sits on, why it exists, and what would change if your workflow were different. Each one also carries an "AI vs. Platform" decision map showing which steps belong to AI, which to a deterministic tool, and which to your enterprise data foundation. These are reference pieces, not templates. Study them, then build your own.
 
+Two architectures ship with a fully worked `_example/` so you can see finished output, not just the empty shape:
+- **lp-reporting/_example**: a complete quarterly-letter cycle for a fictional fund — verified data pack, draft, and final letter. The draft-to-final diff shows the compliance pass adding the disclosure footer, and every figure traces to the data pack.
+- **lp-engagement-learning/_example**: a populated learning-loop store — three engagement records plus the rolled-up `patterns.md`. This is the one to read to understand the loop shape, where the deliverable is the accumulating store rather than any single record.
+
 ### /skill-starters (9 diagnostic skills)
 Skills that ask before they build. Each one opens with diagnostic questions about your specific workflow, then assembles a workspace skeleton based on your answers. The decomposition logic is built in. Your answers provide the specifics. One per architecture: deal-screening-builder, deal-pipeline-builder, asset-management-builder, disposition-builder, lp-reporting-builder, lp-inquiries-builder, lp-engagement-learning-builder, deal-win-loss-learning-builder, market-thesis-builder.
 

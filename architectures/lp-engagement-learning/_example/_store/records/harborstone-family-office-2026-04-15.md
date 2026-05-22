@@ -3,6 +3,7 @@
 LP: Harborstone (multi-family office)
 Segment: Family office (multi) | $5M–$25M | Partner network / warm referral | First-time-with-Meridian | Fast (<60 days)
 Fund: Meridian Fund III   Outcome: COMMITTED ($15M)   Resolved: 2026-04-15
+Validated by: J. Okafor, 2026-04-18
 
 ## Canonical Answers (summary)
 Warm referral from an existing Meridian LP. Value-add multifamily fit their direct-deal

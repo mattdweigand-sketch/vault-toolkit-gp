@@ -22,20 +22,22 @@ is correlated with warmth of origin (see P2), so the two effects are entangled.
 **Action:** Identify and target the actual decision-maker by the first or second touch; treat
 "still only talking to a gatekeeper after diligence starts" as a risk flag.
 
----
-
-## EMERGING PATTERNS (<3 records)
-
 ### P2 — Warm/referred LPs convert; cold-sourced institutions stall at terms/access
 **Segments:** institutional and family office.
 **Evidence:** 3 records, consistent so far.
 - Warm: Glenwood (re-up) and Harborstone (referral) both committed, both fast/moderate.
 - Cold: Cedarline (conference) passed, stalling after terms questions.
 **Confidence:** Medium. Directionally clear but origin and decision-maker access are entangled
-(P1); needs more cold-sourced records to isolate.
+(P1); needs more cold-sourced records to isolate. Stated on record count (3); confidence held at
+medium until the entanglement resolves.
 **Last updated:** 2026-05-13.
-**Watch:** the next 2–3 cold-sourced institutional engagements. If they also stall at terms,
-promote to stated and rethink cold institutional sourcing.
+**Action:** Prioritize warm and referred origination for institutional and family-office LPs;
+treat cold-sourced institutions as higher-risk and prepare for the terms/access objection early.
+Watch the next 2–3 cold-sourced institutional engagements to isolate this effect from P1.
+
+---
+
+## EMERGING PATTERNS (<3 records)
 
 ### P3 — GP-commitment + fee step-down is the gating objection for endowments/foundations
 **Segments:** endowment / foundation.
