@@ -11,10 +11,10 @@ The other workspaces in this toolkit are linear — a request or a deal or a rep
 - **The deliverable is the store, not the per-run record.** A single win/loss write-up is nearly worthless alone. The asset is the accumulating corpus and the patterns that emerge across it.
 - **It is retrospective.** It is triggered by an outcome that already happened, and it exists to digest that outcome, not to produce a forward deliverable.
 
-If you have used the pass log in deal-screening or the lp-engagement-learning loop, this is that write-back instinct made into the whole workflow — pointed at the bid table instead of the raise.
+If you have used the pass log in deal-screening or the FAQ bank in lp-inquiries, this is that write-back instinct made into the whole workflow — pointed at the bid table. (The same loop, pointed at LP commit/pass debriefs instead, sharpens the next raise — swap the config and the taxonomy.)
 
 ## Current State
-- This is a reference architecture. The store is empty.
+- This is a reference architecture. The store is empty. A fully worked, populated copy lives in `_example/` — read it to see what the loop looks like after a few runs.
 - To use: copy the folder, populate _config with your win/loss question set, deal taxonomy (including your controlled broker list), and store schema, then run the loop each time a competitive process resolves.
 
 ## Structure
@@ -33,6 +33,7 @@ deal-win-loss-learning/
     output/              # Capture log: what was written and which patterns moved.
   _config/               # Win/loss questions, deal taxonomy, store schema.
   _store/                # THE ASSET. Accumulating records + the rolled-up patterns.
+  _example/              # A fully worked, populated run (Ridgeline Capital): one pass end-to-end + a 3-record store.
 ```
 
 ## How to Use

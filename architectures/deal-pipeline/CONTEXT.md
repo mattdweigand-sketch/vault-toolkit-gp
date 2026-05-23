@@ -7,19 +7,20 @@ Four-stage acquisition pipeline: Sourcing → Diligence → IC → Close. Each s
 
 | Stage | Purpose | Key Inputs | Output Location | Decision Checkpoint |
 |---|---|---|---|---|
-| 01_sourcing | Screen the opportunity, set the thesis | Offering memo, market data, deal terms | 01_sourcing/output/ | Go / no-go on spending diligence dollars |
+| 01_sourcing | Set the thesis — consume the screening handoff if the deal came through deal-screening; screen from scratch only if it did not | Screening handoff brief, or offering memo + market data + deal terms | 01_sourcing/output/ | Go / no-go on spending diligence dollars |
 | 02_diligence | Underwrite and verify | Investment thesis, third-party reports, data room | 02_diligence/output/ | Findings either confirm or break the thesis |
 | 03_ic | Internal review then committee | Underwriting, DD findings, risk register | 03_ic/output/ | Committee approves, declines, or sends back |
 | 04_close | Close and transition | Approved IC memo, final terms | 04_close/output/ | Deal funds and transitions to asset management |
 
 ## How Stages Connect
-- 01 → 02: Sourcing produces an investment thesis and a screen memo. Diligence works from the thesis, not from the broker's offering memo. The offering memo is what the seller wants you to believe. The thesis is what you need to prove. These are often different.
+- screening → 01 (inbound): If the deal arrived through the deal-screening workspace, sourcing starts from that workspace's handoff brief — the snapshot, the fit assessment, the screen rationale, the rough economics, and the open questions. It does not re-screen what screening already settled; it picks up the screen's work and goes straight to proving the thesis. Only a deal that entered the pipeline directly (off-market, relationship-sourced, never screened) gets a from-scratch screen in this stage.
+- 01 → 02: Sourcing produces an investment thesis. Diligence works from the thesis, not from the broker's offering memo. The offering memo is what the seller wants you to believe. The thesis is what you need to prove. These are often different.
 - 02 → 03: Diligence produces the underwriting and a risk register. IC evaluates it first internally (against underwriting standards and the thesis), then at committee. The committee either approves for close or sends it back with specific conditions.
 - 03 → 04: IC produces an approved memo. Close executes the transaction and packages the handoff to asset management.
 - 03 → 02 (loop): If IC raises conditions (a price retrade, a missing report, an unresolved risk), they go back to diligence as a scoped work item, not as a vague "look into it." The IC stage should produce specific, actionable conditions.
 
 ## Reference Material
-- _config/deal-brief.md: The original opportunity (offering memo, teaser, broker email). Kept for reference but not used as the working specification after sourcing is complete.
+- _config/deal-brief.md: The original opportunity (offering memo, teaser, broker email) — or, for a deal that came through deal-screening, the handoff brief carried in from that workspace. Kept for reference but not used as the working specification after sourcing is complete.
 - _config/deal-terms.md: LOI/PSA terms, price, structure, timeline, key dates.
 - _config/investment-thesis.md: Produced in sourcing. The working specification for the deal.
 - _references/: Underwriting standards, market comps, prior deal records from similar assets.

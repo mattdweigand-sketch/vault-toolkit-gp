@@ -16,7 +16,9 @@ Ask the following questions one at a time. Wait for each answer.
 "Describe the typical deal. Asset type (multifamily, industrial, office, a portfolio company), check size, structure (acquisition, recap, development), and hold. Be specific about what the firm is buying and why."
 
 **Question 2: How do deals get sourced and screened?**
-"How does an opportunity reach you, broker, off-market, marketed process? How do you decide whether to spend diligence dollars? Do you write a screen memo or thesis before committing, or do you dive into underwriting first?"
+"How does an opportunity reach you, broker, off-market, marketed process? How do you decide whether to spend diligence dollars? Do you write a screen memo or thesis before committing, or do you dive into underwriting first? Do you run a separate triage step (or the deal-screening workspace) before a deal reaches this pipeline?"
+
+*If they run a separate screen (e.g., the deal-screening workspace):* the sourcing stage should consume that handoff brief — carrying its box-fit screen and rough economics forward — and spend its effort on the thesis and the deal-specific risks diligence will test, rather than re-screening. If they have no upstream triage, sourcing runs the screen itself. Reflect whichever path they use in the sourcing stage contract.
 
 **Question 3: What is your IC process?**
 "How does investment committee work? Is there internal underwriting review before IC? What does the committee need to see? How are conditions to close tracked after approval? How often does a deal go back for a retrade or more diligence?"

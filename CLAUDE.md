@@ -12,13 +12,13 @@ estate firms. It has three parts:
 
 - **/constraints** — ten reference files, each solving a specific problem GPs hit when
   working with AI. You load these selectively, matched to the workflow being built.
-- **/architectures** — ten reference workspaces. Nine span the GP lifecycle (deal-screening,
+- **/architectures** — nine reference workspaces. Eight span the GP lifecycle (deal-screening,
   deal-pipeline, asset-management, disposition, lp-reporting, lp-inquiries,
-  lp-engagement-learning, deal-win-loss-learning, market-thesis); the tenth, one-off-deliverable,
+  deal-win-loss-learning, market-thesis); the ninth, one-off-deliverable,
   produces a single deliverable from an unvetted source set when the work maps to no lifecycle
   stage. Each is a working folder structure with its own `CLAUDE.md`, `CONTEXT.md`, and stage
   contracts. You copy and customize one to build the user's workspace.
-- **/skill-starters** — ten builder skills, one per architecture. Each runs a diagnostic
+- **/skill-starters** — nine builder skills, one per architecture. Each runs a diagnostic
   interview, then assembles a workspace from the answers. These do the actual building.
 
 ## Start Here
@@ -76,7 +76,6 @@ Match the user's primary work to a workflow and its builder.
 | Exiting an asset — hold/sell decision through sale and capital return | disposition | `skill-starters/disposition-builder.md` |
 | Investor communications — quarterly letters, capital account statements, notices | lp-reporting | `skill-starters/lp-reporting-builder.md` |
 | Handling inbound LP questions between formal events | lp-inquiries | `skill-starters/lp-inquiries-builder.md` |
-| Learning why LPs commit or pass to sharpen the next raise | lp-engagement-learning | `skill-starters/lp-engagement-learning-builder.md` |
 | Learning why we win or lose competitive deals to sharpen the next bid | deal-win-loss-learning | `skill-starters/deal-win-loss-learning-builder.md` |
 | Building the firm's market/sector view to guide acquisitions | market-thesis | `skill-starters/market-thesis-builder.md` |
 | Producing one serious deliverable from a messy, unvetted source set, with no recurring cycle | one-off-deliverable | `skill-starters/one-off-deliverable-builder.md` |
@@ -113,10 +112,11 @@ row by topic. Classify it by shape first:
   *non-recurring* version of this shape — one serious deliverable from an unvetted source set,
   no cycle — has its own architecture, **one-off-deliverable**: inventory the sources, review,
   then draft. Reach for it when the deliverable matters but maps to no lifecycle stage.
-- **Learning loop** (lp-engagement-learning, deal-win-loss-learning): capture an outcome →
+- **Learning loop** (deal-win-loss-learning): capture an outcome →
   analyze why → write to a store → read it back to inform the next time. Use when the goal is to
   make a repeated activity compound — the deliverable is the accumulating store, not any single
-  record (e.g., a realized-deal post-mortem that sharpens future underwriting).
+  record (e.g., a realized-deal post-mortem that sharpens future underwriting, or an
+  LP-commit/pass debrief that sharpens the next raise — same loop, swap the config).
 
 If the work maps to a shape, copy the nearest architecture, rename its stages, and run the
 matching builder — the decomposition logic transfers; only the specifics change. If it maps to
@@ -155,7 +155,6 @@ whole library.
 | **asset-management** | + 02 (Output Drift), 04 (Session Consistency), 08 (Handoff), 10 (Source Provenance) | Reviews repeat on a cycle, hand off to the IC, and ingest unvetted asset reports. |
 | **disposition** | + 01 (AI Writing), 02 (Output Drift), 08 (Handoff) | The hold/sell case and disposition package must read clean and hand off cleanly at close. |
 | **lp-inquiries** | + 02 (Output Drift), 04 (Session Consistency), 05 (Voice Architecture) | Responses must be consistent and on-voice across many responders. |
-| **lp-engagement-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff) | Records must be comparable to aggregate; the store stays clean and handoff-readable. |
 | **deal-win-loss-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff) | Records must be comparable to aggregate; the store stays clean and handoff-readable, and broker spin must be kept out of it. |
 | **market-thesis** | + 01 (AI Writing), 02 (Output Drift), 10 (Source Provenance) | The thesis must read sharp, stay consistent, and rest on vetted sources. |
 | **one-off-deliverable** | + 10 (Source Provenance), 01 (AI Writing), 02 (Output Drift) | The workspace *is* a provenance pass made concrete; the deliverable must also read clean and stay internally consistent. |

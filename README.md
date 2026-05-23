@@ -27,30 +27,29 @@ Every constraint file includes tuning questions. These are not decorative. They 
 ### /constraints (10 files)
 Problem-organized reference files. Each one addresses a specific frustration GPs hit when working with AI on deal, investor, and fund work. Each one has three layers: traditional solutions that predate AI, existing skills and tools that handle part of the problem, and the architectural principle that makes the fix stick. Each one has tuning questions that customize the constraint to your firm. Constraint 06 (Layer Triage) and Constraint 09 (Platform Boundary) together answer the question most GPs get wrong: where to apply AI for real value, and where to rely on an enterprise data foundation instead of building it yourself.
 
-### /architectures (10 annotated workspaces)
-Real folder structures you can copy, explore, and study, each modeled on a GP workflow and built on one of four structural shapes (gated pipeline, operations queue, document production, learning loop). Nine span the GP lifecycle:
+### /architectures (9 annotated workspaces)
+Real folder structures you can copy, explore, and study, each modeled on a GP workflow and built on one of four structural shapes (gated pipeline, operations queue, document production, learning loop). Eight span the GP lifecycle:
 - **deal-screening**: triaging inbound deal flow against the investment box — capture, screen, decide. Feeds deal-pipeline.
 - **deal-pipeline**: an acquisition from sourcing through diligence, investment committee, and close.
 - **asset-management**: portfolio monitoring — business-plan-vs-actual reviews and a watchlist; hosts JV/co-GP and special-servicing report variants.
 - **disposition**: the exit — hold/sell decision through marketing and close to capital return.
 - **lp-reporting**: investor communications from data through drafting through distribution.
 - **lp-inquiries**: inbound LP questions between formal events — intake, resolve, respond.
-- **lp-engagement-learning**: a learning loop that captures why LPs commit or pass and accumulates the patterns to sharpen the next raise.
 - **deal-win-loss-learning**: a learning loop that captures why the firm wins or loses competitive acquisitions and accumulates bid and sourcing intelligence to sharpen the next bid.
 - **market-thesis**: building the firm's defensible market/sector view to focus screening and sourcing.
 
-The tenth sits off the lifecycle, because it applies anywhere on it:
+The ninth sits off the lifecycle, because it applies anywhere on it:
 - **one-off-deliverable**: one serious deliverable from a messy, unvetted source set — an IC memo, a hold/sell case, a diligence brief, a one-time letter. Inventory the sources, review, then draft. The non-recurring cousin of the document-production workflows; reach for it when the deliverable matters but maps to no recurring cycle.
 
 Every file is annotated with what layer it sits on, why it exists, and what would change if your workflow were different. Each one also carries an "AI vs. Platform" decision map showing which steps belong to AI, which to a deterministic tool, and which to your enterprise data foundation. These are reference pieces, not templates. Study them, then build your own.
 
 Three architectures ship with a fully worked `_example/` so you can see finished output, not just the empty shape:
 - **lp-reporting/_example**: a complete quarterly-letter cycle for a fictional fund — verified data pack, draft, and final letter. The draft-to-final diff shows the compliance pass adding the disclosure footer, and every figure traces to the data pack.
-- **lp-engagement-learning/_example**: a populated learning-loop store — three engagement records plus the rolled-up `patterns.md`. This is the one to read to understand the loop shape, where the deliverable is the accumulating store rather than any single record.
+- **deal-win-loss-learning/_example**: a populated learning-loop store — three resolved bids (one won on certainty, two lost where the broker cited price) plus the rolled-up `patterns.md`. This is the one to read to understand the loop shape, where the deliverable is the accumulating store rather than any single record, and to see the stated-vs-assessed-reason defense catch broker spin in action.
 - **one-off-deliverable/_example**: a hold/sell case built from a deliberately messy source set — two model versions that disagree on the exit cap, a stale appraisal, a broker's value, and a rent roll the model references but nobody included. Read the inventory and the conflict log to see the provenance pass surface the disagreement instead of blending it, then the memo cite every figure to its source and flag what the pile does not support.
 
-### /skill-starters (10 diagnostic skills)
-Skills that ask before they build. Each one opens with diagnostic questions about your specific workflow, then assembles a workspace skeleton based on your answers. The decomposition logic is built in. Your answers provide the specifics. One per architecture: deal-screening-builder, deal-pipeline-builder, asset-management-builder, disposition-builder, lp-reporting-builder, lp-inquiries-builder, lp-engagement-learning-builder, deal-win-loss-learning-builder, market-thesis-builder, one-off-deliverable-builder.
+### /skill-starters (9 diagnostic skills)
+Skills that ask before they build. Each one opens with diagnostic questions about your specific workflow, then assembles a workspace skeleton based on your answers. The decomposition logic is built in. Your answers provide the specifics. One per architecture: deal-screening-builder, deal-pipeline-builder, asset-management-builder, disposition-builder, lp-reporting-builder, lp-inquiries-builder, deal-win-loss-learning-builder, market-thesis-builder, one-off-deliverable-builder.
 
 ## The Principle Behind All of This
 

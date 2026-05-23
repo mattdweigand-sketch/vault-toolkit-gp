@@ -31,14 +31,14 @@ deal-pipeline/
 ## How to Use
 1. Copy this folder. Rename it to the deal (e.g., 1200-market-st-acquisition-q2-2026).
 2. Populate _config/ with the opportunity and deal terms.
-3. Start in 01_sourcing. This stage produces the screen and investment thesis that drive everything else.
+3. Start in 01_sourcing. If the deal came through the deal-screening workspace, seed _config with that workspace's handoff brief — sourcing carries the screen forward and goes straight to the thesis instead of re-screening. If the deal came in directly, sourcing runs the screen itself. Either way the stage produces the investment thesis that drives everything else.
 4. Move through stages sequentially. Human review between every stage. When diligence opens on an unvetted data room, run a provenance pass first (Constraint 10) to inventory and rank the files before underwriting.
 5. Investment committee review happens in stage 03. Internal underwriting review also happens here before anything goes to the committee.
 6. Stage 04 is not just "wire the funds." It includes the closing checklist and a clean handoff to asset management.
 
 ## Key Decisions
 - **Four stages, not three.** The IC stage is separate from diligence because combining them creates pressure to skip independent review when a deadline or a competitive process is tight. A separate stage makes committee review a non-negotiable gate.
-- **Sourcing is its own stage.** The most common cause of a bad deal is a thin thesis dressed up as conviction. Making sourcing a stage with a contract and explicit outputs forces the team to test the thesis before spending diligence dollars.
+- **Sourcing is its own stage, but it does not re-screen.** The most common cause of a bad deal is a thin thesis dressed up as conviction. Making sourcing a stage with a contract and explicit outputs forces the team to test the thesis before spending diligence dollars. Where the deal was already screened in the deal-screening workspace, sourcing consumes that handoff and deepens it into the thesis — screening triages many deals fast; sourcing proves the few that survive. The screen lives in one place, not two. (A deal sourced directly, off-market, never screened, gets its screen here — that is the one case sourcing screens from scratch.)
 - **Close is its own stage.** Funding a deal without a clean transition to asset management creates day-one chaos. The close stage produces the closing checklist and handoff materials so the asset manager can operate from day one.
 - **_references/ is separate from _config/.** Config holds deal-specific context (this property, this sponsor, these terms). References hold knowledge that applies across deals (underwriting standards, market comps, prior deal records). Separating them means you can share references across deals without dragging one deal's confidential terms into another.
 
