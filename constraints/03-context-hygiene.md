@@ -4,7 +4,7 @@
 
 You have been working with the model for a while. The conversation is long. You have pasted in documents, reference material, previous outputs, instructions, and corrections. The model's responses start getting worse. It contradicts earlier instructions. It forgets constraints you set at the beginning. It starts blending information from different sources in ways that do not make sense.
 
-This is not the model getting tired. It is the context window getting noisy. Every token in the window competes for the model's attention. Research by Liu et al. (2024) documented that models degrade when processing long contexts full of irrelevant material. The relevant information gets buried. The model has to sort through everything to find what matters for this specific task, and it does not always sort correctly. Information in the middle of a long context gets less attention than information at the beginning or end.
+This is not the model getting tired. It is the context window getting noisy. Every token in the window competes for the model's attention, and a long context full of irrelevant material tends to bury the parts that matter. The model has to sort through everything to find what matters for this specific task, and it does not always sort correctly. Research on long-context retrieval (Liu et al., "Lost in the Middle," 2023) found that models often use information at the beginning and end of a long context more reliably than information buried in the middle — a tendency that varies by model, not a hard rule.
 
 The fix is not a bigger context window. It is a cleaner one.
 

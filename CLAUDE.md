@@ -108,6 +108,12 @@ workspace. Do not build a workspace to process them. AI's role around these even
 language and the judgment on top of the platform: drafting a notice from platform-verified
 figures (lp-reporting) or fielding the questions they generate (lp-inquiries). See Constraint 09.
 
+Capital formation — the raise itself, subscriptions, investor onboarding, and the data room — is
+out of scope for the same reason: the investor-management and fund-administration platform owns
+that pipeline and the investor record. AI's contribution is the language and judgment around it
+(narrative, tailoring, and the LP-commit/pass debrief that feeds deal-win-loss-learning), not a
+workspace that runs the raise.
+
 ### If the work matches none of the rows
 
 The rows above are not an exhaustive catalog. They are instances of four structural *shapes*,
@@ -165,13 +171,13 @@ whole library.
 | Workflow | Load these constraints | Why |
 |---|---|---|
 | **All workflows** | 06 (Layer Triage), 09 (Platform Boundary) | Decide what is AI vs. deterministic vs. platform before building. Roughly 60% traditional, 30% rule-based, 10% AI. |
-| **deal-pipeline** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff) | Memos and theses must read clean and survive a handoff to asset management. |
+| **deal-pipeline** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff Readiness) | Memos and theses must read clean and survive a handoff to asset management. |
 | **lp-reporting** | + 01 (AI Writing Patterns), 02 (Output Drift), 05 (Voice Architecture) | The letter must sound like the firm and stay consistent cycle to cycle. |
 | **deal-screening** | + 02 (Output Drift); 10 (Source Provenance) when an opportunity arrives with a fuller data set | Screens must be comparable deal to deal; opportunities arrive as unvetted source sets. |
-| **asset-management** | + 02 (Output Drift), 04 (Session Consistency), 08 (Handoff), 10 (Source Provenance) | Reviews repeat on a cycle, hand off to the IC, and ingest unvetted asset reports. |
-| **disposition** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff) | The hold/sell case and disposition package must read clean and hand off cleanly at close. |
+| **asset-management** | + 02 (Output Drift), 04 (Session Consistency), 08 (Handoff Readiness), 10 (Source Provenance) | Reviews repeat on a cycle, hand off to the IC, and ingest unvetted asset reports. |
+| **disposition** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff Readiness) | The hold/sell case and disposition package must read clean and hand off cleanly at close. |
 | **lp-inquiries** | + 02 (Output Drift), 04 (Session Consistency), 05 (Voice Architecture) | Responses must be consistent and on-voice across many responders. |
-| **deal-win-loss-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff) | Records must be comparable to aggregate; the store stays clean and handoff-readable, and broker spin must be kept out of it. |
+| **deal-win-loss-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff Readiness) | Records must be comparable to aggregate; the store stays clean and handoff-readable, and broker spin must be kept out of it. |
 | **market-thesis** | + 01 (AI Writing Patterns), 02 (Output Drift), 10 (Source Provenance) | The thesis must read sharp, stay consistent, and rest on vetted sources. |
 | **one-off-deliverable** | + 10 (Source Provenance), 01 (AI Writing Patterns), 02 (Output Drift) | The workspace *is* a provenance pass made concrete; the deliverable must also read clean and stay internally consistent. |
 | **Scaling any workflow** | + 07 (Scaling vs. Automating) | When the same workflow runs many times, decide what to template vs. automate. |

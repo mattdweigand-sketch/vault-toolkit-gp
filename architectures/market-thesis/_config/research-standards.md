@@ -4,7 +4,7 @@
 ANNOTATION: How sources are vetted, what counts as a supported claim, how
 confidence is marked, and what the thesis must never do. The research and
 synthesis stages apply these. This is what keeps a thesis from becoming a
-confident guess. See Constraints 10 (provenance) and 02 (drift).
+confident guess. See Constraints 10 (Source Provenance) and 02 (Output Drift).
 
 This is L3 reference, loaded in stages 01 and 02.
 -->

@@ -51,5 +51,5 @@ After building, walk the user through:
 - Do not build before completing the diagnosis. The questions are the skill.
 - The business-plan targets are the highest-value config. A review with no baseline to measure against is just a restatement of the data.
 - Keep figures out of the model's hands: it narrates and flags; the platform and the model own the numbers.
-- Load and name the constraints this workflow uses: 02 (Output Drift), 04 (Session Consistency), 08 (Handoff), 10 (Source Provenance) for unvetted asset reports, plus the universal 06 and 09.
+- Load and name the constraints this workflow uses: 02 (Output Drift), 04 (Session Consistency), 08 (Handoff Readiness), 10 (Source Provenance) for unvetted asset reports, plus the universal 06 and 09.
 - Always annotate files with their ICM layer (L0–L4).

@@ -57,5 +57,5 @@ After building, walk the user through:
 - The broker/intermediary list is a controlled list on purpose. Two of the most valuable patterns (which intermediaries we win through, whose feedback proves reliable) require a stable broker vocabulary.
 - This is sensitive competitive intelligence — our bid behavior, our gap to clearing, our read on named broker relationships. Address access and handling in store-schema.md.
 - It does not replace the deal pipeline or CRM — it rides on them. The record of what happened is the platform's; this workspace adds the why and the memory. The loop is triggered by deal-pipeline outcomes and pays back into sourcing and bid strategy.
-- Load and name the constraints this workflow uses: 04 (Session Consistency) — the load-bearing one, 03 (Context Hygiene), 08 (Handoff), plus the universal 06 and 09.
+- Load and name the constraints this workflow uses: 04 (Session Consistency) — the load-bearing one, 03 (Context Hygiene), 08 (Handoff Readiness), plus the universal 06 and 09.
 - Always annotate files with their ICM layer (L0–L4); note that _store/ is an L3/L4 hybrid — the signature of the learning-loop shape.
