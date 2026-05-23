@@ -2,7 +2,7 @@
 
 ## The Problem
 
-You asked for a paragraph in a quarterly LP letter and got a press release. The output uses words you would never say to an investor, structures you would never choose, and a tone that sounds like it was optimized for the widest possible audience. Because it was. Language models generate text by predicting the most statistically likely next token. That prediction trends toward the center of all writing the model has seen. The result is competent, safe, and generic. It reads like a committee wrote it.
+You asked for a paragraph in a quarterly LP letter and got a press release. The output uses words you would never say to an investor, structures you would never choose, and a tone that sounds like it was optimized for the widest possible audience. Because it was. Language models generate text by sampling likely next words, and their post-training tunes them toward a safe, broadly acceptable register. Unless you give the model a specific standard to hit, it defaults to that register. The result is competent, safe, and generic. It reads like a committee wrote it.
 
 This is not a prompting problem. It is a probability problem. And it has solutions at every level.
 

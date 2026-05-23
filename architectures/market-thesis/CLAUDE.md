@@ -44,7 +44,7 @@ market-thesis/
 - **Track the calls.** Prior theses live in _references with what they predicted, so the firm can see which views played out. This is not a learning loop, but it keeps the firm honest about its own forecasting.
 
 ## Constraints That Apply
-Built against the GP Operating Toolkit. Most relevant: **01 (AI Writing)** so the thesis reads as a sharp view and not generic market-report prose, **02 (Output Drift)**, **10 (Source Provenance)** for the research inputs, and the universal **06 (Layer Triage)** and **09 (Platform Boundary)**.
+Built against the GP Operating Toolkit. Most relevant: **01 (AI Writing Patterns)** so the thesis reads as a sharp view and not generic market-report prose, **02 (Output Drift)**, **10 (Source Provenance)** for the research inputs, and the universal **06 (Layer Triage)** and **09 (Platform Boundary)**.
 
 ## Layer Annotations
 - CLAUDE.md: L0 (always loaded, orientation)

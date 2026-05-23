@@ -41,7 +41,7 @@ Real folder structures you can copy, explore, and study, each modeled on a GP wo
 The ninth sits off the lifecycle, because it applies anywhere on it:
 - **one-off-deliverable**: one serious deliverable from a messy, unvetted source set — an IC memo, a hold/sell case, a diligence brief, a one-time letter. Inventory the sources, review, then draft. The non-recurring cousin of the document-production workflows; reach for it when the deliverable matters but maps to no recurring cycle.
 
-Every file is annotated with what layer it sits on, why it exists, and what would change if your workflow were different. Each one also carries an "AI vs. Platform" decision map showing which steps belong to AI, which to a deterministic tool, and which to your enterprise data foundation. These are reference pieces, not templates. Study them, then build your own.
+Every file is annotated with what layer it sits on, why it exists, and what would change if your workflow were different. The layer named here is the file's ICM context layer (L0–L4), which says when the file loads; see Constraint 03 (Context Hygiene) for the full model. Each one also carries an "AI vs. Platform" decision map showing which steps belong to AI, which to a deterministic tool, and which to your enterprise data foundation. These are reference pieces, not templates. Study them, then build your own. The examples name commercial-real-estate systems of record (Argus, Yardi, MRI, RealPage); a PE deal team should read those as placeholders for its own deal model and portfolio or fund-accounting systems.
 
 Three architectures ship with a fully worked `_example/` so you can see finished output, not just the empty shape:
 - **lp-reporting/_example**: a complete quarterly-letter cycle for a fictional fund — verified data pack, draft, and final letter. The draft-to-final diff shows the compliance pass adding the disclosure footer, and every figure traces to the data pack.
@@ -61,7 +61,7 @@ The question is always the same: does this piece of information belong at this s
 
 ## A Note on the Three Layers
 
-Each constraint file references solutions at three levels, following the 60/30/10 framework.
+Each constraint file references solutions at three levels, following the 60/30/10 framework. (These three levels are about *what kind of solution* fits a problem; they are distinct from the L0–L4 context layers above, which are about *when a file loads*.)
 
 Roughly 60% of the problems people throw at AI are better solved by traditional tools, databases, or established processes. Another 30% are handled well by rule-based systems, existing skills, or purpose-built software. Only about 10% genuinely benefit from the probabilistic reasoning that a language model provides.
 

@@ -5,8 +5,8 @@ stages 02 and 03. These were confirmed with compliance on 2026-01-15. Re-confirm
 
 ## Required on every communication
 
-- **Disclosure footer** (verbatim): "This communication is intended solely for the named
-  investor and contains confidential information. Past performance is not indicative of future
+- **Disclosure footer** (verbatim): "This communication is intended solely for the recipient
+  and contains confidential information. Past performance is not indicative of future
   results. This is not an offer to sell or a solicitation to buy any security."
 - **Performance basis line:** state whether figures are gross or net of fees and carry. Meridian
   reports **net** to LPs in quarterly letters.

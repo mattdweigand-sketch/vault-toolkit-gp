@@ -46,7 +46,7 @@ disposition/
 - **_references is separate from _config.** Config holds this asset and the firm's standing hold/sell criteria. References hold cross-deal knowledge — prior dispositions, broker relationships, comps — that applies across exits and should not drag one asset's specifics into another.
 
 ## Constraints That Apply
-Built against the GP Operating Toolkit. Most relevant: **01 (AI Writing)** and **02 (Output Drift)** for the case and package, **08 (Handoff Readiness)** for the close handoff, and the universal **06 (Layer Triage)** and **09 (Platform Boundary)**.
+Built against the GP Operating Toolkit. Most relevant: **01 (AI Writing Patterns)** and **02 (Output Drift)** for the case and package, **08 (Handoff Readiness)** for the close handoff, and the universal **06 (Layer Triage)** and **09 (Platform Boundary)**.
 
 ## Layer Annotations
 - CLAUDE.md: L0 (always loaded, orientation)

@@ -4,7 +4,7 @@
 
 You spent an hour getting the model dialed in. The output was exactly right. You closed the conversation. The next day, you start a new session and the model acts like you never met. You re-explain your context, re-establish your constraints, and the output is close but not quite the same. Something shifted. The voice is slightly different, the structure is slightly off, the emphasis lands in the wrong place.
 
-This happens because language models have no memory between sessions. Every conversation starts from zero. The model in your afternoon session is not a continuation of the model from your morning session. It is a fresh instance that has never seen your work before. Any consistency you experienced within a single conversation was the product of accumulated context in that conversation's window. When the window closes, the context is gone.
+This happens because, by default, a model carries no state from one session to the next. The model in your afternoon session is not a continuation of the model from your morning session; on its own, it is a fresh instance that has never seen your work before. Built-in memory features (covered below) help, but they do not replace a workspace that carries the state. Any consistency you experienced within a single conversation was the product of accumulated context in that conversation's window. When the window closes, the context is gone.
 
 The question is not how to give the model memory. The question is how to make your workspace carry the state so the model does not have to.
 

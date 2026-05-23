@@ -8,7 +8,10 @@ what is here and the order to use it in. Read it first, then navigate to the spe
 each step calls for. Do not load everything at once. That is the whole point of the toolkit.
 
 This repository is the GP Operating Toolkit, built for private equity and commercial real
-estate firms. It has three parts:
+estate firms. Its worked examples name commercial-real-estate systems of record (Argus, Yardi,
+MRI, RealPage); when building for a PE deal team, read those as placeholders for the firm's own
+deal model and portfolio or fund-accounting systems — the logic transfers unchanged. It has
+three parts:
 
 - **/constraints** — ten reference files, each solving a specific problem GPs hit when
   working with AI. You load these selectively, matched to the workflow being built.
@@ -20,6 +23,19 @@ estate firms. It has three parts:
   contracts. You copy and customize one to build the user's workspace.
 - **/skill-starters** — nine builder skills, one per architecture. Each runs a diagnostic
   interview, then assembles a workspace from the answers. These do the actual building.
+
+## A Note on Context Layers (ICM)
+
+The architectures and builders tag every file with a context layer (L0–L4) under the
+Interpreted Context Methodology (ICM). The layer says *when* a file loads: L0 the
+always-loaded map (`CLAUDE.md`), L1 routing (`CONTEXT.md`), L2 the per-task stage contract,
+L3 reference the model should follow (voice, standards), and L4 working files the model
+should transform (source data, drafts). The discipline is to load only what a step needs, and
+to keep "rules to follow" (L3) distinct from "content to transform" (L4) so the model does
+not confuse the two. Constraint 03 (Context Hygiene) defines the full model — read it before
+you start stamping layer tags on the files you build. This is a separate idea from the
+"60/30/10" split named in the constraint routing table, which also uses the word "layers" but
+means something different.
 
 ## Start Here
 
@@ -149,15 +165,15 @@ whole library.
 | Workflow | Load these constraints | Why |
 |---|---|---|
 | **All workflows** | 06 (Layer Triage), 09 (Platform Boundary) | Decide what is AI vs. deterministic vs. platform before building. Roughly 60% traditional, 30% rule-based, 10% AI. |
-| **deal-pipeline** | + 01 (AI Writing), 02 (Output Drift), 08 (Handoff) | Memos and theses must read clean and survive a handoff to asset management. |
-| **lp-reporting** | + 01 (AI Writing), 02 (Output Drift), 05 (Voice Architecture) | The letter must sound like the firm and stay consistent cycle to cycle. |
-| **deal-screening** | + 02 (Output Drift), 10 (Source Provenance) | Screens must be comparable deal to deal; opportunities arrive as unvetted source sets. |
+| **deal-pipeline** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff) | Memos and theses must read clean and survive a handoff to asset management. |
+| **lp-reporting** | + 01 (AI Writing Patterns), 02 (Output Drift), 05 (Voice Architecture) | The letter must sound like the firm and stay consistent cycle to cycle. |
+| **deal-screening** | + 02 (Output Drift); 10 (Source Provenance) when an opportunity arrives with a fuller data set | Screens must be comparable deal to deal; opportunities arrive as unvetted source sets. |
 | **asset-management** | + 02 (Output Drift), 04 (Session Consistency), 08 (Handoff), 10 (Source Provenance) | Reviews repeat on a cycle, hand off to the IC, and ingest unvetted asset reports. |
-| **disposition** | + 01 (AI Writing), 02 (Output Drift), 08 (Handoff) | The hold/sell case and disposition package must read clean and hand off cleanly at close. |
+| **disposition** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff) | The hold/sell case and disposition package must read clean and hand off cleanly at close. |
 | **lp-inquiries** | + 02 (Output Drift), 04 (Session Consistency), 05 (Voice Architecture) | Responses must be consistent and on-voice across many responders. |
 | **deal-win-loss-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff) | Records must be comparable to aggregate; the store stays clean and handoff-readable, and broker spin must be kept out of it. |
-| **market-thesis** | + 01 (AI Writing), 02 (Output Drift), 10 (Source Provenance) | The thesis must read sharp, stay consistent, and rest on vetted sources. |
-| **one-off-deliverable** | + 10 (Source Provenance), 01 (AI Writing), 02 (Output Drift) | The workspace *is* a provenance pass made concrete; the deliverable must also read clean and stay internally consistent. |
+| **market-thesis** | + 01 (AI Writing Patterns), 02 (Output Drift), 10 (Source Provenance) | The thesis must read sharp, stay consistent, and rest on vetted sources. |
+| **one-off-deliverable** | + 10 (Source Provenance), 01 (AI Writing Patterns), 02 (Output Drift) | The workspace *is* a provenance pass made concrete; the deliverable must also read clean and stay internally consistent. |
 | **Scaling any workflow** | + 07 (Scaling vs. Automating) | When the same workflow runs many times, decide what to template vs. automate. |
 | **Context degrading mid-build** | + 03 (Context Hygiene) | If your own context gets noisy during a long onboarding, this is the fix. |
 | **Ingesting a data room or unvetted source set** | + 10 (Source Provenance) | Inventory and rank inputs before any stage drafts. AI flags provenance, duplicates, and conflicts; the platform owns the figures. |
@@ -168,7 +184,8 @@ Onboarding is done when every item below is true. Report each as pass or open.
 
 - [ ] **Workflow identified.** The user confirmed which workflow(s) they are building.
 - [ ] **Workspace instantiated.** The architecture was copied and renamed; it has a
-      `CLAUDE.md`, a `CONTEXT.md`, and a `CONTEXT.md` for every stage.
+      `CLAUDE.md`, a `CONTEXT.md`, and a `CONTEXT.md` for every processing stage. (A raw
+      input-drop folder such as one-off-deliverable's `00_sources/` intentionally has none.)
 - [ ] **`_config` populated.** The required reference files hold the user's real values, not
       placeholder text.
 - [ ] **Constraints loaded and named.** The constraints from the routing table were read, and

@@ -51,5 +51,5 @@ After building, walk the user through:
 - Do not build before completing the diagnosis. The questions are the skill.
 - The decision stage is the judgment heart. Make sure the hold case is real, not a foil, and that a marginal call is presented as marginal.
 - Keep the math on the platform: this workspace argues and narrates; the numbers come from the model, the brokers, and the closing statement.
-- Load and name the constraints this workflow uses: 01 (AI Writing), 02 (Output Drift), 08 (Handoff), plus the universal 06 and 09.
+- Load and name the constraints this workflow uses: 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff), plus the universal 06 and 09.
 - Always annotate files with their ICM layer (L0–L4).

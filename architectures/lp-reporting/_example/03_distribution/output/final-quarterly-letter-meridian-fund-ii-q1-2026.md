@@ -11,7 +11,7 @@ Dear Limited Partners,
 
 Fund II delivered a net IRR of 14.2% and a net multiple of 1.38x as of March 31, 2026, up 60
 basis points on the quarter. The driver was the sale of The Adler in Denver, which returned
-$61 million gross at a 1.9x gross multiple and funded a $4.2 million distribution to you this
+$61 million gross at a 1.9x gross multiple and funded a $4.2 million distribution to investors this
 quarter.
 
 ## Performance (net of fees and carry, as of 2026-03-31)
@@ -58,7 +58,7 @@ Meridian Real Estate Partners
 
 ---
 
-*This communication is intended solely for the named investor and contains confidential
+*This communication is intended solely for the recipient and contains confidential
 information. Past performance is not indicative of future results. This is not an offer to
 sell or a solicitation to buy any security. Performance figures are net of fees and carried
 interest and are as of March 31, 2026.*

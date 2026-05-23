@@ -45,7 +45,7 @@ For fillable templates of CLAUDE.md and per-stage CONTEXT.md, see Constraint 08 
 
 ## Layer 3: The Architectural Fix
 
-ICM organizes context into five layers, and the key insight is that not every layer loads at the same time.
+The Interpreted Context Methodology (ICM) organizes context into five layers, and the key insight is that not every layer loads at the same time.
 
 ```
 L0: CLAUDE.md       "Where am I?"       Always loaded. ~800 tokens.
@@ -72,7 +72,7 @@ L4 is the product. Output from previous stages, user-provided source material, a
 
 3. **Separate reference from source.** If you have the fund's voice guide and a data pack, and the task is to write a quarterly letter from the data pack in the fund's voice, make sure the model knows which is which. Label them. "REFERENCE (do not transform, use as constraints):" and "SOURCE (transform this into the output):" are ugly but effective headers.
 
-4. **Front-load the important stuff.** Due to how attention mechanisms work, information at the beginning and end of the context window gets more weight than information in the middle. Put your most important constraints and instructions at the beginning. Put your source material after that. If you must include a lot of context, put a brief summary of key constraints at the end as a reminder.
+4. **Front-load the important stuff.** In practice, models tend to use information at the beginning and end of a long context more reliably than information buried in the middle. This is an observed tendency, not a hard rule, and it varies by model. Put your most important constraints and instructions at the beginning. Put your source material after that. If you must include a lot of context, put a brief summary of key constraints at the end as a reminder.
 
 5. **Use the filesystem as external memory.** Not everything needs to be in the context window. Files on disk are context that is available but not loaded. The model (in Claude Code, Cowork, or Cursor) can read a file when it needs it. Keeping reference material in files and loading it selectively is cheaper and more reliable than pasting it all into the conversation.
 

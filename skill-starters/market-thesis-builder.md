@@ -52,5 +52,5 @@ After building, walk the user through:
 - Do not build before completing the diagnosis. The questions are the skill.
 - The discipline here is provenance and the evidence/inference split, not volume. A short, sourced, committed thesis beats a long, hedged market report.
 - An LP-facing variant must never assert more conviction than the internal thesis supports — flag this as a compliance and credibility risk.
-- Load and name the constraints this workflow uses: 01 (AI Writing), 02 (Output Drift), 10 (Source Provenance), plus the universal 06 and 09.
+- Load and name the constraints this workflow uses: 01 (AI Writing Patterns), 02 (Output Drift), 10 (Source Provenance), plus the universal 06 and 09.
 - Always annotate files with their ICM layer (L0–L4).
