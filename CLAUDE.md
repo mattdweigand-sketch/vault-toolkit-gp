@@ -33,9 +33,13 @@ L3 reference the model should follow (voice, standards), and L4 working files th
 should transform (source data, drafts). The discipline is to load only what a step needs, and
 to keep "rules to follow" (L3) distinct from "content to transform" (L4) so the model does
 not confuse the two. Constraint 03 (Context Hygiene) defines the full model — read it before
-you start stamping layer tags on the files you build. This is a separate idea from the
-"60/30/10" split named in the constraint routing table, which also uses the word "layers" but
-means something different.
+you start stamping layer tags on the files you build.
+
+The word *layer* shows up in two unrelated ways across this toolkit; keep them separate.
+**Context layers (L0–L4)**, the subject of this note, describe *when* a file loads. **Solution
+layers (60/30/10)**, named in the constraint routing table below, describe *what kind of tool*
+should solve a problem — traditional software, a rule-based system, or a language model. Same
+word, different question.
 
 ## Start Here
 

@@ -1,6 +1,10 @@
 # The GP Operating Toolkit
 
-A constraint library, reference architecture gallery, and skill starter collection for private equity and commercial real estate GPs who want to build with AI instead of just use it.
+For private equity and commercial real estate GPs who want to build with AI instead of just use it. It turns your firm's recurring deal, investor, and fund work into controlled AI workflows — without rebuilding the systems of record that already hold your data, and without the data-risk of pointing a model at everything at once.
+
+**Who this is for:** the COO, Head of IR, CFO or controller, acquisitions lead, asset-management lead, and the AI or technology lead at a GP firm — anyone who owns a recurring workflow and wants AI to help run it without handing over the firm's records or its judgment.
+
+**What this is not:** not a replacement for your fund-accounting or fund-administration platform, your investor-management system, your deal pipeline, or your CRM; not a data warehouse; not a compliance approval system; not a prompt library; and not a way to skip human review.
 
 ## What This Is
 
@@ -59,9 +63,14 @@ Whatever your environment supports for separating information is your implementa
 
 The question is always the same: does this piece of information belong at this step, or am I just carrying it because I do not know where else to put it?
 
-## A Note on the Three Layers
+## A Note on Two Kinds of "Layer"
 
-Each constraint file references solutions at three levels, following the 60/30/10 framework. (These three levels are about *what kind of solution* fits a problem; they are distinct from the L0–L4 context layers above, which are about *when a file loads*.)
+This toolkit uses the word *layer* in two unrelated ways. Keep them separate:
+
+- **Context layers (L0–L4)** describe *when* a file loads — the always-on map, routing, the stage contract, reference material, the working files. Constraint 03 (Context Hygiene) defines them.
+- **Solution layers (60/30/10)** describe *what kind of tool* should solve a problem — traditional software, a rule-based system, or a language model.
+
+The rest of this section is about the second kind.
 
 Roughly 60% of the problems people throw at AI are better solved by traditional tools, databases, or established processes. Another 30% are handled well by rule-based systems, existing skills, or purpose-built software. Only about 10% genuinely benefit from the probabilistic reasoning that a language model provides.
 
