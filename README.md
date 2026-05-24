@@ -78,4 +78,4 @@ If you find yourself reaching for Claude to recalculate a waterfall that a sprea
 
 ---
 
-Built by Matt Weigand.
+Built by Matt Weigand. Released under the [MIT License](LICENSE) — clone, customize, and use it freely.
