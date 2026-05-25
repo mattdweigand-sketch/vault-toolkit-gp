@@ -16,6 +16,20 @@ It works in three parts: reference files that show where AI genuinely helps and 
 
 There are no copy-paste templates here. The value is the structure underneath: knowing which work belongs to AI and which belongs to your platform, database, or established software, and setting it up so the result holds up to an LP or an auditor.
 
+## The principle behind all of this
+
+Every repeatable workflow has steps. Every step has a scope of information it actually needs. The job is to match those two things so each step runs with signal instead of noise.
+
+Whatever your environment supports for separating information is your implementation layer. Folders, tabs, knowledge sources, your data room, SharePoint libraries. The medium changes. The logic does not.
+
+The question is always the same: does this piece of information belong at this step, or am I just carrying it because I do not know where else to put it?
+
+## Most work is not an AI task
+
+Roughly 60% of what people throw at AI is better handled by traditional software, databases, or an established process. Another 30% suits rule-based automation or a prebuilt routine. Only about 10% genuinely needs the judgment a language model brings.
+
+So if you are reaching for Claude to recalculate a waterfall your fund-accounting platform already owns, you are spending tokens on something deterministic. The constraint files tell you when that is the case.
+
 ## How to use this
 
 ### Before you start (if you have never used an AI agent)
@@ -111,14 +125,6 @@ Five architectures ship with a fully worked `_example/` so you can see finished 
 ### /skill-starters (11 diagnostic skills)
 Skills that ask before they build. Each opens with diagnostic questions about your workflow, then assembles a workspace skeleton from your answers: the decomposition logic is built in, your answers supply the specifics. One per architecture: deal-screening-builder, deal-pipeline-builder, asset-management-builder, disposition-builder, lp-reporting-builder, lp-inquiries-builder, deal-win-loss-learning-builder, underwriting-backtest-builder, ic-memo-intelligence-builder, market-thesis-builder, one-off-deliverable-builder.
 
-## The principle behind all of this
-
-Every repeatable workflow has steps. Every step has a scope of information it actually needs. The job is to match those two things so each step runs with signal instead of noise.
-
-Whatever your environment supports for separating information is your implementation layer. Folders, tabs, knowledge sources, your data room, SharePoint libraries. The medium changes. The logic does not.
-
-The question is always the same: does this piece of information belong at this step, or am I just carrying it because I do not know where else to put it?
-
 ## Glossary
 
 A few terms used throughout the toolkit, in plain language:
@@ -128,12 +134,6 @@ A few terms used throughout the toolkit, in plain language:
 - **Deterministic**: a task with one correct answer that does not require judgment (calculating a waterfall, summing a rent roll). Deterministic work belongs in your platform, database, or established software, not in a language model.
 - **MCP server**: a connector that lets Claude read from an outside system (a database, a drive, a CRM) through a defined interface, without custom code. "MCP" is the Model Context Protocol that standardizes those connectors.
 - **n8n / Zapier / Make**: workflow-automation platforms that run rule-based "if this, then that" steps. They are the 30% rule-based tier, between traditional software and a language model.
-
-## Most work is not an AI task
-
-Roughly 60% of what people throw at AI is better handled by traditional software, databases, or an established process. Another 30% suits rule-based automation or a prebuilt routine. Only about 10% genuinely needs the judgment a language model brings.
-
-So if you are reaching for Claude to recalculate a waterfall your fund-accounting platform already owns, you are spending tokens on something deterministic. The constraint files tell you when that is the case.
 
 ---
 
