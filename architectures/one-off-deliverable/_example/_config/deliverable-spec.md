@@ -11,7 +11,7 @@
   flagged so the committee knows what it is and is not deciding on.
 - **Format / length constraints:** Two to three pages. Recommendation up front. Hold and sell
   cases each get a section. A risks section and an open-items section close it.
-- **Deadline:** IC meeting is 2026-06-18. Draft to the deal lead by 2026-06-11 for review.
+- **Deadline:** IC meeting is 2026-06-18. Draft to the deal lead by 2026-05-21 for review.
 - **Out of scope:** This is not the disposition package. If the IC says sell, the marketing
   materials, the broker selection, and the closing checklist are a separate workstream. This memo
   decides direction only.

@@ -32,7 +32,7 @@ stays intact. Everything below is optional background.
 
 **If you are setting this up with an AI agent:** Clone or download this repository to your working directory, then point your agent at `CLAUDE.md` at the root. That file is the agent's map. It runs the onboarding sequence, routes you to the right builder, names the constraints to load, and finishes with a working, populated workspace. Start there and the rest of this section is optional reading.
 
-**If you work in Claude Code, Cursor, or VS Code:** Drop the constraint files into your workspace. Reference them from your CLAUDE.md or CONTEXT.md. Load them selectively based on the stage of work you are in. Do not load all of them at once.
+**If you work in Claude Code, Cowork, Cursor, or VS Code:** Drop the constraint files into your workspace. Reference them from your CLAUDE.md or CONTEXT.md. Load them selectively based on the stage of work you are in. Do not load all of them at once.
 
 **If you work in Claude Projects:** Add the relevant constraint files as knowledge sources. Use one or two at a time, matched to the task. The whole point of separation of concerns is that each piece of context has a job.
 
@@ -100,9 +100,11 @@ This toolkit uses the word *layer* in two unrelated ways. Keep them separate:
 - **Context layers (L0–L4)** describe *when* a file loads — the always-on map, routing, the stage contract, reference material, the working files. Constraint 03 (Context Hygiene) defines them.
 - **Solution layers (60/30/10)** describe *what kind of tool* should solve a problem — traditional software, a rule-based system, or a language model.
 
+(A third, local use also appears: the "Layer 1/2/3" *section headings* inside each constraint file label that file's three-part structure — traditional solutions, existing tools, the architectural fix — and have nothing to do with the two kinds above.)
+
 The rest of this section is about the second kind.
 
-Roughly 60% of the problems people throw at AI are better solved by traditional tools, databases, or established processes. Another 30% are handled well by rule-based systems, existing skills, or purpose-built software. Only about 10% genuinely benefit from the probabilistic reasoning that a language model provides.
+Roughly 60% of the problems people throw at AI are better solved by traditional tools, databases, or established processes. Another 30% are handled well by rule-based systems, existing skills, or automation workflows. Only about 10% genuinely benefit from the probabilistic reasoning that a language model provides.
 
 If you find yourself reaching for Claude to recalculate a waterfall that a spreadsheet handles, you are spending tokens on something deterministic. The constraint files will tell you when that is the case.
 

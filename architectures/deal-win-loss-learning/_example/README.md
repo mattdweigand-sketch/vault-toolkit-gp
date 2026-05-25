@@ -7,7 +7,7 @@ example shows the filled result and, crucially, a store with more than one recor
 whole point of the loop is what emerges across records.
 
 ## The fictional setup
-**Ridgeline Capital Partners** is a value-add CRE GP (multifamily and industrial). The acquisitions
+**Ridgeline Capital Partners** is a value-add CRE GP (multifamily, industrial, and mixed-use). The acquisitions
 team runs the win/loss loop each time a competitive process resolves — won or lost. The store below
 holds three resolved processes; one of them (Larkspur Apartments) is shown running through all
 three stages so you can follow a single pass end to end.

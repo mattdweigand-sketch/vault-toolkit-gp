@@ -2,7 +2,7 @@
 
 The source-of-truth table for this deliverable. Every file in the pile, given a source ID and
 ranked. The draft cites by these IDs and cites up the authority ladder, never down. As-of of this
-inventory: 2026-06-05. Reviewed by: deal lead (J. Okafor), 2026-06-06.
+inventory: 2026-05-18. Reviewed by: deal lead (J. Okafor), 2026-05-19.
 
 | ID | File | Type | Date | Owner | Relevance | Authority | Current? | Note for review |
 |---|---|---|---|---|---|---|---|---|

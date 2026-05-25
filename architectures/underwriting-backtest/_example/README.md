@@ -7,7 +7,7 @@ example shows the filled result and, crucially, a store with more than one recor
 whole point of the loop is what emerges across records.
 
 ## The fictional setup
-**Ridgeline Capital Partners** is a value-add CRE GP (multifamily and industrial) — the same firm
+**Ridgeline Capital Partners** is a value-add CRE GP (multifamily, industrial, and mixed-use) — the same firm
 used in the deal-win-loss-learning example, here running the *other* learning loop. The deal team
 runs the backtest each time a deal realizes. The store below holds three realized deals; one of
 them (Cedar Crossing Apartments) is shown running through all three stages so you can follow a
@@ -34,7 +34,8 @@ single pass end to end.
 A single backtest is nearly worthless. Three already separate two very different stories that the
 headline IRRs hide. Every deal "beat" its underwriting — but the beat was dominated by **exit-cap
 compression Ridgeline did not underwrite and did not create**, while their **multifamily lease-up
-assumptions ran ~6 months optimistic every time**. That is exactly the trap the loop's load-bearing
+assumptions ran 6–10 months optimistic on both multifamily deals** — an emerging pattern the store
+flags but has not yet promoted to a stated bias. That is exactly the trap the loop's load-bearing
 Question 5 (skill vs. luck) exists to catch: bank the cap-compression beat as proof the firm
 underwrites brilliantly, and the store quietly teaches it to keep assuming a tailwind that may not
 return — while the real, correctable bias (slow lease-up) goes unfixed. The store is the product;

@@ -35,7 +35,7 @@ Based on the answers, build the workspace:
 
 1. Start from the template: copy the matching architecture (`architectures/asset-management/` before finalize, `_kit/architectures/asset-management/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, and _config/ files are drafts to customize, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then adapt to their answers: three stages (data, review, report), plus _config/ and _prompts/.
 2. Write CLAUDE.md: what this is, current state, structure map, how to use. Note that the data stage gates the others and that this workspace can host JV/co-GP and watchlist variants. Note in the workspace that its written deliverables (the IC memo / hold-sell case / asset review) should read the firm's voice from `_shared-config/voice-and-tone.md` so they sound like the firm.
-3. Write CONTEXT.md: the stage map, how stages connect, the handoff to the IC and to lp-reporting (build it to the handoff-brief schema in Constraint 08), and the AI-vs-Platform table (property systems own actuals; the model owns the variance narrative; returns and marks come from Argus/your model and valuation process).
+3. Write CONTEXT.md: the stage map, how stages connect, the handoff to the IC and to lp-reporting (build it to the handoff-brief schema in Constraint 08), and the AI-vs-Platform table (property systems own actuals; the model owns the variance narrative; returns and marks come from Argus/your underwriting model and valuation process).
 4. Customize each stage's CONTEXT.md from the template's contract — adjust the existing contract, do not write a new one from scratch.
 5. Create config templates: business-plan-targets.md (the measuring stick, synced from acquisition/deal-pipeline), review-standards.md (variance thresholds + watchlist criteria + never-do list), reporting-format.md (base internal review plus the JV/co-GP and watchlist variants if they produce them). Populate from their answers.
 6. Set up _prompts/ for the recurring analysis fragments.
@@ -54,6 +54,6 @@ After building, walk the user through:
 ## Important Notes
 - Do not build before completing the diagnosis. The questions are the skill.
 - The business-plan targets are the highest-value config. A review with no baseline to measure against is just a restatement of the data.
-- Keep figures out of the model's hands: it narrates and flags; the platform and the model own the numbers.
+- Keep figures out of the model's hands: it narrates and flags; the platform and your underwriting model own the numbers.
 - Load and name the constraints this workflow uses: 02 (Output Drift), 04 (Session Consistency), 08 (Handoff Readiness), 10 (Source Provenance) for unvetted asset reports, plus the universal 06 and 09.
 - Always annotate files with their ICM layer (L0–L4).

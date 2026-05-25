@@ -7,7 +7,7 @@ example shows the filled result and, crucially, a store with more than one recor
 whole point of the loop is what emerges across records.
 
 ## The fictional setup
-**Ridgeline Capital Partners** is a value-add CRE GP (multifamily and industrial) — the same firm
+**Ridgeline Capital Partners** is a value-add CRE GP (multifamily, industrial, and mixed-use) — the same firm
 used in the deal-win-loss-learning and underwriting-backtest examples, here running the IC-decision
 loop. The deal team captures a record each time a deal is decided at IC. The store below holds three
 decisions; one of them (Cedar Crossing Apartments) is shown running through all three stages so you

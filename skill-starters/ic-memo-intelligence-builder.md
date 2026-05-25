@@ -6,6 +6,8 @@ Builds a customized learning-loop workspace by asking diagnostic questions about
 ## When to Use
 When a firm wants its committee's decision-making to compound — to systematically capture what the IC decides and why, and turn that into institutional memory the next memo can use — rather than relearning the committee's mind one deal at a time and watching that judgment walk out the door when senior partners leave. A store of decision precedent means memos that pre-empt standing conditions, cite precedent instead of relitigating it, and reflect what the committee actually cares about. This is a learning loop, not a memo-authoring tool or a deal pipeline; it remembers what the committee decided and why, *across* deals. (deal-pipeline authors the memo and runs the IC gate; this workspace does not author anything.)
 
+## Process
+
 ### Phase 1: Diagnosis (ask before building)
 
 > **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.

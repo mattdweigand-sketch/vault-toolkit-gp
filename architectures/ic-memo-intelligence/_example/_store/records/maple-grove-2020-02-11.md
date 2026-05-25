@@ -2,12 +2,12 @@
 
 Deal: Maple Grove Apartments
 Tags: Multifamily | $25M–$75M | Value-add | Tucson
-Decision: APPROVED-WITH-CONDITIONS   Decided: 2021-03-10
+Decision: APPROVED-WITH-CONDITIONS   Decided: 2020-02-11
 Recommended vs. decided: recommended 67% LTV; approved at 65% with conditions
 Decisive factor: Basis + submarket supply story — causal
 Precedent: consistent-with-precedent (Cedar Crossing)
 Dissent: none
-Validated by: D. Reyes (Head of Acquisitions), 2021-03-12
+Validated by: D. Reyes (Head of Acquisitions), 2020-02-13
 
 ## Conditions Imposed
 - Leverage capped at 65% LTV (Leverage cap / max LTV)
@@ -28,4 +28,4 @@ than only a reserve). The committee is repeating its value-add MF playbook. Conf
 Confirms the value-add MF pattern: ≤65% LTV, DSCR stress, and a lease-up milestone are the route to
 approval. Memo should propose the milestone structure proactively.
 
-Source: prior-run record + analysis (archived); captured 2021-03-12.
+Source: prior-run record + analysis (archived); captured 2020-02-13.

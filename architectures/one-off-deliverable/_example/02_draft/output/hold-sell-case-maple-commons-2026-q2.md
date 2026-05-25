@@ -2,7 +2,7 @@
 
 **To:** Northpoint Fund III Investment Committee
 **From:** Deal team (J. Okafor)
-**Date:** 2026-06-11 (for the 2026-06-18 IC)
+**Date:** 2026-05-21 (for the 2026-06-18 IC)
 **Decision requested:** Market Maple Commons for sale in Q3 2026, or hold to the 2028 debt
 maturity.
 

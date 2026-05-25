@@ -22,7 +22,7 @@ not get buried.]
 ## Watchlist Criteria
 [What puts an asset on the watchlist. Examples:
 - Any structural (not timing) variance that threatens the business plan
-- A covenant or debt-service concern (flag and escalate; the figures are platform-owned, and a refinancing decision runs as its own gated pipeline — see the CLAUDE.md off-list shapes)
+- A covenant or debt-service concern (flag and escalate; the figures are platform-owned, and a refinancing decision is a gated decision of its own — stand it up as a separate workspace if it recurs)
 - A material valuation risk
 - Two consecutive periods behind plan on a key metric
 For each, the recommended action template and the owner.]

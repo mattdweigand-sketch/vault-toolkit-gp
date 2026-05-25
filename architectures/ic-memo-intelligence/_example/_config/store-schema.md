@@ -1,7 +1,7 @@
 # Store Schema — Ridgeline Capital Partners
 
-The structure capture normalizes each validated analysis into before writing to `_store/records/`,
-and how the decision-intelligence patterns roll up. Stable since v1.0 (2022-06).
+This file defines the structure the capture stage normalizes each validated analysis into before
+writing to `_store/records/`, and how the decision-intelligence patterns roll up. Stable since v1.0 (2022-06).
 
 ## Record Schema (one per IC decision)
 - Deal name and taxonomy tags (asset type, deal-size band, market, strategy)
