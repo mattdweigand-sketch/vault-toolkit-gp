@@ -17,4 +17,8 @@ here is what keeps the firm honest about its own forecasting — a thesis functi
 with no memory of its past calls cannot tell whether it is any good. It is not a
 learning loop (the workflow does not run to grow this store), but the tracked
 calls give the firm a record to check itself against.
+
+Starting state: empty. These fill on first use, as theses are published and their
+calls tracked. A stage contract that names a file here treats it as optional until
+you populate it — the absence is not an error.
 -->

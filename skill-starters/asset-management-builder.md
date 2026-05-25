@@ -10,6 +10,8 @@ When an asset-management or portfolio team reviews owned assets on a recurring c
 
 ### Phase 1: Diagnosis (ask before building)
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: What do you monitor, and on what cycle?**
@@ -31,12 +33,14 @@ Ask the following questions one at a time. Wait for each answer before proceedin
 
 Based on the answers, build the workspace:
 
-1. Create the folder structure: three stages (data, review, report), plus _config/ and _prompts/.
-2. Write CLAUDE.md: what this is, current state, structure map, how to use. Note that the data stage gates the others and that this workspace can host JV/co-GP and watchlist variants.
-3. Write CONTEXT.md: the stage map, how stages connect, and the AI-vs-Platform table (property systems own actuals; the model owns the variance narrative; returns and marks come from Argus/your model and valuation process).
-4. Write a CONTEXT.md for each stage.
+1. Start from the template: copy the matching architecture (`architectures/asset-management/` before finalize, `_kit/architectures/asset-management/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, and _config/ files are drafts to customize, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then adapt to their answers: three stages (data, review, report), plus _config/ and _prompts/.
+2. Write CLAUDE.md: what this is, current state, structure map, how to use. Note that the data stage gates the others and that this workspace can host JV/co-GP and watchlist variants. Note in the workspace that its written deliverables (the IC memo / hold-sell case / asset review) should read the firm's voice from `_shared-config/voice-and-tone.md` so they sound like the firm.
+3. Write CONTEXT.md: the stage map, how stages connect, the handoff to the IC and to lp-reporting (build it to the handoff-brief schema in Constraint 08), and the AI-vs-Platform table (property systems own actuals; the model owns the variance narrative; returns and marks come from Argus/your model and valuation process).
+4. Customize each stage's CONTEXT.md from the template's contract — adjust the existing contract, do not write a new one from scratch.
 5. Create config templates: business-plan-targets.md (the measuring stick, synced from acquisition/deal-pipeline), review-standards.md (variance thresholds + watchlist criteria + never-do list), reporting-format.md (base internal review plus the JV/co-GP and watchlist variants if they produce them). Populate from their answers.
 6. Set up _prompts/ for the recurring analysis fragments.
+7. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — especially the watchlist/materiality thresholds, plus any compliance language or rosters — mark each `[NEEDS CONFIRMATION — <owner>]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+8. Demonstrate one stage end to end. Run the data stage against a real or sample period and check the output against its "Done Looks Like" line. If there is no live data yet, use a sample asset's actuals as the stand-in run, and mark the workspace "stands up now, activates on the first review cycle."
 
 ### Phase 3: Orientation
 

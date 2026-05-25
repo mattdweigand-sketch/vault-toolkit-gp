@@ -29,7 +29,7 @@ market-thesis/
 
 ## How to Use
 1. Read CONTEXT.md for the full workflow.
-2. Populate _config/ with your thesis format, your research standards (how sources are vetted, how confidence is marked), and your source map.
+2. Populate _config/ with your thesis format, your research standards (how sources are vetted, the confidence vocabulary), and your source map. The firm's written voice comes from the shared `_shared-config/voice-and-tone.md` (thesis-format.md references it and adds the thesis register); it is applied when the document is produced in stage 03.
 3. Start in 01_research. Gather and vet the market inputs for the market/sector in question. Provenance matters — research arrives at varying quality.
 4. Move to 02_synthesis. Form the thesis, keeping evidence and inference distinct and marking confidence.
 5. Move to 03_publish. Produce the thesis document and route it — to deal-screening to update the box, to sourcing to focus the hunt, and optionally as LP-facing market commentary.

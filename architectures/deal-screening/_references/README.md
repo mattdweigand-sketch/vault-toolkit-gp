@@ -18,4 +18,8 @@ stay clean while the accumulating record of actual screens grows here.
 The pass log is the asset that makes screening compound: a firm that can see
 why it passed its last hundred deals screens its next hundred faster and more
 consistently.
+
+Starting state: empty. The pass log and the rest fill on first use. A stage
+contract that names a file here treats it as optional until you populate it —
+the absence is not an error, it is a workspace that has not run yet.
 -->

@@ -1,5 +1,12 @@
 # Response Standards
 
+> **CONFIRM BEFORE LIVE USE.** The answer-vs-refer line decides what IR may say on its own versus
+> what must go to a principal, compliance, or counsel. Getting it wrong means a casual answer to a
+> question that should have escalated. The onboarding agent must not invent this line or the
+> service levels. Anything the firm did not state stays flagged
+> `[NEEDS CONFIRMATION — IR lead / compliance]` until confirmed. See Constraint 08; logged in
+> `_config/before-you-trust-this.md`.
+
 <!--
 ANNOTATION: How your IR function responds, how fast, in what voice, and where
 the line sits between what IR answers directly and what gets referred. The
@@ -17,11 +24,12 @@ This is L3 reference, stable across inquiries.
 - Sensitive/escalated inquiries acknowledged immediately, routed same day.]
 
 ## Voice
-[How the firm speaks to LPs in a response. Keep it short and testable.
-Examples: warm but precise; never speculative on performance; never
-apologetic in a way that implies fault where there is none; plain language,
-no jargon the LP did not use first.
-See Constraint 05 (Voice Architecture) for how to write this well.]
+The firm's core voice lives once in `_shared-config/voice-and-tone.md` (from this workspace under
+`workspaces/<name>/`, that is `../../_shared-config/voice-and-tone.md`). Read it for the firm voice;
+do not redefine it here. This section holds only the **LP-email register** that sits on top of it:
+[how a quick inbound reply differs from a formal quarterly letter — shorter, more transactional, more
+responsive; never speculative on performance; never apologetic in a way that implies fault where
+there is none; plain language, no jargon the LP did not use first.] See Constraint 05.
 
 ## What IR Answers Directly
 [The inquiry types IR resolves without referral. Examples:

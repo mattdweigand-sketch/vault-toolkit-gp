@@ -3,18 +3,17 @@
 <!--
 This folder holds reusable templates for common LP-inquiry responses.
 
-Examples:
-- Balance / capital-account confirmation response
-- Document re-send response (with the authorization-check reminder)
-- Performance-question holding statement (answers from reported figures,
-  refers anything forward-looking)
-- Escalation acknowledgment (confirms receipt, commits the firm to nothing,
-  names who will follow up)
+Four starters ship in this folder. Customize each to your firm's voice and
+escalation rules; they are drafts, not finished policy:
+- balance-confirmation.md          Balance / capital-account confirmation.
+- document-resend.md               Document re-send, with the authorization check.
+- performance-holding-statement.md Performance answer from reported figures;
+                                   refers anything forward-looking.
+- escalation-acknowledgment.md     Confirms receipt, commits the firm to nothing,
+                                   names who will follow up.
 
-Each template should have clear placeholder markers showing where variable
-content goes. Use [BRACKETS] or similar notation. Keep figures as placeholders
-that the resolve stage fills from platform-retrieved data, never hard-coded.
-
-Start with your most frequent inquiry type. If you are writing the same
-response structure more than three times, it is a template.
+Each starter uses [BRACKET] placeholders for variable content. Figures stay as
+placeholders the resolve stage fills from platform-retrieved data, never
+hard-coded. Add your own templates for the inquiry types you see most: if you are
+writing the same response structure more than three times, it is a template.
 -->

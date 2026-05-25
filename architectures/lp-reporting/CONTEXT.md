@@ -8,7 +8,7 @@ Three-stage pipeline: Data → Draft → Distribution. Each stage has a defined 
 | Stage | Purpose | Inputs | Output Location |
 |---|---|---|---|
 | 01_data | Gather and verify the numbers | Fund accounting export, asset reports, prior letter | 01_data/output/ |
-| 02_draft | Write the letter or notice | Verified data pack, investor voice file, format patterns, constraints | 02_draft/output/ |
+| 02_draft | Write the letter or notice | Verified data pack, firm voice (shared, via _config/voice-and-tone.md), format patterns, constraints | 02_draft/output/ |
 | 03_distribution | Finalize and distribute | Approved draft, format spec, distribution list | 03_distribution/output/ |
 
 ## How Stages Connect
@@ -16,7 +16,7 @@ Three-stage pipeline: Data → Draft → Distribution. Each stage has a defined 
 - 02 → 03: The approved draft becomes the distribution input. The distribution stage formats, applies the compliance pass, and prepares the letter for each investor. It does not rewrite the narrative. If distribution is doing heavy rewriting, the draft stage needs tighter constraints.
 
 ## Reference Material (in _config/)
-- voice-and-tone.md: How the fund speaks to its LPs. Loaded in stage 02.
+- voice-and-tone.md: Points to the firm's shared voice (`_shared-config/voice-and-tone.md`) and adds the letter register. Loaded in stage 02.
 - format-patterns.md: Structure per report type (quarterly letter, capital call notice, distribution notice). Loaded in stage 02.
 - constraints.md: The never-do list, including compliance and disclosure rules. Loaded in stages 02 and 03.
 

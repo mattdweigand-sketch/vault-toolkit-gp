@@ -10,6 +10,8 @@ When you run acquisitions through a multi-stage process with a diligence period 
 
 ### Phase 1: Diagnosis
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer.
 
 **Question 1: What do you acquire?**
@@ -42,21 +44,22 @@ Based on the answers:
    - If they track the post-close business plan in the same workspace: add stage 05_asset-management.
    - If internal review and committee are distinct meetings: keep IC as one stage with two phases.
 
-2. Create the folder structure. Numbered stages, _config/, _references/.
+2. Create the folder structure by starting from the template: copy the matching architecture (`architectures/deal-pipeline/` before finalize, `_kit/architectures/deal-pipeline/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, and _config/ files are drafts to customize, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then apply the stage structure you set in step 1: numbered stages, _config/, _references/.
 
 3. Write CLAUDE.md:
    - What this workspace is (their deal type and process)
    - Structure map
    - How to use (one deal = one copy of this workspace)
    - Key decisions (especially around the thesis and the IC gate, citing their failure mode answers as rationale)
+   - Note in the workspace that its written deliverables (the IC memo / hold-sell case / asset review) should read the firm's voice from `_shared-config/voice-and-tone.md` so they sound like the firm.
 
 4. Write CONTEXT.md routing file:
    - Stage map with decision checkpoint column
    - How stages connect, including the IC → diligence loop for conditions
    - Reference material locations
 
-5. Write stage contracts:
-   - Sourcing: screening process based on how they currently decide to commit diligence dollars. Include their failure modes as deal breakers the sourcing stage tests.
+5. Customize the stage contracts from the template (adjust the existing contracts, do not rewrite from scratch):
+   - Sourcing: screening process based on how they currently decide to commit diligence dollars. Include their failure modes as deal breakers the sourcing stage tests. If an upstream screening handoff brief exists, the sourcing stage consumes it (build to / read from the handoff-brief schema in Constraint 08) instead of re-screening.
    - Diligence: their underwriting and verification process with a self-check against the thesis conditions.
    - IC: two-phase process (internal review then committee). Include their typical retrade/return frequency as a guideline.
    - Close: closing checklist and asset management handoff based on their post-close description.
@@ -67,6 +70,8 @@ Based on the answers:
    - investment-thesis.md: placeholder (produced by sourcing)
 
 7. If they mentioned reusable reference material, create _references/ with placeholder files for each type. Add a note about a central reference library if they run many deals.
+8. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — especially compliance language, financial thresholds (return hurdles, the credit box), and rosters — mark each `[NEEDS CONFIRMATION — <owner>]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+9. Demonstrate one stage end to end. Run the sourcing stage against a real or sample opportunity and check the output against its "Done Looks Like" line. If there is no live deal yet, use a sample opportunity as the stand-in run, and mark the workspace "stands up now, activates on the first live deal."
 
 ### Phase 3: Orientation
 

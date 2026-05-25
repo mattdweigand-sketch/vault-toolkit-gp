@@ -5,13 +5,15 @@ Produce the thesis document in the firm's format and route it so it changes down
 
 ## Inputs
 - **02_synthesis/output/thesis-[market-or-sector]-[date].md**: The synthesized thesis with evidence, inference, and risk.
-- **_config/thesis-format.md**: The document structure, including the LP-facing commentary variant.
+- **_shared-config/voice-and-tone.md**: The firm's core written voice. Read it so the published thesis sounds like the firm. (From this workspace under `workspaces/<name>/`, that is `../../_shared-config/voice-and-tone.md`.)
+- **_config/thesis-format.md**: The document structure and the thesis register (internal vs. LP-facing variant) layered on the firm voice, including the LP-facing commentary variant.
+- **_config/research-standards.md**: The firm's confidence vocabulary (how conviction is marked) — preserve it in the document.
 - **_references/**: Where the published thesis and its tracked call are filed.
 
 ## Process
 1. Read the synthesized thesis. Confirm it commits to a view and carries its support.
 2. Select the format from thesis-format.md: the internal thesis document, or the LP-facing market-commentary variant (a different audience and a more cautious register — never a stronger claim than the internal view supports).
-3. Write the document. Lead with the claim and the "so what." Preserve the evidence/inference distinction and the confidence markers — do not smooth them away for a cleaner read; that distinction is the thesis's integrity.
+3. Write the document in the firm's voice (`_shared-config/voice-and-tone.md`) at the chosen register. Lead with the claim and the "so what." Preserve the evidence/inference distinction and the confidence markers, in the firm's confidence vocabulary — do not smooth them away for a cleaner read; that distinction is the thesis's integrity.
 4. Translate the thesis into downstream actions:
    - For **deal-screening**: the specific changes to the investment box and screening criteria (which markets/asset types move up or down, which become deal-breakers).
    - For **sourcing**: where to focus the hunt and what to prioritize.

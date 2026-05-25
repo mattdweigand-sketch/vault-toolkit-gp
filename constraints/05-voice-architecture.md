@@ -99,6 +99,12 @@ When you combine all three into one document, updating the constraints means re-
 
 More importantly, different tasks need different combinations. A quick edit pass needs only the constraints file. A first draft needs voice/tone plus format. A polish pass might need all three. Loading only what the current task needs keeps the context window clean (see Constraint 03).
 
+**One shared voice file across workspaces:**
+
+When a firm runs more than one writing workspace — an LP letter, an LP email reply, a market thesis, an IC memo — the *voice-and-tone* file is the same firm in every one. Keep it in a single shared place (`_shared-config/voice-and-tone.md`) rather than copying it into each workspace, where it drifts cycle to cycle and workspace to workspace. Each workspace then references the shared voice and keeps only its **register** locally — which is exactly what the format-patterns file is for. A quarterly letter and a quick LP email differ in register, not in firm voice: the shared file holds the voice, the workspace's format file holds the register.
+
+This maps the three-file architecture onto the firm. Voice-and-tone is firm-wide and shared. Format patterns are per-workspace (the register overlay). Constraints can be shared firm-wide or kept local where compliance language is workspace-specific. Update the firm's voice once and every workspace that points at it stays consistent — the same fix as sharing the files across team members, one level up.
+
 ---
 
 ## Tuning Questions

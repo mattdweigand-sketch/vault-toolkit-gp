@@ -1,5 +1,11 @@
 # Investor Context
 
+> **CONFIRM BEFORE LIVE USE.** This roster gates authentication and routing: who is authorized on
+> each account and what each investor is sensitive to. An invented or stale entry means answering
+> the wrong person or missing a sensitivity. The onboarding agent must not fabricate contacts or
+> entitlements. Until the firm populates it from the system of record, every entry stays flagged
+> `[NEEDS CONFIRMATION — IR lead]`. See Constraint 08; logged in `_config/before-you-trust-this.md`.
+
 <!--
 ANNOTATION: The recurring investor record this workspace needs to identify a
 requester, route correctly, and answer with the right history and sensitivities

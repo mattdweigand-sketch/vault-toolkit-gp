@@ -10,6 +10,8 @@ When a firm wants its bidding to compound — to systematically learn why it win
 
 ### Phase 1: Diagnosis (ask before building)
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: How do you learn you won or lost?**
@@ -34,12 +36,14 @@ Ask the following questions one at a time. Wait for each answer before proceedin
 
 Based on the answers, build the workspace:
 
-1. Create the folder structure: three stages (signal, analysis, capture), plus _config/ and a _store/ folder with records/ and patterns.md. The _store/ is the deliverable — make it visible.
+1. Start from the template: copy the matching architecture (`architectures/deal-win-loss-learning/` before finalize, `_kit/architectures/deal-win-loss-learning/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, _config/ files, _store/ (README + patterns.md scaffold), and worked `_example/` are drafts and a reference to customize against, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then adapt to their answers: three stages (signal, analysis, capture), plus _config/ and the _store/ folder with records/ and patterns.md. The _store/ is the deliverable — make it visible.
 2. Write CLAUDE.md: what this is, the learning-loop shape and how it differs from a linear pipeline (the output feeds back into the store), current state, structure map, how to use. Call out the broker-spin guardrail in Key Decisions.
 3. Write CONTEXT.md: the stage map, how the loop closes (capture writes the store; signal and analysis read it back), how the store feeds deal-pipeline sourcing and bid strategy, and the AI-vs-Platform table (the deal system and market data own what happened; the model proposes the why and keeps stated vs. assessed distinct; a human validates it).
-4. Write a CONTEXT.md for each stage.
+4. Customize each stage's CONTEXT.md from the template's contract — adjust the existing contract, do not write a new one from scratch.
 5. Create config templates: win-loss-questions.md (the canonical set — the most important file, with the stated-vs-assessed question load-bearing), deal-taxonomy.md (controlled tags including the controlled broker list), store-schema.md (record shape with our-bid-vs-clearing-price and gap, patterns structure, privacy handling). Populate from their answers.
-6. Set up _store/ with the README and an empty records/ folder.
+6. Set up _store/: keep the README, an empty append-only records/ folder, and the hypotheses-only patterns.md scaffold (0 records). Seed a few falsifiable hypotheses if useful, but mark them untested and do not let them drive bid strategy. See _store/README and _example/_store/patterns.md for the shape.
+7. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — especially the controlled broker/intermediary list — mark each `[NEEDS CONFIRMATION — <owner>]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+8. Demonstrate one stage end to end. If a competitive process has already resolved, run the signal stage on it and check the output against its "Done Looks Like" line. If none has resolved yet, point the client at the worked _example/ as the stand-in run, and mark the workspace "stands up now, activates on the first resolved competitive process."
 
 ### Phase 3: Orientation
 

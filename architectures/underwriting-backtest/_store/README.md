@@ -32,6 +32,9 @@ Handling:
   "how much of our track record is luck" read stays internal to the team and IC.
 
 Starting state:
-- Empty. records/ fills as deals realize and the loop runs; patterns.md begins as
-  hypotheses and earns confidence as records accumulate.
+- records/ is empty and fills as deals realize and the loop runs.
+- patterns.md ships as a hypotheses-only scaffold (0 records) so its shape is clear
+  from day one. Seed a few falsifiable hypotheses if you like, but do not let anything
+  in it retune underwriting until real records support it (a stated pattern needs 3+).
+  See _example/_store/patterns.md for what it looks like after a few runs.
 -->

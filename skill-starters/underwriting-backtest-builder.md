@@ -10,6 +10,8 @@ When a firm wants its underwriting to compound — to systematically check, deal
 
 ### Phase 1: Diagnosis (ask before building)
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: How do you learn a deal has realized, and what triggers a backtest?**
@@ -34,12 +36,14 @@ Ask the following questions one at a time. Wait for each answer before proceedin
 
 Based on the answers, build the workspace:
 
-1. Create the folder structure: three stages (reconcile, attribution, capture), plus _config/ and a _store/ folder with records/ and patterns.md. The _store/ is the deliverable — make it visible.
+1. Start from the template: copy the matching architecture (`architectures/underwriting-backtest/` before finalize, `_kit/architectures/underwriting-backtest/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, _config/ files, _store/ (README + patterns.md scaffold), and worked `_example/` are drafts and a reference to customize against, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then adapt to their answers: three stages (reconcile, attribution, capture), plus _config/ and the _store/ folder with records/ and patterns.md. The _store/ is the deliverable — make it visible.
 2. Write CLAUDE.md: what this is, the learning-loop shape and how it differs from a linear pipeline (the output feeds back into the store), the one way it differs from the win/loss sibling (a deterministic variance core — the arithmetic is not an AI task), current state, structure map, how to use. Call out the skill-vs-luck guardrail in Key Decisions.
 3. Write CONTEXT.md: the stage map, how the loop closes (capture writes the store; reconcile and attribution read it back), how the store feeds deal-pipeline underwriting and deal-screening's economics assumptions, and the AI-vs-Platform table (the approved model and fund accounting own what happened and the variance math; the model proposes the why and keeps skill vs. luck distinct; a human validates it).
-4. Write a CONTEXT.md for each stage.
+4. Customize each stage's CONTEXT.md from the template's contract — adjust the existing contract, do not write a new one from scratch.
 5. Create config templates: underwriting-questions.md (the canonical set — the most important file, with the skill-vs-luck question load-bearing), assumption-taxonomy.md (controlled tags including the controlled list of assumption categories, cause class, and skill/luck attribution), store-schema.md (record shape with underwritten-vs-actual and the gap per assumption, the calibration-patterns structure plus a skill-vs-luck ledger, privacy handling). Populate from their answers.
-6. Set up _store/ with the README and an empty records/ folder.
+6. Set up _store/: keep the README, an empty append-only records/ folder, and the hypotheses-only patterns.md scaffold (0 records). Seed a few falsifiable calibration hypotheses if useful, but mark them untested and do not let them retune underwriting. See _store/README and _example/_store/patterns.md for the shape.
+7. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — especially which model version is the underwriting of record — mark each `[NEEDS CONFIRMATION — <owner>]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+8. Demonstrate one stage end to end — but note this loop usually cannot run a live backtest at onboarding, because it needs a realized deal and a fund may have none yet. If a realized deal exists, run the reconcile stage on it against its "Done Looks Like" line. If none has realized, point the client at the worked _example/ as the stand-in run, and mark the workspace "stands up now, activates on the first realized exit." Do not treat the empty store as a failed build.
 
 ### Phase 3: Orientation
 

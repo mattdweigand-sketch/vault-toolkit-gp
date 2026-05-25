@@ -16,4 +16,8 @@ Examples:
 - Sanitized records from prior deals on similar assets
 - Lender term sheets and standard loan covenants
 - Firm credit policy and concentration limits
+
+Starting state: empty. These fill on first use. A stage contract that names a
+file here (e.g., "check against underwriting standards in _references/") treats
+it as optional until you populate it — the absence is not an error.
 -->

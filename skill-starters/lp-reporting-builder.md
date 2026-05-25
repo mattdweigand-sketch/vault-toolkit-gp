@@ -10,6 +10,8 @@ When you produce investor-facing communications on a recurring cycle (quarterly 
 
 ### Phase 1: Diagnosis (ask before building)
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Before creating any files, ask the user the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: What do you produce for investors?**
@@ -22,7 +24,7 @@ Before creating any files, ask the user the following questions one at a time. W
 "At which points do you stop and review before something reaches an LP? Is there a number-reconciliation check, a compliance or legal review, a manager sign-off? If review only happens at the end, that is useful to know."
 
 **Question 4: What reference material stays the same across cycles?**
-"What applies to every communication you send? Your investor voice, required disclosures and footers, forward-looking-statement language, format templates, per-fund specifics. List what exists and where it lives, even if it is only in someone's head right now."
+"What applies to every communication you send? The firm's core investor voice is already in `_shared-config/voice-and-tone.md` — I only need the LP-reporting register overlay (how a quarterly letter or notice differs from the firm's standard voice). Beyond that: required disclosures and footers, forward-looking-statement language, format templates, per-fund specifics. List what exists and where it lives, even if it is only in someone's head right now."
 
 **Question 5: What does 'done' look like for your most common report?**
 "For the communication you send most often, describe the final output. Format, length, the disclosures it carries, how it reaches the LP (portal, email). What makes it ready to send?"
@@ -31,7 +33,7 @@ Before creating any files, ask the user the following questions one at a time. W
 
 Based on the answers, build the workspace:
 
-1. Create the folder structure. The default is three stages (data, draft, distribution) but match it to their described process. Add _config/ for reference material. If compliance/legal review is a distinct gated step, add 02a_compliance-review.
+1. Start from the template: copy the matching architecture (`architectures/lp-reporting/` before finalize, `_kit/architectures/lp-reporting/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, _config/ files, and worked `_example/` are drafts and a reference to customize against, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then match the structure to their process. The default is three stages (data, draft, distribution); keep _config/ for reference material. If compliance/legal review is a distinct gated step, add 02a_compliance-review.
 
 2. Write CLAUDE.md as the workspace entry point. Include:
    - What this workspace is (based on their description)
@@ -44,7 +46,7 @@ Based on the answers, build the workspace:
    - How stages connect, emphasizing that the data stage gates the others
    - Reference material list
 
-4. Write a CONTEXT.md for each stage. Include:
+4. Customize each stage's CONTEXT.md from the template's contract (adjust the existing contract, do not rewrite from scratch). Include:
    - Purpose (derived from their process description)
    - Inputs (what this stage needs, referencing specific files)
    - Process (steps, based on their description)
@@ -52,10 +54,12 @@ Based on the answers, build the workspace:
    - "Done looks like" (one sentence)
 
 5. Create config file templates:
-   - voice-and-tone.md, format-patterns.md, constraints.md (use the three-file architecture from Constraint 05)
+   - voice-and-tone.md, format-patterns.md, constraints.md (use the three-file architecture from Constraint 05). The firm's core voice already lives in `_shared-config/voice-and-tone.md` (from Run Setup) — reference it, do not redefine it; capture only this workflow's register overlay (how its deliverable differs from the firm's standard voice).
    - If they mentioned per-fund or per-investor specifics: create placeholders for each
 
-6. Populate constraints.md with the starter constraints, including the reporting-specific ones (every figure ties to source, forward-looking caution, required disclosures present) and ask the user to add their own and confirm with compliance.
+6. Populate constraints.md with the starter constraints, including the reporting-specific ones (every figure ties to source, forward-looking caution, required disclosures present) and ask the user to add their own and confirm with compliance. Use the worked `_example/` (its data pack, draft, and final letter) as the calibration target for how complete a finished cycle looks.
+7. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — above all the compliance and disclosure language (the footer, forward-looking-statement rules, any ILPA handling) — mark each `[NEEDS CONFIRMATION — counsel/compliance]`, name who signs off, and never invent or soften these. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+8. Demonstrate one stage end to end. Run the data stage against a real or sample period and check the output against its "Done Looks Like" line and the worked _example's data pack. If there is no live cycle yet, use the _example as the stand-in run, and mark the workspace "stands up now, activates on the first reporting cycle."
 
 ### Phase 3: Orientation
 

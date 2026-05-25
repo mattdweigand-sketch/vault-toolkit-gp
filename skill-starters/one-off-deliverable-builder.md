@@ -10,6 +10,8 @@ When someone hands you a folder of files of unknown age and authority and needs 
 
 ### Phase 1: Diagnosis
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer.
 
 **Question 1: What is the deliverable?**
@@ -39,7 +41,7 @@ Based on the answers:
    - If the deliverable must clear a compliance or legal pass before it ships (a lender letter, a regulated disclosure): add 02a_review after the draft. Do not fold compliance into the draft stage.
    - Resist adding more. If the work needs many recurring stages, it is not a one-off — route it to a document-production workflow instead.
 
-2. Create the folder structure: `00_sources/`, numbered stages with `output/`, `_config/`, `_references/`.
+2. Create the folder structure by starting from the template: copy the matching architecture (`architectures/one-off-deliverable/` before finalize, `_kit/architectures/one-off-deliverable/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, _config/ files, and worked `_example/` are drafts and a reference to customize against, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then apply the shape you confirmed in step 1: `00_sources/`, numbered stages with `output/`, `_config/`, `_references/` — adding 01a_triage or 02a_review only if step 1 called for them.
 
 3. Write CLAUDE.md:
    - What this workspace is (their deliverable, their source situation)
@@ -53,7 +55,7 @@ Based on the answers:
    - Reference material locations
    - The AI vs. Platform table, with their book of record named in the platform row
 
-5. Write stage contracts:
+5. Customize the stage contracts from the template (adjust the existing contracts, do not rewrite from scratch):
    - Inventory: the provenance pass tuned to their mess level (light if clean, deep duplicate/version analysis if not). If a document register exists, instruct it to read the register, not rebuild it. End the stage with the stop-and-hand-back review gate.
    - Draft: their deliverable's format from the spec, citing every claim to a source ID, labeling inferences, flagging unsupported claims, closing with Open Items and a Source Usage Map.
 
@@ -61,7 +63,9 @@ Based on the answers:
    - deliverable-spec.md: filled from Question 1 (deliverable, audience, what it must accomplish, format, deadline, out of scope)
    - source-hierarchy.md: filled from Questions 2, 3, and 5 (book of record, the authority ladder as far as known, sensitive sources, where the sources came from)
 
-7. If they named anything reusable in Question 6, create _references/ with placeholder files for each type. Otherwise leave the README note and keep it empty — a one-off rarely needs it.
+7. If they named anything reusable in Question 6 — house style or voice is the usual one — create the file in _references/, or point to the firm's shared reference library if one exists. The firm's core voice already lives in `_shared-config/voice-and-tone.md` (from Run Setup) — reference it, do not redefine it; capture only this workflow's register overlay (how its deliverable differs from the firm's standard voice). Otherwise leave the README note and keep _references/ empty; a one-off rarely needs more. A single standing reference like voice does not make this a recurring workflow (see _references/README).
+8. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — especially the book(s) of record for each figure class in source-hierarchy.md — mark each `[NEEDS CONFIRMATION — <owner>]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+9. Demonstrate the inventory stage. If the source set is already in 00_sources/, run the inventory and stop at the review gate, checking its output against the "Done Looks Like" line. If 00_sources/ is still empty at onboarding, point the client at the worked _example/ as the stand-in run, and mark the workspace "stands up now, activates when the source set lands."
 
 ### Phase 3: Orientation
 

@@ -8,6 +8,8 @@ Form the thesis: the firm's defensible point of view on the question, built from
 - **_config/research-standards.md**: What counts as supported, how to mark confidence, the never-do list.
 - **_references/**: The prior thesis on this market, to compare against and to update rather than restart.
 
+(Voice note: synthesis is analytical — get the claim, evidence, and inference right here. The firm's written *voice* is applied when the document is produced in stage 03, from `_shared-config/voice-and-tone.md`.)
+
 ## Process
 1. Read the research pack and the prior thesis. You are updating a view, not inventing one from scratch each cycle.
 2. Form the core claim: the answer to the question, stated plainly. Where to play, or not, and the direction of conviction.

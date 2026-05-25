@@ -1,39 +1,24 @@
-# Voice and Tone
+# Voice and Tone (pointer + letter overlay)
 
 <!--
-ANNOTATION: This is a reference architecture template. Replace the examples
-below with your fund's investor voice. See Constraint 05 (Voice Architecture)
-in the GP Operating Toolkit for detailed guidance on writing this file.
+The firm's CORE voice lives once in the shared firm voice file, not here:
+  _shared-config/voice-and-tone.md
+  (from this workspace under workspaces/<name>/, that path is ../../_shared-config/voice-and-tone.md)
 
-This file is L3 reference material. It loads in the draft stage and any stage
-that involves writing. It should be 20-40 lines once populated. If it is
-longer, you are probably including format or compliance content that belongs
-in the other config files.
+The draft stage reads the shared file for the firm's voice. This local file holds ONLY what is
+specific to LP letters and notices, layered on top of that shared voice. Most letter-specific
+guidance is structural and belongs in format-patterns.md (lead with the period IRR, one paragraph
+per asset, etc.); put genuine *voice* nuances unique to investor letters here, and keep it thin.
 
-KEY PRINCIPLE: Describe the conditions under which your voice emerges, not the
-voice itself. "Be professional" is useless. "State the result plainly, then
-explain the drivers, then address what the LP is most likely worried about"
-produces specific output.
+If the firm has no shared voice file yet, create it once from _shared-config/voice-and-tone.md during
+setup. See Constraint 05 (Voice Architecture). This file is L3 reference.
 -->
 
-## How We Address Investors
-[Describe the relationship in your letters. Do you write to sophisticated
-institutional LPs or to high-net-worth individuals? Peer-to-peer steward, or
-formal fiduciary? How direct are you about underperformance?]
+## Firm voice
+See `_shared-config/voice-and-tone.md` — the firm's core written voice. Do not duplicate it here;
+reference it. Update the firm voice there and every workspace stays consistent.
 
-## How We Sound
-[Describe 3-5 patterns in your fund's writing. Not adjectives like
-"transparent" or "confident." Actual patterns. "States the headline number in
-the first sentence." "Names the asset and the issue directly rather than
-abstracting it." "Explains a markdown before an LP has to ask."]
-
-## How We Handle Bad News
-[The hardest part of an investor letter. Do you lead with it or contextualize
-first? Do you pair every problem with the action being taken? This is where
-investor trust is built or lost. Be specific about your approach.]
-
-## What Our Voice Is NOT
-[Equally important. What does the voice sound like when it goes wrong? "Not
-promotional." "Not defensive." "Not falsely reassuring." "Not buried in
-hedges." These negative boundaries eliminate the most common drift directions
-in investor communications.]
+## Letter-specific voice notes (overlay)
+[Only what differs for LP letters and notices beyond the firm's standard voice — e.g., a touch more
+formality than a quick email, the steward-to-LP register. Keep this thin. Structural patterns for
+the letter (what leads, section order) live in format-patterns.md, not here.]

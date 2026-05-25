@@ -117,6 +117,31 @@ Before handing off a workspace, verify:
 
 If the answer to any of these is no, the workspace is not ready for handoff. Fix the weakest point first.
 
+**Unconfirmed values: flag them, never invent them.**
+
+The handoff fails differently when a value is wrong than when it is missing. A missing value announces itself. An invented one passes silently into a letter, an IC memo, or an LP response and gets trusted because it looks finished. When you build or populate a workspace and a value is not something you were given, a compliance disclosure, a financial threshold, an investor roster, a return hurdle, do not guess it. Mark it with one of two flags so the next person, or the next stage, knows exactly what is safe to use:
+
+- `[NEEDS CONFIRMATION — <owner>]`: a value the firm must verify before the workspace produces anything client-facing. Use it wherever being wrong is expensive: compliance and disclosure language, hold or sell thresholds, who is authorized on an account, return hurdles. Name the human who signs off (counsel, the managing partner, the IR lead).
+- `[TBD]`: a value that is simply not available yet and will arrive as real data (a model version, a closing date, a figure the platform exports). No judgment is required, only time.
+
+The distinction is load-bearing. `[TBD]` waits for data; `[NEEDS CONFIRMATION]` waits for a person with authority. A workspace that ships with invented compliance text, presented as if it were firm policy, is more dangerous than one that ships with the field visibly blank.
+
+**The "Before You Trust This" sheet.**
+
+Collect every flag in one place so the person receiving the workspace does not have to hunt for them. Each workspace's `_config/before-you-trust-this.md` is a short table, one row per unconfirmed value: the field, why it is high-stakes, who confirms it, and its status. It aggregates every `[NEEDS CONFIRMATION]` value across the workspace. It is the first thing a new owner reads and the last thing cleared before the workspace goes live.
+
+**When one workspace feeds another: the handoff brief.**
+
+Workspaces chain. A screen feeds the deal pipeline, a closed deal feeds asset management, an asset feeds disposition, results feed the LP letter. The handoff between two workspaces is the same discipline as the handoff between two stages, one level up. The upstream workspace produces a single **handoff brief**, a markdown file the downstream's first stage consumes instead of re-deriving the work. A minimal brief carries:
+
+- **Subject**: the deal, asset, fund, or cycle the brief is about, and its id.
+- **Origin**: which workspace and stage produced it, and the date.
+- **Carried-forward decision**: the conclusion the downstream inherits (the box-fit screen, the approved business plan, the realized return), with the key figures and each figure's source.
+- **Open items**: what the downstream must still test or resolve, so it spends effort there rather than re-working settled ground.
+- **Flags**: any `[NEEDS CONFIRMATION]` values traveling with the brief, so they are not silently trusted downstream.
+
+Keep it to one file. The brief is a summary that points back to the upstream workspace, not a copy of it.
+
 ---
 
 ## Tuning Questions

@@ -10,6 +10,8 @@ When an investor relations or IR-finance team handles a steady stream of ad hoc 
 
 ### Phase 1: Diagnosis (ask before building)
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: What do LPs ask you between formal events?**
@@ -31,12 +33,14 @@ Ask the following questions one at a time. Wait for each answer before proceedin
 
 Based on the answers, build the workspace:
 
-1. Create the folder structure: three stages (intake, resolve, respond), plus _config/ and _templates/. If they verify requester identity, add an authentication step in or before intake.
+1. Start from the template: copy the matching architecture (`architectures/lp-inquiries/` before finalize, `_kit/architectures/lp-inquiries/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, _config/ files, and the four starter response templates in _templates/ are drafts to customize, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then adapt to their answers: three stages (intake, resolve, respond), plus _config/ and _templates/. If they verify requester identity, add an authentication step in or before intake.
 2. Write CLAUDE.md: what this is (and that it is *not* capital-event processing — those are platform-governed transactions handled in the fund-administration platform, not an AI workspace; see Constraint 09), current state, structure map, how to use.
 3. Write CONTEXT.md: the stage map, how stages connect, the escalation path, and the AI-vs-Platform table (the platform owns balances and the record; the model classifies, retrieves, and drafts; humans own anything that commits the firm).
-4. Write a CONTEXT.md for each stage.
-5. Create config templates: response-standards.md (service levels, voice, the answer-vs-refer line, never-do list), investor-context.md (the working investor record and routing map), faq-bank.md (the compounding vetted-answer store). Populate from their answers.
-6. Set up _templates/ for the common response structures.
+4. Customize each stage's CONTEXT.md from the template's contract — adjust the existing contract, do not write a new one from scratch.
+5. Create config templates: response-standards.md (service levels, voice, the answer-vs-refer line, never-do list), investor-context.md (the working investor record and routing map), faq-bank.md (the compounding vetted-answer store). Populate from their answers. The firm's core voice already lives in `_shared-config/voice-and-tone.md` (from Run Setup) — reference it, do not redefine it; capture only this workflow's register overlay (how its deliverable differs from the firm's standard voice).
+6. Customize the four starter templates that ship in _templates/ (balance-confirmation, document-resend, performance-holding-statement, escalation-acknowledgment) to the firm's voice and escalation rules; add a template for any other inquiry type they handle repeatedly.
+7. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — above all the answer-vs-refer line and the authorized-contact roster in investor-context.md (an unconfirmed roster blocks safe authentication) — mark each `[NEEDS CONFIRMATION — IR lead/compliance]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+8. Demonstrate one stage end to end. Run the intake stage against a real or sample inquiry and check the output against its "Done Looks Like" line. If there is no live inquiry yet, use a sample inquiry as the stand-in run, and mark the workspace "stands up now, activates on the first inbound inquiry."
 
 ### Phase 3: Orientation
 

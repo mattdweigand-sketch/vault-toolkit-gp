@@ -1,4 +1,4 @@
-# Meridian Fund II — Q1 2026 Letter (DRAFT)
+# Meridian Fund II, Q1 2026 Letter (DRAFT)
 Report type: quarterly letter
 Fund: Meridian Real Estate Partners, Fund II   Period: Q1 2026
 Figures source: 01_data/output/data-pack.md
@@ -24,17 +24,17 @@ quarter.
 
 ## Portfolio Activity
 
-**The Adler (Denver) — realized.** We closed the sale on February 18 at $61 million, a 1.9x
+**The Adler (Denver), realized.** We closed the sale on February 18 at $61 million, a 1.9x
 gross multiple on a three-year hold. The business plan ran ahead of schedule and the bid
 reflected it. Net proceeds funded this quarter's distribution.
 
-**Cedar Crossing (Austin) — behind plan.** This is the quarter's miss. Lease-up is at 78%
+**Cedar Crossing (Austin), behind plan.** This is the quarter's miss. Lease-up is at 78%
 against an 88% plan, ten points behind underwriting. The shortfall is concession-driven
 demand softening in the submarket, not a physical or capital issue. The asset team has burned
 off the heaviest concessions and put a revised leasing plan in place. We expect to stabilize
 the asset in Q3 2026.
 
-**Brightwater (Raleigh) — on plan.** 94% occupied with renewal rents up 3.1%. No action needed.
+**Brightwater (Raleigh), on plan.** 94% occupied with renewal rents up 3.1%. No action needed.
 
 **The remaining two assets** are on plan at 91% aggregate occupancy.
 

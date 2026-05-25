@@ -10,6 +10,8 @@ When a firm needs to make a hold-vs-sell call on an owned asset and, when the an
 
 ### Phase 1: Diagnosis (ask before building)
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: What triggers an exit conversation?**
@@ -31,12 +33,14 @@ Ask the following questions one at a time. Wait for each answer before proceedin
 
 Based on the answers, build the workspace:
 
-1. Create the folder structure: four stages (position, decision, market, close), plus _config/ and _references/. If their process is simpler, do not force four — but keep the decision as a distinct gate.
-2. Write CLAUDE.md: what this is, current state, structure map, how to use. Frame it as the mirror of deal-pipeline (taking an asset out), and note the decision stage is a fork — hold exits, sell proceeds.
-3. Write CONTEXT.md: the stage map with the hold/sell fork, how stages connect, the handoff to fund administration (the platform and fund-admin team) and lp-reporting at close, and the AI-vs-Platform table.
-4. Write a CONTEXT.md for each stage.
+1. Start from the template: copy the matching architecture (`architectures/disposition/` before finalize, `_kit/architectures/disposition/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, and _config/ files are drafts to customize, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then adapt to their answers: four stages (position, decision, market, close), plus _config/ and _references/. If their process is simpler, do not force four — but keep the decision as a distinct gate.
+2. Write CLAUDE.md: what this is, current state, structure map, how to use. Frame it as the mirror of deal-pipeline (taking an asset out), and note the decision stage is a fork — hold exits, sell proceeds. Note in the workspace that its written deliverables (the IC memo / hold-sell case / asset review) should read the firm's voice from `_shared-config/voice-and-tone.md` so they sound like the firm.
+3. Write CONTEXT.md: the stage map with the hold/sell fork, how stages connect, the handoff to fund administration (the platform and fund-admin team) and lp-reporting at close (build it to the handoff-brief schema in Constraint 08), and the AI-vs-Platform table.
+4. Customize each stage's CONTEXT.md from the template's contract — adjust the existing contract, do not write a new one from scratch.
 5. Create config templates: asset-profile.md (carried from asset-management where possible), hold-sell-criteria.md (when the firm holds vs. sells, timing factors, the decision bar), disposition-standards.md (broker selection, package contents, approval gates, offer evaluation). Populate from their answers.
 6. Set up _references/ for prior dispositions, broker track records, and comps.
+7. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — especially the hold/sell decision bar and broker-selection standards, plus any compliance language or rosters — mark each `[NEEDS CONFIRMATION — <owner>]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+8. Demonstrate one stage end to end. Run the position stage against a real or sample asset and check the output against its "Done Looks Like" line. If no asset is under live consideration yet, use a sample asset as the stand-in run, and mark the workspace "stands up now, activates when an exit conversation starts."
 
 ### Phase 3: Orientation
 

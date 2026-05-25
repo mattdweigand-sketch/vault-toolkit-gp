@@ -17,7 +17,7 @@ Three-stage queue: Intake → Resolve → Respond. Designed for the inbound inve
 - Escalation path: at any stage, an inquiry that is not IR's to answer (redemption signal, complaint, legal/compliance/side-letter question) is flagged and routed to the right owner. It does not get a casual answer. The workflow's job then is to acknowledge and hand off, not to resolve.
 
 ## Reference Material (in _config/)
-- response-standards.md: Service-level expectations, the firm's response voice, and the line between what IR answers directly and what gets referred. Loaded in stages 02 and 03.
+- response-standards.md: Service-level expectations, the answer-vs-refer line, and the LP-email register on top of the firm's shared voice (`_shared-config/voice-and-tone.md`). Loaded in stages 02 and 03.
 - investor-context.md: The recurring investor record — entities, contacts, sensitivities, history. Loaded in stages 01 and 02.
 - faq-bank.md: Vetted answers to recurring questions. Loaded in stage 02 and added to in stage 03.
 

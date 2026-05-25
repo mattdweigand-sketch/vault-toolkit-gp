@@ -10,6 +10,8 @@ When a firm sees far more opportunities than it pursues and wants to apply its i
 
 ### Phase 1: Diagnosis (ask before building)
 
+> **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
+
 Ask the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: What deal flow do you see, and from where?**
@@ -31,12 +33,14 @@ Ask the following questions one at a time. Wait for each answer before proceedin
 
 Based on the answers, build the workspace:
 
-1. Create the folder structure. The default is three stages (capture, screen, decision), matched to their described process. Add _config/ for the box and criteria, and _references/ for the pass log and comps.
+1. Start from the template: copy the matching architecture (`architectures/deal-screening/` before finalize, `_kit/architectures/deal-screening/` after) as your starting point into `workspaces/<name>/` (the firm's live workspaces live there; rename <name> for the deal/fund/cycle) — its CLAUDE.md, CONTEXT.md, stage CONTEXT.md contracts, and _config/ files are drafts to customize, not blank files to write from scratch (copy the folder contents, not any .DS_Store). Then adapt the structure to their answers. The default is three stages (capture, screen, decision), matched to their described process; keep _config/ for the box and criteria, and _references/ for the pass log and comps.
 2. Write CLAUDE.md as the entry point: what this workspace is, current state, the structure map, and how to use it. Emphasize "kill fast" and that pursued deals hand off to the deal-pipeline workspace.
-3. Write CONTEXT.md as the routing file: the stage map, how stages connect, the pursue→deal-pipeline handoff and pass→_references log, and the AI-vs-Platform table.
-4. Write a CONTEXT.md for each stage from their process description.
+3. Write CONTEXT.md as the routing file: the stage map, how stages connect, the pursue→deal-pipeline handoff (build it to the handoff-brief schema in Constraint 08) and pass→_references log, and the AI-vs-Platform table.
+4. Customize each stage's CONTEXT.md from the template's contract, using their process description — adjust the existing contract, do not write a new one from scratch.
 5. Create config templates: investment-box.md, screening-criteria.md (deal-breakers + weighing rules + a pass-reason taxonomy), economics-assumptions.md (rough, dated). Populate from their answers.
 6. Set up _references/ with the pass log structure.
+7. Flag what you could not confirm. Populate _config/before-you-trust-this.md: list every value you could not get directly from the firm — especially compliance language, financial thresholds, and rosters — mark each `[NEEDS CONFIRMATION — <owner>]`, name who signs off, and never invent these silently. Use `[TBD]` for values simply awaiting real data. (Constraint 08.)
+8. Demonstrate one stage end to end. Run the first stage against a real or sample input and check the output against its "Done Looks Like" line and the worked _example/ where one ships. If there is no live input yet (a brand-new screening queue with no deal in hand), use a sample opportunity as the stand-in run, and mark the workspace "stands up now, activates on first inbound deal."
 
 ### Phase 3: Orientation
 

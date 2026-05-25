@@ -27,7 +27,7 @@ lp-reporting/
 
 ## How to Use
 1. Read CONTEXT.md to understand the full workflow.
-2. Populate _config/ with your investor voice file, format patterns, and compliance constraints (see Constraint 05 in the GP Operating Toolkit).
+2. Populate _config/: the firm voice comes from the shared `_shared-config/voice-and-tone.md` (this workspace's voice-and-tone.md just points to it and adds the letter register); fill format patterns and compliance constraints here (see Constraint 05 in the GP Operating Toolkit).
 3. Start in 01_data. Follow the stage contract. Drop output into 01_data/output/. If more than one version of a source export exists, confirm the authoritative one before pulling figures (Constraint 10).
 4. Move to 02_draft. The stage contract tells you which files from 01_data/output/ to use.
 5. Move to 03_distribution. Same pattern.

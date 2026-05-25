@@ -5,7 +5,7 @@ Write the LP communication from the verified data pack. The output is a quarterl
 
 ## Inputs
 - **01_data/output/data-pack.md**: The verified numbers. This is your only source for figures. Do not pull a number from anywhere else. Every figure in the letter traces to the pack.
-- **_config/voice-and-tone.md**: How the fund speaks to its investors. Read this first to calibrate tone.
+- **_config/voice-and-tone.md**: The letter's voice. It points to the firm's core voice in `_shared-config/voice-and-tone.md` (the shared firm voice — read that first to calibrate tone) and layers the letter-specific register on top. Structural patterns are in format-patterns.md.
 - **_config/format-patterns.md**: Structure for the report type. Read the section that matches what you are producing.
 - **_config/constraints.md**: The never-do list, including compliance and disclosure rules. Read this every time. It must contain, at minimum: required disclosures and footers that appear on every communication; forward-looking-statement language the firm uses; performance-reporting rules (gross vs. net, benchmark handling); and any phrasing compliance has flagged. If this file is thin, stop and have the user confirm its contents with compliance before drafting.
 
@@ -14,7 +14,7 @@ Every figure in the draft traces to `01_data/output/data-pack.md`, which traces 
 
 ## Process
 1. Read the data pack. Identify the narrative: what is the story of the period, supported by the numbers?
-2. Read voice/tone and format patterns for the report type.
+2. Read the firm voice (`_shared-config/voice-and-tone.md`, reached via `_config/voice-and-tone.md`) and the format patterns for the report type.
 3. Read constraints.
 4. Write the draft. Follow the structure for the report type. Lead with what matters to the investor. State the numbers plainly and let the data carry the message.
 5. Verify every figure against the data pack. A figure that is not in the pack does not belong in the letter.

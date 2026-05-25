@@ -1,5 +1,12 @@
 # Hold/Sell Criteria
 
+> **CONFIRM BEFORE LIVE USE.** The thresholds here (the return delta that justifies a sale, the
+> hold bias, the timing factors) shape a real exit decision worth millions. The onboarding agent
+> must not invent them. Any threshold the firm did not state stays flagged
+> `[NEEDS CONFIRMATION — managing partner / IC]` until the IC confirms it. This file frames the
+> decision; it is not firm policy until a named owner signs off. See Constraint 08; logged in
+> `_config/before-you-trust-this.md`.
+
 <!--
 ANNOTATION: The firm's framework for when to sell. The decision stage builds the
 hold and sell cases against this. Writing it down keeps exit decisions

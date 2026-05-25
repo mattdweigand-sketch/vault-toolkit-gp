@@ -1,5 +1,11 @@
 # Disposition Standards
 
+> **CONFIRM BEFORE LIVE USE.** Broker-selection bars, package contents, pricing guidance, and
+> approval gates are fiduciary decisions that must be defensible. The onboarding agent must not
+> invent them. Any standard the firm did not state stays flagged
+> `[NEEDS CONFIRMATION — managing partner / IC]` until confirmed. Not firm policy until a named
+> owner signs off. See Constraint 08; logged in `_config/before-you-trust-this.md`.
+
 <!--
 ANNOTATION: The standards the sale process runs to — how a broker is selected,
 what the disposition package must contain, and the approval gates before launch

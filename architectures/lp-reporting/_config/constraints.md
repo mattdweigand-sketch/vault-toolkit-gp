@@ -1,5 +1,12 @@
 # Constraints
 
+> **CONFIRM BEFORE LIVE USE.** The rules here govern compliance and disclosure language,
+> forward-looking statements, and performance characterization, every one a regulatory surface.
+> The onboarding agent must not invent or soften these. Any rule the firm did not supply stays
+> flagged `[NEEDS CONFIRMATION — counsel/compliance]` until counsel signs off. Nothing in this
+> file is firm policy until a named owner confirms it. See Constraint 08; logged in
+> `_config/before-you-trust-this.md`.
+
 <!--
 ANNOTATION: The never-do list. This loads in every writing and review stage.
 Keep it short. Each line is a testable rule that the model can check against

@@ -6,14 +6,14 @@ Review the drafted response for accuracy and tone, confirm the figures trace to 
 ## Inputs
 - **02_resolve/output/response-[investor]-[date].md**: The drafted response or escalation, with its source trace.
 - **01_intake/output/inquiry-[investor]-[date].md**: The original ticket, to confirm the response addresses what was actually asked.
-- **_config/response-standards.md**: The accuracy and voice bar to check against.
+- **_config/response-standards.md**: The accuracy and voice bar to check against (firm voice from the shared `_shared-config/voice-and-tone.md`, plus the LP-email register).
 - **_config/faq-bank.md**: Updated here when a new reusable answer emerges.
 
 ## Process
 1. Read the drafted response and the original ticket together. Does the response address the real need, not just the literal question?
 2. Confirm the figures. Each number must trace to its platform source at the stated as-of date. A figure with no trace does not go out.
 3. Confirm the requester is authorized to receive what is being sent. If intake left this unconfirmed, resolve it now.
-4. Check tone against response-standards.md. The voice should be the firm's, consistent with what other LPs receive.
+4. Check tone against response-standards.md. The voice should be the firm's (the shared `_shared-config/voice-and-tone.md`), at the LP-email register, consistent with what other LPs receive.
 5. For escalations: confirm the acknowledgment commits the firm to nothing and that the routing reached the named owner. Do not answer the substance here.
 6. Send through the appropriate channel (portal message, email reply).
 7. Log the inquiry and its resolution. If the answer is one that will recur, add it to the FAQ bank so the next person does not re-derive it.

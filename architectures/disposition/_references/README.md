@@ -16,4 +16,7 @@ This is L3 reference, shared across dispositions. Keeping it separate from
 _config means cross-deal knowledge (which broker is strong in a submarket, how a
 prior exit went) does not get tangled with one asset's specifics, and can be
 shared across every disposition the firm runs.
+
+Starting state: empty. These fill on first use. A stage contract that names a
+file here treats it as optional until you populate it — the absence is not an error.
 -->

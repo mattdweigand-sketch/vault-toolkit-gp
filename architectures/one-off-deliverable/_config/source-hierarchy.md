@@ -11,11 +11,16 @@ replacement for it. The inventory assigns the source IDs and the per-file
 detail; this file states the standing rules that rank them.
 -->
 
-## Book of record
-[Name the single authoritative source for numbers explicitly — the fund admin
- export, the GL, the executed term sheet, the audited statement. This is the
- source the model is never allowed to adjudicate against. If you cannot name
- one for a given figure, that ambiguity is the first thing to resolve.]
+## Book(s) of record
+[Name the authoritative source for each class of figure explicitly. Complex
+ deliverables legitimately have more than one: capital and waterfall figures
+ come from the investor-management / fund-administration platform, operating
+ actuals from the property-accounting system, deal mechanics from the executed
+ agreement. That is layered authority, not ambiguity — one book of record per
+ figure class, each authoritative in its own domain, none of which the model
+ may adjudicate against. What is NOT allowed is two sources claiming the SAME
+ figure: if you cannot name one book of record for a given number, that conflict
+ is the first thing to resolve.]
 
 ## Authority ladder
 - **Authoritative** — the book of record. [List the sources that qualify, once known.]
