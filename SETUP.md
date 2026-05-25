@@ -122,7 +122,11 @@ Run these steps in order. Each one names the file to read or run next.
    `CONTEXT.md`, the stage contracts, and the `_config` files from the interview answers. Copying
    never consumes the template, so a workflow type can be built any number of times. The reference
    architecture's own files show you the target shape. (Live workspaces live under `workspaces/`;
-   the firm's shared config lives in `_shared-config/`.)
+   the firm's shared config lives in `_shared-config/`.) **If the architecture ships an `_example/`,
+   it comes along in the copy — label it plainly so the client never mistakes it for their own data.**
+   In the workspace `CLAUDE.md` structure map, mark `_example/` as "a different sample firm's worked
+   cycle — read-only calibration reference, not your data." (It doubles as the stand-in run when the
+   workspace has no live input yet; see the Onboarding Complete checklist.)
 
 6. **Populate `_config` with real values.** Pull firm facts and the firm voice from
    `_shared-config/` rather than re-asking; fill the workspace's remaining `_config` files with
@@ -334,6 +338,39 @@ Workflow types still available to build:
 
 To use a workspace that already exists, open its folder and read its `CLAUDE.md` — that file is
 the map for that workspace. This file is the map for the firm.
+
+## A note on the `L0`–`L4` tags you'll see
+Files across the workspaces are tagged with a context layer, which just says *when* the file is
+meant to be read: **L0** the always-on map (`CLAUDE.md`), **L1** the workflow router (`CONTEXT.md`),
+**L2** a single step's instructions (a stage `CONTEXT.md`), **L3** reference the model follows
+(voice, rules, schemas), **L4** the working files it transforms (source data, drafts). You do not
+have to manage these; they are there so each step loads only what it needs.
+```
+
+### `_shared-config/setup-progress.md` template
+
+Write this file at the end of the first setup, and keep it in sync with the OS map on every later
+build (the two must always agree). Use exactly this structure so it stays consistent across sessions:
+
+```markdown
+# Setup Progress — {FIRM_NAME}
+
+Records what has been built from the GP Operating Toolkit. The existence of this file is the signal
+that first-time setup has already run. This file and the OS-map `CLAUDE.md` must always agree.
+
+## Firm
+- {FIRM_NAME} — {one-line strategy}. Orientation completed: {YYYY-MM-DD}.
+
+## Workspaces built
+| # | Workspace | Workflow type | Built | State |
+|---|---|---|---|---|
+| 1 | `workspaces/{name}/` | {workflow} | {YYYY-MM-DD} | {one-line state} |
+
+## Workflow types still available to build
+{comma-separated list of the eleven types not yet built}
+
+## Finalized
+{Omit until finalize runs. Then add one dated line per finalize/restore event.}
 ```
 
 After writing the OS map, tell the user setup is complete and that they can keep building any
@@ -372,7 +409,11 @@ Steps:
 3. Update the OS-map `CLAUDE.md`: change `{KIT_POINTER}` from `SETUP.md` to `_kit/SETUP.md`, and
    change **both occurrences** of `{KIT_LOCATION}` from `the repo root` to `` `_kit/` ``.
 4. Write `_kit/RESTORE.md` from the template below.
-5. Record the finalize in `_shared-config/setup-progress.md` (a dated "Finalized" line).
+5. Update `README.md`: anywhere it locates the toolkit folders (`architectures/`, `constraints/`,
+   `skill-starters/`) at the repo root, note they now live under `_kit/`. A standing parenthetical
+   is enough — the goal is that a reader following `README.md` after finalize looks in the right
+   place. (Restore reverses this.)
+6. Record the finalize in `_shared-config/setup-progress.md` (a dated "Finalized" line).
 
 After finalize, the firm keeps building exactly as before — "add a workflow" now routes to
 `_kit/SETUP.md`, and builders copy from `_kit/architectures/`. Nothing about ongoing building
@@ -391,6 +432,7 @@ This repository was finalized: the GP Operating Toolkit was moved from the repo 
 ## What finalize did
 - Moved `SETUP.md`, `architectures/`, `constraints/`, and `skill-starters/` into `_kit/`.
 - Updated `CLAUDE.md` (the OS map) so "add a workflow" points to `_kit/SETUP.md`.
+- Noted in `README.md` that the toolkit folders now live under `_kit/`.
 - Recorded the finalize in `_shared-config/setup-progress.md`.
 
 ## To restore the original root layout
@@ -398,8 +440,9 @@ This repository was finalized: the GP Operating Toolkit was moved from the repo 
    `mv _kit/SETUP.md _kit/architectures _kit/constraints _kit/skill-starters .`
 2. In `CLAUDE.md`, change the kit pointer from `_kit/SETUP.md` back to `SETUP.md`, and change
    both kit-location mentions from `_kit/` back to `the repo root`.
-3. Note the reversal in `_shared-config/setup-progress.md`.
-4. Delete the now-empty `_kit/` and this file.
+3. In `README.md`, remove the `_kit/` note so it again locates the toolkit at the repo root.
+4. Note the reversal in `_shared-config/setup-progress.md`.
+5. Delete the now-empty `_kit/` and this file.
 
 Nothing in `_shared-config/` or `workspaces/` moves during finalize or restore — your firm
 config and live workspaces stay at the root throughout. Building still works in both layouts;

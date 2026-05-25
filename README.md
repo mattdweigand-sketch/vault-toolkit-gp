@@ -16,6 +16,27 @@ Every constraint file includes tuning questions. These are not decorative. They 
 
 ## How to Use This
 
+### Before you start (if you have never used an AI agent)
+
+You need an AI coding assistant to run this — it does the work; this repository is its instruction
+manual. If you have never set one up, do these four things once, in order:
+
+1. **Get an AI agent.** Install [Claude Code](https://claude.com/claude-code), or open
+   [claude.ai/code](https://claude.ai/code) in your browser. (Cowork, Cursor, and VS Code with an AI
+   extension also work.) If your firm already has one, use that.
+2. **Download this repository.** On its web page, click the green **Code** button, then
+   **Download ZIP**. Save it somewhere you can find — your Desktop is fine — and unzip it. (If you
+   know Git, you can clone it instead. Same result.)
+3. **Open the unzipped folder in your AI agent.** In Claude Code, that means pointing it at this
+   folder. You do not need to open any individual file.
+4. **Type:** `Run setup` — and answer the questions it asks about your firm.
+
+That is the whole start. The agent reads its own instructions from here, walks you through a short
+set of questions about your firm, and builds your first workspace. You do not need to read or edit
+any file yourself. Everything below this box is background you can skip.
+
+---
+
 **To set up: open this folder with an AI agent, point it at `CLAUDE.md`, and say "Run setup."** That
 one instruction works in any tool. In Claude Code `CLAUDE.md` loads automatically, so "Run setup" is
 all you need; in other tools, make sure the agent has read `CLAUDE.md` first. `CLAUDE.md` is a thin
