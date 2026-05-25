@@ -37,7 +37,7 @@ Before you point AI at this workflow, decide what AI does, what a deterministic 
 | Step in this workflow | Layer | Who owns it |
 |---|---|---|
 | Deal and document data, security masters, the system of record | Platform / data foundation | Enterprise platform (fund admin and the software underneath it) |
-| Return math, model outputs, basis and yield calculations | Deterministic | Spreadsheet or the platform's calculation engine |
+| Return math, model outputs, basis and yield calculations | Deterministic | The platform's calculation engine or the underwriting model of record |
 | Synthesizing diligence findings, drafting the IC memo, surfacing risks across documents, market research, first-draft thesis | AI | You, on top of governed data |
 | The go/no-go and the IC approval | Human in the loop | Deal team and committee |
 

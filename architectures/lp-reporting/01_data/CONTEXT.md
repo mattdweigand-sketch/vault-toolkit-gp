@@ -1,7 +1,7 @@
 # Stage 01: Data
 
 ## Purpose
-Gather, organize, and verify the numbers for a reporting cycle. The output of this stage is a verified data pack that the draft stage can write from directly, without touching a spreadsheet.
+Gather, organize, and verify the numbers for a reporting cycle. The output of this stage is a verified data pack that the draft stage can write from directly, without re-deriving any numbers.
 
 ## Inputs
 - **Reporting brief**: What this cycle covers. Quarter, fund, report type. Provide this when you enter the stage.

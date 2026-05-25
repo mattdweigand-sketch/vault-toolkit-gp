@@ -23,7 +23,7 @@ Underwrite the deal in full and verify the thesis against real data. Work from t
 Write to: 02_diligence/output/
 
 Two files: an underwriting model summary and a diligence summary. The model itself is built in
-a spreadsheet or the platform's calculation engine, not by the model in prose. What you write
+the platform's calculation engine or the underwriting model of record, not by the model in prose. What you write
 here is the **summary of** that underwrite, structured so IC can read it. The figures trace to
 the model; AI summarizes, it does not compute. (See Constraint 09.)
 

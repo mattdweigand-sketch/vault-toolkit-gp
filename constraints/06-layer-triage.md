@@ -18,11 +18,11 @@ The pattern resolves the same way every time. People learn which problems the ne
 
 The framework for this has existed in various forms since the early days of computing. The layer model. Your operating system has layers: hardware, kernel, system services, applications. Each layer handles the problems it is best suited for. You do not ask the application layer to manage memory allocation. You do not ask the kernel to render a user interface.
 
-Herbert Simon described bounded rationality in 1955: decision-makers operate within the limits of the information and cognitive resources available to them. Applying this to tool selection: use the simplest tool that solves the problem. Complexity costs you in time, tokens, unpredictability, and maintenance. A VLOOKUP does not hallucinate.
+Herbert Simon described bounded rationality in 1955: decision-makers operate within the limits of the information and cognitive resources available to them. Applying this to tool selection: use the simplest tool that solves the problem. Complexity costs you in time, tokens, unpredictability, and maintenance. A database query does not hallucinate.
 
 **Traditional tools by layer:**
-- **Deterministic tasks (exact answers, calculations, formatting):** Spreadsheets (Excel, Google Sheets), calculators, mail merge, find-and-replace, VLOOKUP, pivot tables, simple scripts.
-- **Rule-based tasks (if/then logic, routing, categorization with known categories):** Zapier, Make, n8n, email filters, form builders, decision trees in a spreadsheet, basic database queries.
+- **Deterministic tasks (exact answers, calculations, formatting):** your platform's calculation engine, database queries, purpose-built software, deterministic scripts, find-and-replace. (A spreadsheet computes the same math, but it has no access controls, permissions, or audit trail: fine for a throwaway check, wrong for anything that matters.)
+- **Rule-based tasks (if/then logic, routing, categorization with known categories):** Zapier, Make, n8n, email filters, form builders, basic database queries.
 - **Judgment tasks (synthesis, fuzzy categorization, creative work, analysis of unstructured text):** This is where AI adds genuine value.
 
 ---
@@ -31,11 +31,11 @@ Herbert Simon described bounded rationality in 1955: decision-makers operate wit
 
 The tools that handle the non-AI layers are not exotic. You probably already use some of them.
 
-**Spreadsheets (Excel, Google Sheets)**
-Seriously underestimated. A spreadsheet with formulas is a deterministic program that never hallucinates, runs instantly, and costs nothing per execution. If your task boils down to "take data from column A, apply a rule, put the result in column B," a spreadsheet does this better than any model. This includes: unit conversions, tax calculations, inventory tracking, simple categorization by known criteria, scheduling math, budget projections.
+**Deterministic software and databases**
+For anything with one right answer (return math, reconciliations, categorization by known rules), use a tool that computes it deterministically: your platform's calculation engine, a database query, or purpose-built software. These never hallucinate, run instantly, and cost nothing per run. A spreadsheet can do the same math, but for a GP it is the wrong home for anything that matters: no access controls, no permissions, no audit trail, and one fat-fingered cell propagates silently. Keep deterministic work in systems with the controls and trail an auditor expects.
 
 **Zapier / Make / n8n (workflow automation)**
-If your task is "when X happens, do Y," this is a rule-based automation. Email arrives with attachment, save attachment to specific folder. Form submitted, create row in spreadsheet and send confirmation email. These are deterministic chains. They do not need judgment. Running them through an AI model adds latency, cost, and the possibility of error where there was none.
+If your task is "when X happens, do Y," this is a rule-based automation. Email arrives with attachment, save attachment to specific folder. Form submitted, write the record to your database and send a confirmation email. These are deterministic chains. They do not need judgment. Running them through an AI model adds latency, cost, and the possibility of error where there was none.
 
 **n8n specifically** (n8n.io, self-hosted option available) connects to hundreds of services and lets you build multi-step workflows with branching logic. It also has an MCP server, which means an AI agent can trigger n8n workflows when the task involves deterministic steps that the model should not handle itself.
 
@@ -51,7 +51,7 @@ Before you build an AI workflow, check if purpose-built software already handles
 
 The 60/30/10 framework provides the triage heuristic:
 
-**60% of what you are building should be traditional code, databases, or established tools.** This is the stable foundation. Spreadsheets, file systems, databases, deterministic scripts, purpose-built software. These layers are reliable, fast, auditable, and cheap to run. They do not drift, hallucinate, or require token budgets.
+**60% of what you are building should be traditional code, databases, or established tools.** This is the stable foundation. Databases, file systems, deterministic scripts, purpose-built software, your platform's calculation engine. These layers are reliable, fast, auditable, and cheap to run. They do not drift, hallucinate, or require token budgets.
 
 **30% should be rule-based logic.** If/then routing, automation workflows, templates with conditional sections, decision trees. This layer handles the "which path do we take" decisions that have clear criteria. Zapier, Make, n8n, email rules, form logic. These are more flexible than pure deterministic tools but still predictable.
 
@@ -71,7 +71,7 @@ For every task in your workflow, ask these questions in order:
 
 0. **Is this a system-of-record question?** Does a correct answer depend on authoritative, reconciled, current data, or on writing to a system you cannot afford to get wrong (capital accounts, NAV, the waterfall of record, LP entitlement)? If yes, this belongs on your enterprise platform. AI can read from that foundation; it should not be that foundation, and you should not rebuild it yourself. Stop here.
 
-1. **Is the answer deterministic?** Is there one right answer that can be calculated or looked up? If yes, use a spreadsheet, database, or existing tool. Stop here.
+1. **Is the answer deterministic?** Is there one right answer that can be calculated or looked up? If yes, use your platform, a database, or purpose-built software. Stop here.
 
 2. **Can it be expressed as an if/then rule?** If category is X, do Y. If amount exceeds threshold, flag for review. If yes, use an automation tool or a simple script. Stop here.
 
@@ -83,7 +83,7 @@ Most people reverse this order. They start with "can AI do this?" and the answer
 
 Coca-Cola exists because refrigeration exists. Coca-Cola is not a refrigeration company. They used the technology to do something else at a scale that was never possible before. The companies that won from refrigeration were not the ones that built better refrigerators. They were the ones that figured out what refrigeration made possible.
 
-Apply this to AI. The value is not in having AI. The value is in what AI makes possible for your firm, your deals, and your investor relationships. If you are spending your time optimizing the AI itself (building agents, fine-tuning prompts for tasks that should be spreadsheets or fund-admin reports, creating elaborate automations for simple problems), you are building refrigerators when you should be selling Coke.
+Apply this to AI. The value is not in having AI. The value is in what AI makes possible for your firm, your deals, and your investor relationships. If you are spending your time optimizing the AI itself (building agents, fine-tuning prompts for tasks that should be database queries or fund-admin reports, creating elaborate automations for simple problems), you are building refrigerators when you should be selling Coke.
 
 **How this changes your workspace design:**
 
@@ -96,7 +96,7 @@ A well-designed workspace has most of its stages on the bottom two layers. AI st
 ## Tuning Questions
 
 **1. Walk through your last five tasks. For each one, which layer should have handled it?**
-Be honest. If three of the five were lookups, calculations, or formatting tasks, you are over-indexing on AI. Move those to the appropriate layer. Your AI tasks will run faster and better once they are not competing with spreadsheet work for your attention and token budget.
+Be honest. If three of the five were lookups, calculations, or formatting tasks, you are over-indexing on AI. Move those to the appropriate layer. Your AI tasks will run faster and better once they are not competing with deterministic work for your attention and token budget.
 
 **2. What are you currently doing with AI that produces exact, consistent results every time?**
 If the answer is "nothing," that is expected. AI is probabilistic. But if you have tasks that need exact, consistent results, those tasks should not be on AI. Move them to a deterministic layer where exactness is guaranteed.
@@ -113,10 +113,10 @@ If your AI is drafting an LP letter off numbers you pasted from a 90-day-old exp
 
 | If this is your situation | Start here |
 |---|---|
-| AI gives inconsistent results on a task that should have one right answer | This is a deterministic task. Move it to a spreadsheet or database query. |
+| AI gives inconsistent results on a task that should have one right answer | This is a deterministic task. Move it to your platform, a database query, or purpose-built software. |
 | You built an AI workflow that just routes things based on simple criteria | This is a rule-based task. Move it to Zapier, Make, or n8n. |
 | You are using AI to reconcile data across fund admins or compute figures of record | This is a data-foundation job. It belongs on your enterprise platform, not in a prompt or a DIY build. See Constraint 09. |
 | Your AI output is fluent but the numbers are off | Your AI is reading stale or fragmented data. The fix is the foundation underneath it, not the model on top. |
 | Your AI costs are high relative to the value produced | You are probably running deterministic and rule-based tasks through AI. Audit your workflow with the diagnostic above. |
 | You do not know where to start with AI | Start with what you already do well. Map your current workflow. Identify the 10% that requires genuine judgment. Apply AI there first. |
-| You are building elaborate AI agents for tasks a spreadsheet handles | Stop. Use the spreadsheet. Redirect that effort to the tasks where AI genuinely helps. |
+| You are building elaborate AI agents for tasks a deterministic tool handles | Stop. Use the deterministic tool (your platform, a database, or purpose-built software). Redirect that effort to the tasks where AI genuinely helps. |
