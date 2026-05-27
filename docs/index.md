@@ -6,11 +6,11 @@ It helps teams decide what belongs to AI, what belongs to a system of record, an
 
 ## Start Here
 
-- [README](https://github.com/mattdweigand-sketch/vault-toolkit-gp/blob/main/README.md)
-- [Setup Engine](https://github.com/mattdweigand-sketch/vault-toolkit-gp/blob/main/SETUP.md)
-- [Artifact Trust Layer](https://github.com/mattdweigand-sketch/vault-toolkit-gp/blob/main/modules/artifact-trust-layer/README.md)
-- [Layer Triage](https://github.com/mattdweigand-sketch/vault-toolkit-gp/blob/main/constraints/06-layer-triage.md)
-- [Platform Boundary](https://github.com/mattdweigand-sketch/vault-toolkit-gp/blob/main/constraints/09-platform-boundary.md)
+- [README](https://github.com/mattdweigand-sketch/gp-workspce/blob/main/README.md)
+- [Setup Engine](https://github.com/mattdweigand-sketch/gp-workspce/blob/main/SETUP.md)
+- [Artifact Trust Layer](https://github.com/mattdweigand-sketch/gp-workspce/blob/main/modules/artifact-trust-layer/README.md)
+- [Layer Triage](https://github.com/mattdweigand-sketch/gp-workspce/blob/main/constraints/06-layer-triage.md)
+- [Platform Boundary](https://github.com/mattdweigand-sketch/gp-workspce/blob/main/constraints/09-platform-boundary.md)
 
 ## Core Concepts
 
