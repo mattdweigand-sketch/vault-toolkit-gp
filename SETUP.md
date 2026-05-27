@@ -29,8 +29,8 @@ four parts:
 - **constraints/** — ten reference files, each solving a specific problem GPs hit when
   working with AI. You load these selectively, matched to the workflow being built.
 - **modules/** — reusable Office Truth Layer contracts. They turn repeated constraints into
-  work units such as source provenance, verified fact packs, grounded drafts, decision challenge,
-  response posture, validated memory stores, and handoff briefs.
+  work units such as source provenance, verified fact packs, grounded drafts, artifact review,
+  decision challenge, response posture, validated memory stores, and handoff briefs.
 - **skill-starters/** — builder skills, one per architecture or variant. Each runs a diagnostic
   interview, then assembles a workspace from the answers. These do the actual building.
 
@@ -97,12 +97,12 @@ finalize and `_kit/modules/` after.
 | Workflow | Load these modules |
 |---|---|
 | `underwriting-backtest` | `validated-memory-store`, `handoff-brief` |
-| `ic-pressure-test` | `verified-fact-pack`, `decision-challenge`, `validated-memory-store`, `handoff-brief` |
-| `diligence-evidence-map` | `source-provenance`, `handoff-brief` |
-| `portfolio-intervention` | `verified-fact-pack`, `decision-challenge`, `response-posture`, `handoff-brief` |
-| `hold-sell-refi` | `verified-fact-pack`, `decision-challenge`, `grounded-draft`, `handoff-brief` |
-| `market-thesis-to-investment-box` | `source-provenance`, `grounded-draft`, `decision-challenge`, `handoff-brief` |
-| `lp-narrative-and-issue-prep` | `verified-fact-pack`, `grounded-draft`, `response-posture`, `handoff-brief` |
+| `ic-pressure-test` | `verified-fact-pack`, `decision-challenge`, `artifact-review`, `validated-memory-store`, `handoff-brief` |
+| `diligence-evidence-map` | `source-provenance`, `artifact-review`, `handoff-brief` |
+| `portfolio-intervention` | `verified-fact-pack`, `decision-challenge`, `response-posture`, `artifact-review`, `handoff-brief` |
+| `hold-sell-refi` | `verified-fact-pack`, `decision-challenge`, `grounded-draft`, `artifact-review`, `handoff-brief` |
+| `market-thesis-to-investment-box` | `source-provenance`, `grounded-draft`, `decision-challenge`, `artifact-review`, `handoff-brief` |
+| `lp-narrative-and-issue-prep` | `verified-fact-pack`, `grounded-draft`, `response-posture`, `artifact-review`, `handoff-brief` |
 | `firm-memory-loop` | `validated-memory-store`, `handoff-brief` |
 
 ## Run Setup Starts Here

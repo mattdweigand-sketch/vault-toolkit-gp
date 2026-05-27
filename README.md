@@ -2,7 +2,7 @@
 
 For private equity and commercial real estate GPs that want to build controlled AI workflows around the work their platforms do not already own.
 
-This toolkit helps a firm put AI in the judgment layer: IC pressure testing, diligence evidence, portfolio intervention, LP issue prep, market thesis, and firm memory. Its reusable module layer packages the Office Truth Layer patterns behind those workflows: source provenance, verified fact packs, grounded drafts, decision challenge, response posture, validated memory, and handoff briefs. It does not replace fund accounting, fund administration, investor portals, CRM, pipeline software, data rooms, dashboards, valuation systems, or approval controls.
+This toolkit helps a firm put AI in the judgment layer: IC pressure testing, diligence evidence, portfolio intervention, LP issue prep, market thesis, and firm memory. Its reusable module layer packages the Office Truth Layer patterns behind those workflows: source provenance, verified fact packs, grounded drafts, artifact review, decision challenge, response posture, validated memory, and handoff briefs. It does not replace fund accounting, fund administration, investor portals, CRM, pipeline software, data rooms, dashboards, valuation systems, or approval controls.
 
 The rule is simple: platform for the record, deterministic tools for the math, rules for routing, AI for judgment, and humans for approval.
 
@@ -82,6 +82,7 @@ The `modules/` folder turns repeated Trust Layer patterns into reusable contract
 - `source-provenance`
 - `verified-fact-pack`
 - `grounded-draft`
+- `artifact-review`
 - `decision-challenge`
 - `response-posture`
 - `validated-memory-store`

@@ -26,7 +26,7 @@ Copy `architectures/lp-narrative-and-issue-prep/` to `workspaces/<name>/`. Popul
 
 Load and name constraints: 06, 09, 01, 02, 05, 08.
 
-Load and name modules: `verified-fact-pack`, `grounded-draft`, `response-posture`, `handoff-brief`.
+Load and name modules: `verified-fact-pack`, `grounded-draft`, `response-posture`, `artifact-review`, `handoff-brief`.
 
 ### Phase 3: Orientation
 

@@ -24,6 +24,7 @@ diligence-evidence-map/
 
 ## Modules Used
 - `modules/source-provenance/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`
 
 ## Constraints That Apply

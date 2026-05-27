@@ -7,6 +7,7 @@ Three-stage workflow: Research -> Synthesis -> Box Update.
 - `modules/source-provenance/CONTRACT.md`
 - `modules/grounded-draft/CONTRACT.md`
 - `modules/decision-challenge/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`
 
 ## Stage Map

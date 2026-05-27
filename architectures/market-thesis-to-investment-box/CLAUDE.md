@@ -7,4 +7,5 @@ A workspace for turning market research into a sourcing and screening change. It
 - `modules/source-provenance/CONTRACT.md`
 - `modules/grounded-draft/CONTRACT.md`
 - `modules/decision-challenge/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`

@@ -7,6 +7,7 @@ Four-stage investor-communication workflow: Facts -> Narrative -> Questions -> P
 - `modules/verified-fact-pack/CONTRACT.md`: stage 01 fact pack and forbidden claims.
 - `modules/grounded-draft/CONTRACT.md`: stage 02 source-backed narrative.
 - `modules/response-posture/CONTRACT.md`: stage 04 answer, caveat, hold, escalate, or route posture.
+- `modules/artifact-review/CONTRACT.md`: skeptical review before LP-facing language is shared.
 - `modules/handoff-brief/CONTRACT.md`: recurring objection or issue handoff into firm memory.
 
 ## Stage Map

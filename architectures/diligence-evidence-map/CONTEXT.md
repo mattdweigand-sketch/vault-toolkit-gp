@@ -5,6 +5,7 @@ Three-stage source-provenance workflow: Inventory -> Authority -> Questions. It 
 
 ## Modules Used
 - `modules/source-provenance/CONTRACT.md`: shared method for inventory, duplicate log, conflict log, and missing context.
+- `modules/artifact-review/CONTRACT.md`: skeptical review for the evidence map or handoff brief before downstream reliance.
 - `modules/handoff-brief/CONTRACT.md`: shared output contract when diligence feeds IC pressure test or another workspace.
 
 ## Stage Map

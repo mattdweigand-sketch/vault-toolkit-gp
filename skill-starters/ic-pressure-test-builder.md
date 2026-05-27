@@ -26,7 +26,7 @@ Copy `architectures/ic-pressure-test/` to `workspaces/<name>/`. Customize `CLAUD
 
 Load and name constraints: 06, 09, 02, 08, 10.
 
-Load and name modules: `verified-fact-pack`, `decision-challenge`, `validated-memory-store`, `handoff-brief`.
+Load and name modules: `verified-fact-pack`, `decision-challenge`, `artifact-review`, `validated-memory-store`, `handoff-brief`.
 
 ### Phase 3: Orientation
 

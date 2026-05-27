@@ -9,4 +9,5 @@ Juniper Square or the investor platform owns LP records, figures, reporting, DDQ
 - `modules/verified-fact-pack/CONTRACT.md`
 - `modules/grounded-draft/CONTRACT.md`
 - `modules/response-posture/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`

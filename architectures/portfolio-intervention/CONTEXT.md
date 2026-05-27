@@ -7,6 +7,7 @@ Four-stage intervention loop: Signal -> Diagnosis -> Action Plan -> Follow-Up. I
 - `modules/verified-fact-pack/CONTRACT.md`
 - `modules/decision-challenge/CONTRACT.md`
 - `modules/response-posture/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`
 
 ## Stage Map

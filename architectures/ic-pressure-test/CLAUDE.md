@@ -26,6 +26,7 @@ ic-pressure-test/
 ## Modules Used
 - `modules/verified-fact-pack/CONTRACT.md`
 - `modules/decision-challenge/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/validated-memory-store/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`
 

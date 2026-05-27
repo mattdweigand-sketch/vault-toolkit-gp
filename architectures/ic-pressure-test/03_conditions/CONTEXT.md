@@ -5,6 +5,8 @@ Turn the challenge pack into IC-ready decision questions, approval conditions, a
 
 This stage implements the decision-condition output in `modules/decision-challenge/CONTRACT.md`.
 
+Before the questions and conditions are used in IC, run `modules/artifact-review/CONTRACT.md` and write `03_conditions/output/artifact_review_report.md`.
+
 ## Inputs
 - `02_challenge/output/challenge-[deal]-[date].md`.
 - `_config/ic-standards.md`.

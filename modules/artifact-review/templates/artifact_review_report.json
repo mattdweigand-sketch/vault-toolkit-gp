@@ -1,0 +1,17 @@
+{
+  "artifact_id": "[artifact-id]",
+  "created_at": "[YYYY-MM-DD]",
+  "issues": [
+    {
+      "issue_id": "R01",
+      "severity": "high",
+      "artifact_location": "[slide/sheet/section/cell]",
+      "description": "[issue]",
+      "source_ids": ["S01"],
+      "risk_type": "[unsupported_claim|stale_number|source_conflict|formula_risk|handoff_gap]",
+      "requires_human": true,
+      "recommended_owner": "[owner]",
+      "status": "open"
+    }
+  ]
+}

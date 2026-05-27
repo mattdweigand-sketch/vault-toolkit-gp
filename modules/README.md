@@ -11,6 +11,7 @@ Use constraints for principles. Use modules for repeated work units. Use archite
 | `source-provenance` | A source set must be inventoried, ranked, and checked before use. |
 | `verified-fact-pack` | A narrative or decision needs only platform-verified facts. |
 | `grounded-draft` | A serious artifact must be drafted from reviewed sources. |
+| `artifact-review` | A draft, deck, workbook, memo, or handoff must be checked before it travels. |
 | `decision-challenge` | A decision packet needs pressure testing before a human gate. |
 | `response-posture` | Sensitive external-facing issues need answer, hold, route, or escalate posture. |
 | `validated-memory-store` | Repeated judgment should become validated institutional memory. |

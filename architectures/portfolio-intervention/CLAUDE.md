@@ -26,6 +26,7 @@ portfolio-intervention/
 - `modules/verified-fact-pack/CONTRACT.md`
 - `modules/decision-challenge/CONTRACT.md`
 - `modules/response-posture/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`
 
 ## Constraints That Apply

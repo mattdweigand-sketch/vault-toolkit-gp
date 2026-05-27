@@ -6,6 +6,7 @@ Four-stage decision-support workflow: Memo Intake -> Challenge -> Conditions -> 
 ## Modules Used
 - `modules/verified-fact-pack/CONTRACT.md`: normalizes model outputs and evidence into usable facts.
 - `modules/decision-challenge/CONTRACT.md`: pressure-tests fragile assumptions, missing evidence, and conditions.
+- `modules/artifact-review/CONTRACT.md`: skeptical review for IC packets, question lists, and condition language.
 - `modules/validated-memory-store/CONTRACT.md`: captures validated lessons after IC.
 - `modules/handoff-brief/CONTRACT.md`: consumes diligence handoff briefs and emits downstream learning flags.
 

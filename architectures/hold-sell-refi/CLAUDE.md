@@ -9,4 +9,5 @@ This is not a valuation engine or disposition platform. The model and brokers ow
 - `modules/verified-fact-pack/CONTRACT.md`
 - `modules/decision-challenge/CONTRACT.md`
 - `modules/grounded-draft/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`

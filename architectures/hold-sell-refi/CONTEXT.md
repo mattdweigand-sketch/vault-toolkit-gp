@@ -7,6 +7,7 @@ Four-stage gated decision workflow: Position -> Alternatives -> Decision -> Hand
 - `modules/verified-fact-pack/CONTRACT.md`
 - `modules/decision-challenge/CONTRACT.md`
 - `modules/grounded-draft/CONTRACT.md`
+- `modules/artifact-review/CONTRACT.md`
 - `modules/handoff-brief/CONTRACT.md`
 
 ## Stage Map

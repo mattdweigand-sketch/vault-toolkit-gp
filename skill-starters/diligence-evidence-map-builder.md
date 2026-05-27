@@ -26,7 +26,7 @@ Copy `architectures/diligence-evidence-map/` to `workspaces/<name>/`. Populate `
 
 Load and name constraints: 06, 09, 10, 02, 08.
 
-Load and name modules: `source-provenance`, `handoff-brief`.
+Load and name modules: `source-provenance`, `artifact-review`, `handoff-brief`.
 
 ### Phase 3: Orientation
 
