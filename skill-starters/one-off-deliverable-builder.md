@@ -12,6 +12,8 @@ When someone hands you a folder of files of unknown age and authority and needs 
 
 > **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
 
+> **Learnings compound.** Before asking diagnostic questions, read `_shared-config/learnings.md`, but only `## General` and `## one-off-deliverable`. Apply reusable rules. Ignore task history.
+
 Ask the following questions one at a time. Wait for each answer.
 
 **Question 1: What is the deliverable?**

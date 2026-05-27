@@ -11,6 +11,9 @@ each workflow.
 - **`voice-and-tone.md`** — the firm's core written voice (the "direction" file from Constraint 05).
   Every writing workspace references this for the firm's voice, then adds its own register on top
   (a letter, an LP email, a thesis, and an IC memo differ in register, not in firm voice).
+- **`learnings.md`** — reusable corrections and preferences discovered while building or running
+  workflows. Builders read only `## General` plus their own workflow section, so feedback compounds
+  without bleeding into unrelated work.
 - **`setup-progress.md`** — created by Run Setup once the firm is onboarded: which workspaces have
   been built, when, and what is next. (Not present until the first setup runs.)
 

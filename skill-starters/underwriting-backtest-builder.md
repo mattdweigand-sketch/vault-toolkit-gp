@@ -12,6 +12,8 @@ When a firm wants its underwriting to compound — to systematically check, deal
 
 > **Firm facts are already captured.** Run Setup wrote the firm's name, asset classes, systems of record, team, and voice to `_shared-config/` (firm-profile.md and voice-and-tone.md). Read those first. Do NOT re-ask firm-level facts — confirm them if needed. Ask only the workflow-specific questions below. If `_shared-config/firm-profile.md` does not exist yet, the firm skipped orientation; capture the basics first, then continue.
 
+> **Learnings compound.** Before asking diagnostic questions, read `_shared-config/learnings.md`, but only `## General` and `## underwriting-backtest`. Apply reusable rules. Ignore task history.
+
 Ask the following questions one at a time. Wait for each answer before proceeding.
 
 **Question 1: How do you learn a deal has realized, and what triggers a backtest?**
