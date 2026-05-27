@@ -26,10 +26,10 @@ The distinction matters. Direction is "we sound confident and direct." Rules are
 ## Layer 2: Existing Skills and Tools
 
 **The three-file architecture is the implementation**
-For an investor voice, the tooling is not a product you buy. It is the three files described in Layer 3: voice and tone, format patterns, and constraints. That structure gives the model coordinates to aim for (how your fund sounds, how it handles bad news, what it never does) rather than prose to interpret. Build those three files once and every drafting task reads from them. This is more controllable and more auditable than any off-the-shelf voice skill, which matters when the output is going to an LP.
+For an organization's voice, the tooling is not a product you buy. It is the three files described in Layer 3: voice and tone, format patterns, and constraints. That structure gives the model coordinates to aim for (how your team sounds, how it handles bad news, what it never does) rather than prose to interpret. Build those three files once and every drafting task reads from them. This is more controllable and more auditable than any off-the-shelf voice skill, which matters when the output is going to a customer or the board.
 
 **Multi-dimensional profiling, if you want a starting point**
-Some general voice skills score tone on axes like formal/casual, direct/measured, plain/technical. Borrow the idea, not the product: pick the two or three axes that describe your fund's investor voice and write them into the voice-and-tone file. Coordinates beat adjectives.
+Some general voice skills score tone on axes like formal/casual, direct/measured, plain/technical. Borrow the idea, not the product: pick the two or three axes that describe your team's voice and write them into the voice-and-tone file. Coordinates beat adjectives.
 
 **blader/humanizer and forks** (see Constraint 01)
 Useful as a post-processing step, but they solve a different problem. The humanizer removes AI patterns. It does not add your voice. Use it after the voice system, not instead of it.
@@ -49,9 +49,9 @@ This is the directional layer. How you sound, how you teach, how you move throug
 
 Good voice/tone entries describe patterns, not rules:
 - "States the headline number in the first sentence. Does not warm up to it."
-- "Names the asset and the issue directly. A markdown gets named, not abstracted into 'headwinds.'"
-- "Explains a problem before the LP has to ask, and pairs it with the action being taken."
-- "Direct. Takes clear positions on the portfolio. Does not hedge with 'it could be argued that.'"
+- "Names the project and the issue directly. A missed target gets named, not abstracted into 'headwinds.'"
+- "Explains a problem before the reader has to ask, and pairs it with the action being taken."
+- "Direct. Takes clear positions on the roadmap. Does not hedge with 'it could be argued that.'"
 
 Bad voice/tone entries describe the model's behavior:
 - "Be engaging and authoritative." (Too vague. Every model's default.)
@@ -62,12 +62,12 @@ The voice/tone file should be short. 20-40 lines. If it is longer, you are proba
 
 **File 2: Format Patterns** (the structural file)
 
-How a quarterly LP letter differs from a capital call notice differs from an IC memo. One short paragraph per format.
+How a monthly board report differs from a customer release note differs from an internal decision memo. One short paragraph per format.
 
 Example entries:
-- "Quarterly letter: Lead with the period net IRR. One paragraph per asset with the key operating metric. Address the largest valuation movement head-on. Close with the next 90 days, not a summary."
-- "Capital call notice: State the amount and purpose in the first line. Reference the per-LP allocation schedule and the funding date. No narrative beyond the purpose. Unambiguous."
-- "IC memo: Thesis, underwrite, risks, recommendation, the specific approval requested. Lead with the recommendation. Risks are stated, not buried."
+- "Monthly report: Lead with the single headline metric. One paragraph per workstream with the key operating number. Address the largest miss head-on. Close with the next 30 days, not a summary."
+- "Renewal notice: State the amount and effective date in the first line. Reference the per-account schedule and the billing date. No narrative beyond the purpose. Unambiguous."
+- "Decision memo: Context, options, risks, recommendation, the specific approval requested. Lead with the recommendation. Risks are stated, not buried."
 
 This file scopes structural decisions. The model knows whether to produce a tight three-line notice or a multi-page memo based on which format you invoke.
 
@@ -101,9 +101,9 @@ More importantly, different tasks need different combinations. A quick edit pass
 
 **One shared voice file across workspaces:**
 
-When a firm runs more than one writing workspace — an LP letter, an LP email reply, a market thesis, an IC memo — the *voice-and-tone* file is the same firm in every one. Keep it in a single shared place (`_shared-config/voice-and-tone.md`) rather than copying it into each workspace, where it drifts cycle to cycle and workspace to workspace. Each workspace then references the shared voice and keeps only its **register** locally — which is exactly what the format-patterns file is for. A quarterly letter and a quick LP email differ in register, not in firm voice: the shared file holds the voice, the workspace's format file holds the register.
+When a team runs more than one writing workspace — a board report, a customer email reply, a strategy brief, a decision memo — the *voice-and-tone* file is the same team in every one. Keep it in a single shared place (`_shared-config/voice-and-tone.md`) rather than copying it into each workspace, where it drifts cycle to cycle and workspace to workspace. Each workspace then references the shared voice and keeps only its **register** locally — which is exactly what the format-patterns file is for. A monthly report and a quick customer email differ in register, not in team voice: the shared file holds the voice, the workspace's format file holds the register.
 
-This maps the three-file architecture onto the firm. Voice-and-tone is firm-wide and shared. Format patterns are per-workspace (the register overlay). Constraints can be shared firm-wide or kept local where compliance language is workspace-specific. Update the firm's voice once and every workspace that points at it stays consistent — the same fix as sharing the files across team members, one level up.
+This maps the three-file architecture onto the organization. Voice-and-tone is organization-wide and shared. Format patterns are per-workspace (the register overlay). Constraints can be shared organization-wide or kept local where compliance language is workspace-specific. Update the team's voice once and every workspace that points at it stays consistent — the same fix as sharing the files across team members, one level up.
 
 ---
 

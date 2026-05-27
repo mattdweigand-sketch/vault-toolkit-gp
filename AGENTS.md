@@ -1,34 +1,46 @@
-# GP Operating Toolkit
+# Kit
 
-Shared project instructions for the GP Operating Toolkit.
+`AGENTS.md` is canonical. Claude Code reads it through the thin `CLAUDE.md` wrapper.
 
-`AGENTS.md` is canonical. Codex and other AGENTS-aware tools read it directly. Claude Code reads
-it through the thin `CLAUDE.md` wrapper.
+Kit is a plain-file toolkit for building AI operating systems around the work platforms cannot own:
+firm judgment, source interpretation, decision framing, exception handling, stakeholder response
+prep, and institutional memory.
 
-## Setup Entry Point
+## Start Here
 
-When the user says **"Run setup"**, **"add a workflow"**, or **"build a <workflow>"**, read
-`SETUP.md` and follow **Run Setup Starts Here**.
+- For **Run setup**, **add a workflow**, or **build a <workflow>**, read `SETUP.md`.
+- Setup state lives in `_shared-config/setup-session.json` while work is in progress. If setup is
+  interrupted, resume from that file instead of restarting orientation.
+- Setup is complete only when `_shared-config/setup-progress.md` exists and this file has been
+  rewritten into the organization's operating map.
 
-Setup now uses `_shared-config/setup-session.json` as temporary resumable state. If setup is
-interrupted, resume from that file instead of restarting orientation. `_shared-config/setup-progress.md`
-remains the durable signal that setup completed.
+## Architecture Families
 
-## What This Repository Is
+Kit has six persistent architecture families:
 
-The GP Operating Toolkit helps private equity and commercial real estate firms put AI on the
-high-judgment layer above their platforms. It has five parts:
+- `messy-input-intake`
+- `evidence-review`
+- `decision-prep`
+- `exception-handling`
+- `stakeholder-response-prep`
+- `institutional-memory-loop`
 
-- `architectures/` - eight active reference workspaces, plus `_variants/` for archived lifecycle examples.
-- `constraints/` - ten reference files for safe AI workflow design.
-- `modules/` - reusable Office Truth Layer contracts used by the architectures.
-- `skill-starters/` - active workflow builders, plus `_variants/` for archived builders.
-- `workspaces/` - the live workflows created during setup.
+Do not recreate the old four-shape model. Route work by business job, then by platform boundary.
 
-Do not load the whole toolkit by default. `SETUP.md` routes you to the smallest files needed for
-the current setup step.
+## Reusable Modules
 
-## Finalize
+Modules are optional patterns that attach to architecture families. They do not create new
+architecture families.
 
-When the user explicitly asks to finalize, make this repo read purely as the firm's operating
-system by following the **Finalize** section in `SETUP.md`. Finalize is optional and reversible.
+- `modules/artifact-trust-layer/`: source packets, claim evidence maps, artifact specs, review
+  reports, workbook controls, and human approval notes for decks, workbooks, memos, diligence
+  artifacts, IC materials, LP narratives, board materials, and one-off deliverables.
+
+## Guardrails
+
+- Do not run finalize unless the user explicitly asks.
+- Do not move toolkit folders into or out of `_kit/` without confirmation.
+- Do not delete, overwrite, or reset live `workspaces/` or `_shared-config/` content.
+- Do not write to external systems or send stakeholder-facing output without human review.
+- If a platform can own the record, workflow state, entitlement, calculation, or audit trail, do
+  not make it a toolkit architecture.

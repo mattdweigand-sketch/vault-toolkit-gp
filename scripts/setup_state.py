@@ -1,236 +1,265 @@
 #!/usr/bin/env python3
-"""Small setup-state helper for the GP Operating Toolkit."""
+"""Small setup state helper for Kit."""
 
-from argparse import ArgumentParser
-from contextlib import contextmanager
-from datetime import datetime, timezone
-import fcntl
+import argparse
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 import re
 
 
-WORKFLOWS = [
-    "diligence-evidence-map",
-    "firm-memory-loop",
-    "hold-sell-refi",
-    "ic-pressure-test",
-    "lp-narrative-and-issue-prep",
-    "market-thesis-to-investment-box",
-    "portfolio-intervention",
-    "underwriting-backtest",
-]
+ROOT = Path(__file__).resolve().parents[1]
+SHARED = ROOT / "_shared-config"
+SESSION = SHARED / "setup-session.json"
+PROGRESS = SHARED / "setup-progress.md"
+AGENTS = ROOT / "AGENTS.md"
 
 
-def repo_root() -> Path:
-    return Path(__file__).resolve().parents[1]
+def toolkit_dir():
+    if (ROOT / "SETUP.md").is_file():
+        return ROOT
+    if (ROOT / "_kit" / "SETUP.md").is_file():
+        return ROOT / "_kit"
+    return ROOT
 
 
-def now_iso() -> str:
-    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+TOOLKIT = toolkit_dir()
+SETUP = TOOLKIT / "SETUP.md"
 
 
-def shared_dir(root: Path) -> Path:
-    return root / "_shared-config"
+SESSION_TEMPLATE = {
+    "current_phase": "organization_orientation",
+    "current_step": "start",
+    "organization_orientation": {},
+    "value_triage": {},
+    "selected_workflow": None,
+    "current_question": None,
+    "answers": {},
+    "open_confirmations": [],
+    "updated_at": None,
+}
 
 
-def session_path(root: Path) -> Path:
-    return shared_dir(root) / "setup-session.json"
+def now():
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
-def session_lock_path(root: Path) -> Path:
-    return shared_dir(root) / "setup-session.lock"
-
-
-def progress_path(root: Path) -> Path:
-    return shared_dir(root) / "setup-progress.md"
-
-
-def firm_profile_path(root: Path) -> Path:
-    return shared_dir(root) / "firm-profile.md"
-
-
-def agents_path(root: Path) -> Path:
-    return root / "AGENTS.md"
-
-
-def setup_path(root: Path) -> Path:
-    return toolkit_dir(root) / "SETUP.md"
-
-
-def toolkit_dir(root: Path) -> Path:
-    if (root / "SETUP.md").is_file():
-        return root
-    if (root / "_kit" / "SETUP.md").is_file():
-        return root / "_kit"
-    return root
-
-
-def default_session() -> dict:
-    return {
-        "version": 1,
-        "current_phase": "orientation",
-        "current_step": "firm_orientation",
-        "firm_orientation": {},
-        "value_triage": {},
-        "selected_workflow": None,
-        "current_question": None,
-        "answers": {},
-        "open_confirmations": [],
-        "created_at": now_iso(),
-        "updated_at": now_iso(),
-    }
-
-
-def read_text(path: Path) -> str:
-    if not path.is_file():
+def read_text(path):
+    if not path.exists():
         return ""
     return path.read_text(encoding="utf-8")
 
 
-def read_json(path: Path):
-    if not path.is_file():
-        return None
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(path: Path, payload: dict) -> None:
+def write_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    data["updated_at"] = now()
+    path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-@contextmanager
-def locked_session(root: Path):
-    path = session_lock_path(root)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as lock_file:
-        fcntl.flock(lock_file, fcntl.LOCK_EX)
-        try:
-            yield
-        finally:
-            fcntl.flock(lock_file, fcntl.LOCK_UN)
+def load_session():
+    if not SESSION.exists():
+        return dict(SESSION_TEMPLATE)
+    try:
+        data = json.loads(SESSION.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        data = {}
+    merged = dict(SESSION_TEMPLATE)
+    merged.update(data)
+    return merged
 
 
-def firm_profile_has_placeholders(root: Path) -> bool:
-    text = read_text(firm_profile_path(root))
-    return bool(re.search(r"\[[^\]]+\]", text))
+def profile_paths():
+    return [SHARED / "org-profile.md"]
 
 
-def ag_bootstrap_is_stale(root: Path) -> bool:
-    text = read_text(agents_path(root))
-    return "## Where to go from here" in text and "setup-progress.md" in text
+def placeholder_hits():
+    hits = []
+    pattern = re.compile(r"\[[^\]\n]+\]")
+    for path in profile_paths():
+        if not path.exists():
+            continue
+        text = read_text(path)
+        matches = sorted(set(pattern.findall(text)))
+        if matches:
+            hits.append({"path": rel(path), "placeholders": matches})
+    return hits
 
 
-def firm_orientation_captured(session) -> bool:
-    if not session:
-        return False
-    orientation = session.get("firm_orientation")
-    return isinstance(orientation, dict) and bool(orientation)
+def has_profile_placeholders():
+    return bool(placeholder_hits())
 
 
-def builder_questions_complete(session) -> bool:
-    if not session:
-        return False
-    answers = session.get("answers")
-    return isinstance(answers, dict) and answers.get("builder_questions_complete") is True
+def is_bootstrap_agents():
+    text = read_text(AGENTS)
+    return "# Kit" in text and "What this project is" in text and "Run setup" in text
 
 
-def setup_status(root: Path) -> dict:
-    session = read_json(session_path(root))
-    progress_exists = progress_path(root).is_file()
-    stale_bootstrap = ag_bootstrap_is_stale(root)
-    placeholders = firm_profile_has_placeholders(root)
-
-    if progress_exists and not stale_bootstrap:
-        state = "complete"
-    elif (
-        session
-        and not progress_exists
-        and firm_orientation_captured(session)
-        and session.get("selected_workflow")
-        and not builder_questions_complete(session)
-    ):
-        state = "ready_to_build"
-    elif session and not progress_exists:
-        state = "in_progress"
-    elif not progress_exists and not session and placeholders:
-        state = "not_started"
-    else:
-        state = "in_progress"
-
-    return {
-        "status": state,
-        "setup_progress_exists": progress_exists,
-        "setup_session_exists": session is not None,
-        "firm_profile_has_placeholders": placeholders,
-        "agents_bootstrap_is_stale": stale_bootstrap,
-        "session_path": str(session_path(root)),
-    }
+def session_has_orientation(session):
+    orientation = session.get("organization_orientation") or {}
+    return any(str(value).strip() for value in orientation.values())
 
 
-def table_missing_items(text: str, items) -> list:
+def session_has_selected_workflow(session):
+    return bool(session.get("selected_workflow"))
+
+
+def builder_questions_complete(session):
+    answers = session.get("answers") or {}
+    return bool(answers.get("builder_questions_complete"))
+
+
+def status_value():
+    session = load_session() if SESSION.exists() else {}
+    if PROGRESS.exists() and not is_bootstrap_agents():
+        return "complete"
+    if SESSION.exists():
+        if (
+            session_has_orientation(session)
+            and session_has_selected_workflow(session)
+            and not builder_questions_complete(session)
+        ):
+            return "ready_to_build"
+        return "in_progress"
+    if not PROGRESS.exists() and not SESSION.exists() and has_profile_placeholders():
+        return "not_started"
+    if PROGRESS.exists():
+        return "in_progress"
+    return "not_started"
+
+
+def parse_registry_rows():
+    text = read_text(SETUP)
+    match = re.search(
+        r"## Workflow Registry\n(?P<body>.*?)(?:\n## |\Z)",
+        text,
+        flags=re.S,
+    )
+    if not match:
+        return []
+    rows = []
+    for line in match.group("body").splitlines():
+        line = line.strip()
+        if not line.startswith("|") or "---" in line or "Business job" in line:
+            continue
+        cells = [cell.strip().strip("`") for cell in line.strip("|").split("|")]
+        if len(cells) >= 3:
+            rows.append(
+                {
+                    "business_job": cells[0],
+                    "architecture": cells[1],
+                    "builder": cells[2],
+                }
+            )
+    return rows
+
+
+def constraint_numbers_from_setup():
+    text = read_text(SETUP)
+    nums = set(re.findall(r"(?:^|[\s+(])([0-9]{2}) \(", text, flags=re.M))
+    nums.update(re.findall(r"\b([0-9]{2})-", "\n".join(p.name for p in (TOOLKIT / "constraints").glob("*.md"))))
+    return sorted(nums)
+
+
+def registry_report():
+    rows = parse_registry_rows()
     missing = []
-    for item in items:
-        if item not in text:
-            missing.append(item)
-    return missing
-
-
-def doctor(root: Path) -> dict:
-    kit = toolkit_dir(root)
-    architectures = sorted(
-        path.name
-        for path in (kit / "architectures").iterdir()
-        if path.is_dir() and path.name != "_variants"
-    ) if (kit / "architectures").is_dir() else []
-    builders = sorted(
-        path.name.removesuffix("-builder.md")
-        for path in (kit / "skill-starters").glob("*-builder.md")
-    ) if (kit / "skill-starters").is_dir() else []
-    constraints = sorted(
-        path.name for path in (kit / "constraints").glob("*.md")
-    ) if (kit / "constraints").is_dir() else []
-    setup_text = read_text(setup_path(root))
-    readme_text = read_text(root / "README.md")
-
-    expected = set(WORKFLOWS)
-    architecture_set = set(architectures)
-    builder_set = set(builders)
-    workspaces_dir = root / "workspaces"
-    live_workspaces = [
-        path for path in workspaces_dir.iterdir() if path.is_dir()
-    ] if workspaces_dir.is_dir() else []
-
+    for row in rows:
+        arch = row["architecture"]
+        builder = row["builder"]
+        if arch != "none" and not (TOOLKIT / "architectures" / arch).exists():
+            missing.append({"business_job": row["business_job"], "missing": "architecture", "value": arch})
+        if builder and not (TOOLKIT / builder).exists():
+            missing.append({"business_job": row["business_job"], "missing": "builder", "value": builder})
+    constraint_files = sorted(p.name for p in (TOOLKIT / "constraints").glob("*.md"))
     return {
-        **setup_status(root),
-        "counts": {
-            "architectures": len(architectures),
-            "builders": len(builders),
-            "constraints": len(constraints),
-        },
-        "registry": {
-            "architectures_missing": sorted(expected - architecture_set),
-            "architectures_extra": sorted(architecture_set - expected),
-            "builders_missing": sorted(expected - builder_set),
-            "builders_extra": sorted(builder_set - expected),
-            "setup_table_missing": table_missing_items(setup_text, WORKFLOWS),
-            "readme_missing": table_missing_items(readme_text, WORKFLOWS),
-        },
-        "open_items": [
-            item for item, open_item in [
-                ("setup-progress.md missing", not progress_path(root).is_file()),
-                ("workspaces directory missing", not workspaces_dir.is_dir()),
-                ("workspaces directory has no workspaces", workspaces_dir.is_dir() and not live_workspaces),
-                ("firm-profile.md contains placeholders", firm_profile_has_placeholders(root)),
-                ("AGENTS.md still has bootstrap text", ag_bootstrap_is_stale(root)),
-            ] if open_item
-        ],
+        "registry_rows": len(rows),
+        "architecture_rows": sum(1 for row in rows if row.get("architecture")),
+        "builder_rows": sum(1 for row in rows if row.get("builder")),
+        "constraint_files": len(constraint_files),
+        "constraint_numbers": constraint_numbers_from_setup(),
+        "missing_registry_references": missing,
     }
 
 
-def set_dotted(payload: dict, dotted: str, value) -> None:
-    target = payload
-    parts = dotted.split(".")
+def doctor_report():
+    checks = {
+        "status": status_value(),
+        "placeholders": placeholder_hits(),
+        "setup_progress_exists": PROGRESS.exists(),
+        "workspaces_exists": (ROOT / "workspaces").exists(),
+        "bootstrap_agents": is_bootstrap_agents(),
+        "registry": registry_report(),
+    }
+    checks["issues"] = []
+    if checks["placeholders"]:
+        checks["issues"].append("placeholders_detected")
+    if not checks["setup_progress_exists"]:
+        checks["issues"].append("setup_progress_missing")
+    if not checks["workspaces_exists"]:
+        checks["issues"].append("workspaces_missing")
+    if checks["bootstrap_agents"]:
+        checks["issues"].append("bootstrap_agents_map")
+    if checks["registry"]["missing_registry_references"]:
+        checks["issues"].append("registry_mismatch")
+    return checks
+
+
+def rel(path):
+    return str(path.relative_to(ROOT))
+
+
+def text_status(data):
+    return data["status"]
+
+
+def text_doctor(data):
+    lines = [f"status: {data['status']}"]
+    if data["issues"]:
+        lines.append("issues: " + ", ".join(data["issues"]))
+    else:
+        lines.append("issues: none")
+    registry = data["registry"]
+    lines.append(
+        "registry: "
+        f"{registry['registry_rows']} workflows, "
+        f"{registry['builder_rows']} builders, "
+        f"{registry['constraint_files']} constraints"
+    )
+    return "\n".join(lines)
+
+
+def emit(data, as_json, command):
+    if as_json:
+        print(json.dumps(data, indent=2, sort_keys=True))
+    elif command == "doctor":
+        print(text_doctor(data))
+    elif command == "status":
+        print(text_status(data))
+    else:
+        print("ok")
+
+
+def command_status(args):
+    return {"status": status_value()}
+
+
+def command_doctor(args):
+    return doctor_report()
+
+
+def command_init_session(args):
+    data = load_session()
+    if args.phase and not data.get("current_phase"):
+        data["current_phase"] = args.phase
+    elif args.phase:
+        data["current_phase"] = data.get("current_phase") or args.phase
+    write_json(SESSION, data)
+    return {"ok": True, "session": rel(SESSION), "status": status_value()}
+
+
+def set_dotted(data, key, value):
+    parts = key.split(".")
+    target = data
     for part in parts[:-1]:
         current = target.get(part)
         if not isinstance(current, dict):
@@ -240,99 +269,86 @@ def set_dotted(payload: dict, dotted: str, value) -> None:
     target[parts[-1]] = value
 
 
-def parse_value(raw: str):
-    try:
-        return json.loads(raw)
-    except json.JSONDecodeError:
-        return raw
+def command_record(args):
+    data = load_session()
+    if args.phase:
+        data["current_phase"] = args.phase
+    if args.step:
+        data["current_step"] = args.step
+    if args.workflow:
+        data["selected_workflow"] = args.workflow
+    if args.question:
+        data["current_question"] = args.question
+    for key_value in args.set or []:
+        key, value = key_value
+        set_dotted(data, key, value)
+    for key_value in args.answer or []:
+        key, value = key_value
+        data.setdefault("answers", {})[key] = value
+    for confirmation in args.confirmation or []:
+        if confirmation not in data.setdefault("open_confirmations", []):
+            data["open_confirmations"].append(confirmation)
+    write_json(SESSION, data)
+    return {"ok": True, "session": rel(SESSION), "status": status_value()}
 
 
-def init_session(root: Path) -> dict:
-    with locked_session(root):
-        path = session_path(root)
-        existing = read_json(path)
-        if existing:
-            existing["updated_at"] = now_iso()
-            write_json(path, existing)
-            return existing
-        payload = default_session()
-        write_json(path, payload)
-        return payload
+def command_clear_session(args):
+    if not SESSION.exists():
+        return {"ok": True, "removed": False, "status": status_value()}
+    if not (PROGRESS.exists() or args.restart):
+        return {
+            "ok": False,
+            "removed": False,
+            "error": "Refusing to clear setup-session.json before setup completes unless --restart is passed.",
+            "status": status_value(),
+        }
+    SESSION.unlink()
+    return {"ok": True, "removed": True, "status": status_value()}
 
 
-def record(root: Path, field: str, value: str) -> dict:
-    with locked_session(root):
-        payload = read_json(session_path(root)) or default_session()
-        set_dotted(payload, field, parse_value(value))
-        payload["updated_at"] = now_iso()
-        write_json(session_path(root), payload)
-        return payload
+def build_parser():
+    parser = argparse.ArgumentParser(description="Kit setup state helper")
+    sub = parser.add_subparsers(dest="command", required=True)
 
+    for name in ("status", "doctor"):
+        cmd = sub.add_parser(name)
+        cmd.add_argument("--json", action="store_true")
 
-def clear_session(root: Path) -> dict:
-    with locked_session(root):
-        path = session_path(root)
-        removed = path.is_file()
-        if removed:
-            path.unlink()
-        return {"removed": removed, "session_path": str(path)}
+    init = sub.add_parser("init-session")
+    init.add_argument("--json", action="store_true")
+    init.add_argument("--phase", default="organization_orientation")
 
+    record = sub.add_parser("record")
+    record.add_argument("--json", action="store_true")
+    record.add_argument("--phase")
+    record.add_argument("--step")
+    record.add_argument("--workflow")
+    record.add_argument("--question")
+    record.add_argument("--set", nargs=2, action="append", metavar=("KEY", "VALUE"))
+    record.add_argument("--answer", nargs=2, action="append", metavar=("KEY", "VALUE"))
+    record.add_argument("--confirmation", action="append")
 
-def emit(payload: dict, as_json: bool) -> None:
-    if as_json:
-        print(json.dumps(payload, indent=2))
-        return
-
-    if "status" in payload:
-        print(f"status: {payload['status']}")
-    if "open_items" in payload:
-        items = payload["open_items"]
-        print("open_items: " + (", ".join(items) if items else "none"))
-    if "counts" in payload:
-        counts = payload["counts"]
-        print(
-            "counts: "
-            f"{counts['architectures']} architectures, "
-            f"{counts['builders']} builders, "
-            f"{counts['constraints']} constraints"
-        )
-    if "session_path" in payload:
-        print(f"session: {payload['session_path']}")
-    if "removed" in payload:
-        print(f"removed: {payload['removed']}")
-
-
-def build_parser() -> ArgumentParser:
-    parser = ArgumentParser(description="GP Toolkit setup state helper")
-    subparsers = parser.add_subparsers(dest="command", required=True)
-
-    for command in ("status", "doctor", "init-session", "clear-session"):
-        sub = subparsers.add_parser(command)
-        sub.add_argument("--json", action="store_true")
-
-    record_parser = subparsers.add_parser("record")
-    record_parser.add_argument("--field", required=True)
-    record_parser.add_argument("--value", required=True)
-    record_parser.add_argument("--json", action="store_true")
-
+    clear = sub.add_parser("clear-session")
+    clear.add_argument("--json", action="store_true")
+    clear.add_argument("--restart", action="store_true")
     return parser
 
 
-def main() -> int:
-    args = build_parser().parse_args()
-    root = repo_root()
+def main():
+    parser = build_parser()
+    args = parser.parse_args()
+    commands = {
+        "status": command_status,
+        "doctor": command_doctor,
+        "init-session": command_init_session,
+        "record": command_record,
+        "clear-session": command_clear_session,
+    }
+    data = commands[args.command](args)
+    emit(data, args.json, args.command)
+    if data.get("ok") is False:
+        raise SystemExit(1)
 
-    if args.command == "status":
-        emit(setup_status(root), args.json)
-    elif args.command == "doctor":
-        emit(doctor(root), args.json)
-    elif args.command == "init-session":
-        emit(init_session(root), args.json)
-    elif args.command == "record":
-        emit(record(root, args.field, args.value), args.json)
-    elif args.command == "clear-session":
-        emit(clear_session(root), args.json)
-    return 0
 
-
-raise SystemExit(main())
+if __name__ == "__main__":
+    main()

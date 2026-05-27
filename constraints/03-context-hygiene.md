@@ -28,7 +28,7 @@ The Unix philosophy applies here too. Doug McIlroy (1978) described it: write pr
 ## Layer 2: Existing Skills and Tools
 
 **Claude Projects with scoped knowledge sources**
-If you are working in Claude Projects, the knowledge sources you attach scope what the model sees. Attach only the sources relevant to the project. If you have fund terms, a deal model, and a submarket study, but the task is drafting a capital call notice, you need the fund terms and the call schedule. The submarket study can stay out until you need it. Fewer sources means less noise.
+If you are working in Claude Projects, the knowledge sources you attach scope what the model sees. Attach only the sources relevant to the project. If you have a contract, a pricing model, and a market study, but the task is drafting a renewal notice, you need the contract terms and the renewal schedule. The market study can stay out until you need it. Fewer sources means less noise.
 
 **mem0 MCP server** (github.com/mem0ai/mem0)
 A persistent memory layer that stores and retrieves contextual data, facts, and relationships across sessions. Instead of pasting everything into every conversation, mem0 maintains a structured memory that the model can query. This keeps the active context window lean while making historical context available on demand.
@@ -70,7 +70,7 @@ L4 is the product. Output from previous stages, user-provided source material, a
 
 2. **Remove before you add.** Before pasting new context into a conversation, ask whether any of the existing context is no longer relevant. Active context management means constantly removing and putting back in from the CLAUDE.md as the task changes. Your context window is not an archive. It is a workbench. Clear it between tasks.
 
-3. **Separate reference from source.** If you have the fund's voice guide and a data pack, and the task is to write a quarterly letter from the data pack in the fund's voice, make sure the model knows which is which. Label them. "REFERENCE (do not transform, use as constraints):" and "SOURCE (transform this into the output):" are ugly but effective headers.
+3. **Separate reference from source.** If you have the team's voice guide and a data pack, and the task is to write a monthly report from the data pack in the team's voice, make sure the model knows which is which. Label them. "REFERENCE (do not transform, use as constraints):" and "SOURCE (transform this into the output):" are ugly but effective headers.
 
 4. **Front-load the important stuff.** In practice, models tend to use information at the beginning and end of a long context more reliably than information buried in the middle. This is an observed tendency, not a hard rule, and it varies by model. Put your most important constraints and instructions at the beginning. Put your source material after that. If you must include a lot of context, put a brief summary of key constraints at the end as a reminder.
 

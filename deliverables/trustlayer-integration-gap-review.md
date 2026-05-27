@@ -19,39 +19,43 @@ Relevant TrustLayer patterns:
 - source packet, evidence map, and review report schemas
 
 ## Gap Found
-The GP toolkit already had source provenance, verified fact packs, grounded drafts, decision challenge, response posture, validated memory, and handoff briefs.
+The older toolkit had source provenance, verified fact packs, grounded drafts, decision challenge, response posture, validated memory, and handoff briefs.
 
-The missing integration point was TrustLayer's final skeptical review pass: the artifact can look polished but still carry unsupported claims, stale numbers, untraceable charts, formula risk, or stripped-out open confirmations.
+The missing integration point was a unified artifact trust layer that carries TrustLayer's full sequence: source packet, artifact spec, claim evidence map, skeptical review, and human approval.
 
 ## Change Applied
-Added:
+Integrated through the canonical module:
 
 ```text
-modules/artifact-review/
+modules/artifact-trust-layer/
 ```
 
 The module defines:
-- skeptical review purpose,
+- source packet rules,
+- artifact boundary rules,
+- claim evidence maps,
+- artifact specs,
+- workbook/deck/document control maps,
+- hostile review prompts,
 - inputs,
 - process,
 - outputs,
 - severity levels,
-- issue ownership,
-- human-decision flag,
-- markdown and JSON review-report templates,
-- compact example.
+- human approval rules,
+- workspace output conventions,
+- examples.
 
 ## Wiring Applied
-Added `artifact-review` to setup routing and workflow docs for workflows that produce polished, decision-facing, or downstream artifacts:
+The active Kit now has six architecture families:
 
-- `diligence-evidence-map`
-- `lp-narrative-and-issue-prep`
-- `ic-pressure-test`
-- `hold-sell-refi`
-- `market-thesis-to-investment-box`
-- `portfolio-intervention`
+- `messy-input-intake`
+- `evidence-review`
+- `decision-prep`
+- `exception-handling`
+- `stakeholder-response-prep`
+- `institutional-memory-loop`
 
-Builders now load and name `artifact-review` for those workflows.
+Builders attach `modules/artifact-trust-layer/` when a workflow produces or reviews decks, workbooks, memos, reports, IC materials, LP narratives, board materials, diligence artifacts, or one-off deliverables.
 
 ## Not Applied
 No executable schema validators were added.
@@ -60,7 +64,7 @@ Reason: the GP toolkit is currently a methodology/workspace kit, not an executab
 
 No separate `workbook-doctor` or `deck-architect` module was added.
 
-Reason: those are artifact-type-specific capabilities. The GP toolkit should add them only when a GP workflow actually produces Excel or PowerPoint artifacts as a primary output.
+Reason: the canonical `artifact-trust-layer` now has workbook, deck, and document control-map templates. Separate executable validators should live in the TrustLayer repo unless this kit becomes a runtime package.
 
 ## Verification
 Passed:
@@ -70,7 +74,7 @@ python3 scripts/setup_state.py doctor --json
 ```
 
 Also verified:
-- all eight modules have `README.md`, `CONTRACT.md`, `templates/`, and `examples/`;
-- setup routing references `artifact-review`;
-- affected architecture `CLAUDE.md` and `CONTEXT.md` files name `artifact-review`;
-- affected builders load `artifact-review`.
+- setup routing references the six current architectures;
+- module routing references `artifact-trust-layer`;
+- active builders name artifact trust outputs where relevant;
+- the duplicate lightweight `artifact-review` module was removed.

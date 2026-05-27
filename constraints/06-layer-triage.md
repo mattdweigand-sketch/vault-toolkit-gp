@@ -21,7 +21,7 @@ The framework for this has existed in various forms since the early days of comp
 Herbert Simon described bounded rationality in 1955: decision-makers operate within the limits of the information and cognitive resources available to them. Applying this to tool selection: use the simplest tool that solves the problem. Complexity costs you in time, tokens, unpredictability, and maintenance. A database query does not hallucinate.
 
 **Traditional tools by layer:**
-- **Deterministic tasks (exact answers, calculations, formatting):** your platform's calculation engine, database queries, purpose-built software, deterministic scripts, find-and-replace. (A spreadsheet computes the same math, but it has no access controls, permissions, or audit trail: fine for a throwaway check, wrong for anything that matters.)
+- **Deterministic tasks (exact answers, calculations, formatting):** your system of record's calculation engine, database queries, purpose-built software, deterministic scripts, find-and-replace. (A spreadsheet computes the same math, but it has no access controls, permissions, or audit trail: fine for a throwaway check, wrong for anything that matters.)
 - **Rule-based tasks (if/then logic, routing, categorization with known categories):** Zapier, Make, n8n, email filters, form builders, basic database queries.
 - **Judgment tasks (synthesis, fuzzy categorization, creative work, analysis of unstructured text):** This is where AI adds genuine value.
 
@@ -32,7 +32,7 @@ Herbert Simon described bounded rationality in 1955: decision-makers operate wit
 The tools that handle the non-AI layers are not exotic. You probably already use some of them.
 
 **Deterministic software and databases**
-For anything with one right answer (return math, reconciliations, categorization by known rules), use a tool that computes it deterministically: your platform's calculation engine, a database query, or purpose-built software. These never hallucinate, run instantly, and cost nothing per run. A spreadsheet can do the same math, but for a GP it is the wrong home for anything that matters: no access controls, no permissions, no audit trail, and one fat-fingered cell propagates silently. Keep deterministic work in systems with the controls and trail an auditor expects.
+For anything with one right answer (billing math, reconciliations, categorization by known rules), use a tool that computes it deterministically: your platform's calculation engine, a database query, or purpose-built software. These never hallucinate, run instantly, and cost nothing per run. A spreadsheet can do the same math, but for any team it is the wrong home for anything that matters: no access controls, no permissions, no audit trail, and one fat-fingered cell propagates silently. Keep deterministic work in systems with the controls and trail an auditor expects.
 
 **Zapier / Make / n8n (workflow automation)**
 If your task is "when X happens, do Y," this is a rule-based automation. Email arrives with attachment, save attachment to specific folder. Form submitted, write the record to your database and send a confirmation email. These are deterministic chains. They do not need judgment. Running them through an AI model adds latency, cost, and the possibility of error where there was none.
@@ -40,10 +40,10 @@ If your task is "when X happens, do Y," this is a rule-based automation. Email a
 **n8n specifically** (n8n.io, self-hosted option available) connects to hundreds of services and lets you build multi-step workflows with branching logic. It also has an MCP server, which means an AI agent can trigger n8n workflows when the task involves deterministic steps that the model should not handle itself.
 
 **Database queries (SQL, Airtable, Notion databases)**
-If you are asking AI to find or aggregate structured data, a database query is faster and exact. "How much capital was called in Q1?" is a SQL query or a fund-admin report, not an AI prompt. "What do our slowest-funding LPs have in common, and what does it suggest about our call process?" is an AI task. Know the difference.
+If you are asking AI to find or aggregate structured data, a database query is faster and exact. "How many tickets did we close in Q1?" is a SQL query or a report from your system of record, not an AI prompt. "What do our slowest-to-resolve tickets have in common, and what does it suggest about our support process?" is an AI task. Know the difference.
 
 **Purpose-built software**
-Before you build an AI workflow, check if purpose-built software already handles it. For a GP, this is most of the stack: fund administration and portfolio accounting, your waterfall and capital-account engine, your investor portal and CRM, your data room. Outside the fund stack: project management (Asana, Linear), document formatting (Word's style system), calendar management. These tools have spent years optimizing for their specific domain. They will outperform a general-purpose model on their core tasks, and the fund-operations ones carry the governance and audit trail a model cannot (see Constraint 09).
+Before you build an AI workflow, check if purpose-built software already handles it. For most teams, this is most of the stack: your CRM, your accounting or ERP platform, your ticketing system, your HRIS, your data warehouse. Outside the core systems: project management (Asana, Linear), document formatting (Word's style system), calendar management. These tools have spent years optimizing for their specific domain. They will outperform a general-purpose model on their core tasks, and the systems of record carry the governance and audit trail a model cannot (see Constraint 09).
 
 ---
 
@@ -59,17 +59,17 @@ The 60/30/10 framework provides the triage heuristic:
 
 **The layer beneath the three: your data foundation.**
 
-For a GP, the bottom of this stack is not a spreadsheet. It is your system of record: the platform that owns normalized, reconciled, current fund data, the waterfall engine of record, access controls that reflect LP entitlement, and an audit trail you can hand an auditor. That foundation is not something you build with AI, and it is not something you build with a folder structure. It is an enterprise platform decision (your fund administrator and the software underneath it).
+For any organization, the bottom of this stack is not a spreadsheet. It is your system of record: the platform that owns normalized, reconciled, current data, the figures of record, access controls that reflect who is entitled to see what, and an audit trail you can hand an auditor. That foundation is not something you build with AI, and it is not something you build with a folder structure. It is an enterprise platform decision (your CRM, ERP, accounting system, or data warehouse and the software underneath it).
 
-This matters because AI does not fail at the model. It fails at the data. A capable model on top of data that is fragmented across admins, 60 to 120 days stale, and reconciled by hand in Excel will give you a confident answer drawn from a lagged copy of your business. The model is not working on your real state. Getting the foundation right is the prerequisite, not the afterthought. Constraint 09 covers how to evaluate that foundation.
+This matters because AI does not fail at the model. It fails at the data. A capable model on top of data that is fragmented across systems, weeks or months stale, and reconciled by hand in Excel will give you a confident answer drawn from a lagged copy of your business. The model is not working on your real state. Getting the foundation right is the prerequisite, not the afterthought. Constraint 09 covers how to evaluate that foundation.
 
-The rule for a GP: rely on your platform for the numbers and the record. Use AI for the language and the judgment on top of it. The fastest way to a wrong figure in an LP's inbox is letting AI compute what your platform should be the source of truth for.
+The rule: rely on your platform for the numbers and the record. Use AI for the language and the judgment on top of it. The fastest way to a wrong figure in a customer's inbox is letting AI compute what your platform should be the source of truth for.
 
 **The diagnostic:**
 
 For every task in your workflow, ask these questions in order:
 
-0. **Is this a system-of-record question?** Does a correct answer depend on authoritative, reconciled, current data, or on writing to a system you cannot afford to get wrong (capital accounts, NAV, the waterfall of record, LP entitlement)? If yes, this belongs on your enterprise platform. AI can read from that foundation; it should not be that foundation, and you should not rebuild it yourself. Stop here.
+0. **Is this a system-of-record question?** Does a correct answer depend on authoritative, reconciled, current data, or on writing to a system you cannot afford to get wrong (the books, account balances, issue status, who owns a record)? If yes, this belongs on your enterprise platform. AI can read from that foundation; it should not be that foundation, and you should not rebuild it yourself. Stop here.
 
 1. **Is the answer deterministic?** Is there one right answer that can be calculated or looked up? If yes, use your platform, a database, or purpose-built software. Stop here.
 
@@ -83,7 +83,7 @@ Most people reverse this order. They start with "can AI do this?" and the answer
 
 Coca-Cola exists because refrigeration exists. Coca-Cola is not a refrigeration company. They used the technology to do something else at a scale that was never possible before. The companies that won from refrigeration were not the ones that built better refrigerators. They were the ones that figured out what refrigeration made possible.
 
-Apply this to AI. The value is not in having AI. The value is in what AI makes possible for your firm, your deals, and your investor relationships. If you are spending your time optimizing the AI itself (building agents, fine-tuning prompts for tasks that should be database queries or fund-admin reports, creating elaborate automations for simple problems), you are building refrigerators when you should be selling Coke.
+Apply this to AI. The value is not in having AI. The value is in what AI makes possible for your team, your customers, and your work. If you are spending your time optimizing the AI itself (building agents, fine-tuning prompts for tasks that should be database queries or reports from your system of record, creating elaborate automations for simple problems), you are building refrigerators when you should be selling Coke.
 
 **How this changes your workspace design:**
 
@@ -105,7 +105,7 @@ If the answer is "nothing," that is expected. AI is probabilistic. But if you ha
 The tasks that would break are your genuine AI dependencies. Everything else is convenience, not necessity. That does not mean you should stop using AI for convenience tasks. But you should know the difference. Your critical workflow should degrade gracefully if the model is slow, down, or producing lower quality output on a given day. Tasks on deterministic layers do not have that problem.
 
 **4. Where does the data your AI reads actually come from, and how fresh is it?**
-If your AI is drafting an LP letter off numbers you pasted from a 90-day-old export reconciled by hand, the letter will be fluent and wrong. Trace every figure your AI touches back to its source. If the source is not authoritative and current, the problem is your data foundation, not your prompt. Fix the foundation first (Constraint 09).
+If your AI is drafting a customer update off numbers you pasted from a 90-day-old export reconciled by hand, the update will be fluent and wrong. Trace every figure your AI touches back to its source. If the source is not authoritative and current, the problem is your data foundation, not your prompt. Fix the foundation first (Constraint 09).
 
 ---
 
@@ -115,7 +115,7 @@ If your AI is drafting an LP letter off numbers you pasted from a 90-day-old exp
 |---|---|
 | AI gives inconsistent results on a task that should have one right answer | This is a deterministic task. Move it to your platform, a database query, or purpose-built software. |
 | You built an AI workflow that just routes things based on simple criteria | This is a rule-based task. Move it to Zapier, Make, or n8n. |
-| You are using AI to reconcile data across fund admins or compute figures of record | This is a data-foundation job. It belongs on your enterprise platform, not in a prompt or a DIY build. See Constraint 09. |
+| You are using AI to reconcile data across systems or compute figures of record | This is a data-foundation job. It belongs on your enterprise platform, not in a prompt or a DIY build. See Constraint 09. |
 | Your AI output is fluent but the numbers are off | Your AI is reading stale or fragmented data. The fix is the foundation underneath it, not the model on top. |
 | Your AI costs are high relative to the value produced | You are probably running deterministic and rule-based tasks through AI. Audit your workflow with the diagnostic above. |
 | You do not know where to start with AI | Start with what you already do well. Map your current workflow. Identify the 10% that requires genuine judgment. Apply AI there first. |

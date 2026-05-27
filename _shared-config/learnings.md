@@ -1,30 +1,22 @@
 # Learnings
 
-Reusable corrections and preferences discovered while building or running GP workflows.
+Reusable corrections and preferences discovered while building or running Kit workflows.
 
-This is not a task log. Write only lessons that should change future behavior. Date each entry. Put workflow-specific lessons under that workflow. Put cross-workflow lessons under `## General`.
+This is not a task log. Write only lessons that should change future behavior. Date each entry. Put
+shape-specific lessons under that shape. Put cross-shape lessons under `## General`.
 
 ## General
 
 ## setup
 
-## underwriting-backtest
+## messy-input-intake
 
-## ic-pressure-test
+## evidence-review
 
-## diligence-evidence-map
+## decision-prep
 
-## portfolio-intervention
+## exception-handling
 
-## hold-sell-refi
+## stakeholder-response-prep
 
-## market-thesis-to-investment-box
-
-## lp-narrative-and-issue-prep
-
-## firm-memory-loop
-
-## Variant workflows
-
-Archived lifecycle examples live under `architectures/_variants/` and `skill-starters/_variants/`.
-Record reusable lessons here only if a firm deliberately builds from one of those archived variants.
+## institutional-memory-loop
