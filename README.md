@@ -1,31 +1,35 @@
 # Kit
 
-Kit helps a business apply AI to the work its platforms cannot own: messy inputs, source interpretation, decision prep, exception handling, stakeholder response prep, and institutional memory.
+Kit is a plain-file toolkit for building governed AI workflows around work that business platforms cannot own: messy input intake, source interpretation, decision prep, exception handling, stakeholder response prep, and institutional memory.
 
-Your CRM, ticketing system, project tracker, finance platform, document system, approval workflow, dashboard, and audit trail stay the source of truth. Kit builds the judgment layer above them.
+It keeps systems of record in charge. CRM, ticketing, finance, document, approval, dashboard, and audit systems still own facts, status, permissions, calculations, delivery, and audit trails. Kit helps teams structure the judgment layer above them.
 
-## Quick start
+## What It Is
 
-1. Open this folder in any AI coding agent that can read files and make edits.
-2. Tell the agent: `Read AGENTS.md, then run setup.`
-3. Setup captures the organization profile, picks the right architecture, asks a few diagnostic questions, and creates a workspace under `workspaces/`.
+Kit provides:
 
-If your agent automatically reads repo instructions, `Run setup` is enough. A plain browser chat can still use the reference files, but it cannot run setup or create workspaces.
+- Six reusable workflow architectures.
+- Setup instructions for creating a live workspace.
+- Guardrails for platform boundaries, source provenance, handoffs, and human review.
+- An Artifact Trust Layer for source packets, evidence maps, review reports, workbook controls, and approval notes.
 
-## The boundary
+Kit is not an application, hosted service, database, agent runtime, or compliance system. It is a file-based operating model that an AI coding agent can read, copy, and customize.
+
+## Quick Start
+
+1. Clone the repo.
+2. Open the folder in an AI coding agent that can read and edit files.
+3. Tell the agent: `Read AGENTS.md, then run setup.`
+4. Answer the setup questions one at a time.
+5. Review the workspace created under `workspaces/`.
+
+If your agent automatically reads repo instructions, `Run setup` is enough.
+
+## The Boundary
 
 Use this rule before building anything:
 
-> If a platform can own the record, workflow state, entitlement, calculation, or audit trail, do not make it a toolkit architecture. If the work depends on firm judgment, source interpretation, decision framing, or institutional memory, it belongs here.
-
-In practice:
-
-| Layer | Owns |
-|---|---|
-| Platforms | Facts, records, status, permissions, calculations, delivery, audit |
-| Automation | Known rules, routing, checklists, templates, repeatable handoffs |
-| Kit | Interpretation, judgment, exceptions, decision prep, response framing, memory |
-| Humans | Approval, accountability, external sends, irreversible actions |
+> If a platform can own the record, workflow state, entitlement, calculation, or audit trail, do not make it a Kit architecture. If the work depends on source interpretation, decision framing, exception judgment, stakeholder communication, or institutional memory, it belongs here.
 
 Every workspace should answer:
 
@@ -35,7 +39,7 @@ Every workspace should answer:
 4. What judgment does AI add?
 5. What human approves the output?
 
-## The six architectures
+## Architectures
 
 | If the team needs to... | Use |
 |---|---|
@@ -46,31 +50,38 @@ Every workspace should answer:
 | Prepare high-context communication from verified facts | `stakeholder-response-prep` |
 | Capture validated lessons so future work improves | `institutional-memory-loop` |
 
-## Reusable modules
+## Artifact Trust Layer
 
-Modules are optional patterns that attach to an architecture. They do not create new architecture families.
+The reusable module at `modules/artifact-trust-layer/` attaches to workflows that produce or review decks, workbooks, memos, reports, IC materials, LP narratives, board materials, diligence artifacts, or one-off deliverables.
 
-| If the workflow needs to... | Attach |
-|---|---|
-| Turn messy sources into trustworthy decks, workbooks, memos, diligence maps, IC materials, LP narratives, or one-off deliverables | `modules/artifact-trust-layer/` |
+It includes patterns for:
 
-## What is in here
+- Source packets.
+- Artifact specs.
+- Claim evidence maps.
+- Hostile review reports.
+- Workbook, deck, and document control maps.
+- Human approval notes.
+
+## Repo Map
 
 ```text
 AGENTS.md        canonical project instructions
 CLAUDE.md        Claude Code compatibility wrapper
 SETUP.md         setup and workspace-build engine
-_shared-config/  organization profile, voice, setup progress, learnings
-constraints/     principles for reliable AI work
+_shared-config/  organization profile, voice, setup state, learnings
 architectures/   six architecture families and examples
+constraints/     principles for reliable AI work
+docs/            public documentation
 modules/         reusable patterns that attach to architectures
+scripts/         setup-state helper
 skill-starters/  six builders, one per architecture
-workspaces/      live workflows created during setup
+workspaces/      generated local workflows
 ```
 
 ## Examples
 
-Each architecture has a small worked example under `architectures/_examples/`:
+Worked examples live under `architectures/_examples/`:
 
 - `vendor-request-intake`
 - `contract-renewal-evidence-review`
@@ -79,17 +90,23 @@ Each architecture has a small worked example under `architectures/_examples/`:
 - `service-issue-stakeholder-response`
 - `lost-renewal-memory-loop`
 
-## Useful references
+## Safety Notes
+
+- The repo does not upload data by itself.
+- Any AI tool you use may send loaded context to its model provider.
+- Do not put secrets, private customer data, production exports, or regulated data into public forks.
+- Human review is required before external sends, irreversible actions, or stakeholder-facing output.
+
+## Documentation
 
 Start with:
 
-- `constraints/06-layer-triage.md`
-- `constraints/09-platform-boundary.md`
+- [Setup Guide](SETUP.md)
+- [Public Docs](docs/index.md)
+- [Artifact Trust Layer](modules/artifact-trust-layer/README.md)
+- [Layer Triage](constraints/06-layer-triage.md)
+- [Platform Boundary](constraints/09-platform-boundary.md)
 
-Those two explain what belongs to AI and what belongs to platforms or deterministic automation.
+## License
 
-## Finalize
-
-When the organization is ready, say `finalize`. The agent moves toolkit methodology into `_kit/`, leaving the organization's live operating system at the root.
-
-Built by Matt Weigand. Released under the [MIT License](LICENSE).
+Released under the [MIT License](LICENSE).

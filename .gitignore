@@ -6,9 +6,32 @@
 
 # Local Claude Code settings (machine-specific)
 .claude/settings.local.json
+.claude/settings.json
 
-# Setup state runtime lock
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Setup state runtime files
+_shared-config/setup-session.json
 _shared-config/setup-session.lock
+_shared-config/setup-progress.md
 
-# Local setup testing clone
+# Generated local workspaces
+workspaces/*
+!workspaces/.gitkeep
+
+# Local setup testing clone and scratch output
 _sandbox/
+tmp/
+*.tmp
