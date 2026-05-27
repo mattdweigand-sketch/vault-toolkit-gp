@@ -3,6 +3,8 @@
 ## Purpose
 Stress-test the investment case and surface what could break the decision.
 
+This stage implements `modules/decision-challenge/CONTRACT.md`.
+
 ## Inputs
 - `01_memo/output/memo-brief-[deal]-[date].md`.
 - `_config/pressure-test-questions.md`.
@@ -18,6 +20,8 @@ Stress-test the investment case and surface what could break the decision.
 
 ## Output
 Write `02_challenge/output/challenge-[deal]-[date].md` with critical questions, fragile assumptions, missing evidence, precedent conflicts, and decision-impact ranking.
+
+Also write separate `fragile_assumptions.md` and `missing_evidence.md` files when those lists are material enough for owners to work independently.
 
 ## Done Looks Like
 The IC chair can see the issues most likely to change the decision, with source-backed rationale.

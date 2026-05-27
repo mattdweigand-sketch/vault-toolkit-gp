@@ -3,6 +3,8 @@
 ## Purpose
 Create a source inventory of the diligence material.
 
+This stage implements `modules/source-provenance/CONTRACT.md` with diligence-specific fact classes from `_config/source-standards.md`.
+
 ## Inputs
 - Files copied into `00_sources/`.
 - `_config/source-standards.md`.

@@ -2,24 +2,23 @@
 """Small setup-state helper for the GP Operating Toolkit."""
 
 from argparse import ArgumentParser
+from contextlib import contextmanager
 from datetime import datetime, timezone
+import fcntl
 import json
 from pathlib import Path
 import re
 
 
 WORKFLOWS = [
-    "deal-screening",
-    "deal-pipeline",
-    "asset-management",
-    "disposition",
-    "lp-reporting",
-    "lp-inquiries",
-    "deal-win-loss-learning",
+    "diligence-evidence-map",
+    "firm-memory-loop",
+    "hold-sell-refi",
+    "ic-pressure-test",
+    "lp-narrative-and-issue-prep",
+    "market-thesis-to-investment-box",
+    "portfolio-intervention",
     "underwriting-backtest",
-    "ic-memo-intelligence",
-    "market-thesis",
-    "one-off-deliverable",
 ]
 
 
@@ -37,6 +36,10 @@ def shared_dir(root: Path) -> Path:
 
 def session_path(root: Path) -> Path:
     return shared_dir(root) / "setup-session.json"
+
+
+def session_lock_path(root: Path) -> Path:
+    return shared_dir(root) / "setup-session.lock"
 
 
 def progress_path(root: Path) -> Path:
@@ -86,6 +89,18 @@ def read_json(path: Path):
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+@contextmanager
+def locked_session(root: Path):
+    path = session_lock_path(root)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as lock_file:
+        fcntl.flock(lock_file, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(lock_file, fcntl.LOCK_UN)
 
 
 def firm_profile_has_placeholders(root: Path) -> bool:
@@ -155,7 +170,9 @@ def table_missing_items(text: str, items) -> list:
 
 def doctor(root: Path) -> dict:
     architectures = sorted(
-        path.name for path in (root / "architectures").iterdir() if path.is_dir()
+        path.name
+        for path in (root / "architectures").iterdir()
+        if path.is_dir() and path.name != "_variants"
     ) if (root / "architectures").is_dir() else []
     builders = sorted(
         path.name.removesuffix("-builder.md")
@@ -222,31 +239,34 @@ def parse_value(raw: str):
 
 
 def init_session(root: Path) -> dict:
-    path = session_path(root)
-    existing = read_json(path)
-    if existing:
-        existing["updated_at"] = now_iso()
-        write_json(path, existing)
-        return existing
-    payload = default_session()
-    write_json(path, payload)
-    return payload
+    with locked_session(root):
+        path = session_path(root)
+        existing = read_json(path)
+        if existing:
+            existing["updated_at"] = now_iso()
+            write_json(path, existing)
+            return existing
+        payload = default_session()
+        write_json(path, payload)
+        return payload
 
 
 def record(root: Path, field: str, value: str) -> dict:
-    payload = read_json(session_path(root)) or default_session()
-    set_dotted(payload, field, parse_value(value))
-    payload["updated_at"] = now_iso()
-    write_json(session_path(root), payload)
-    return payload
+    with locked_session(root):
+        payload = read_json(session_path(root)) or default_session()
+        set_dotted(payload, field, parse_value(value))
+        payload["updated_at"] = now_iso()
+        write_json(session_path(root), payload)
+        return payload
 
 
 def clear_session(root: Path) -> dict:
-    path = session_path(root)
-    removed = path.is_file()
-    if removed:
-        path.unlink()
-    return {"removed": removed, "session_path": str(path)}
+    with locked_session(root):
+        path = session_path(root)
+        removed = path.is_file()
+        if removed:
+            path.unlink()
+        return {"removed": removed, "session_path": str(path)}
 
 
 def emit(payload: dict, as_json: bool) -> None:

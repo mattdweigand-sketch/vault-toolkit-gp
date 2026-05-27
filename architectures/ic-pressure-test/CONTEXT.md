@@ -3,14 +3,20 @@
 ## Overview
 Four-stage decision-support workflow: Memo Intake -> Challenge -> Conditions -> Capture. It improves a pending IC decision without becoming the IC gate.
 
+## Modules Used
+- `modules/verified-fact-pack/CONTRACT.md`: normalizes model outputs and evidence into usable facts.
+- `modules/decision-challenge/CONTRACT.md`: pressure-tests fragile assumptions, missing evidence, and conditions.
+- `modules/validated-memory-store/CONTRACT.md`: captures validated lessons after IC.
+- `modules/handoff-brief/CONTRACT.md`: consumes diligence handoff briefs and emits downstream learning flags.
+
 ## Stage Map
 
 | Stage | Purpose | Inputs | Output Location |
 |---|---|---|---|
-| 01_memo | Normalize the memo, ask, model outputs, and evidence base | IC memo, model outputs, diligence evidence, precedent store | 01_memo/output/ |
+| 01_memo | Normalize the memo, ask, model outputs, and verified evidence base | IC memo, model outputs, diligence evidence or handoff brief, precedent store | 01_memo/output/ |
 | 02_challenge | Stress-test the thesis, assumptions, evidence, and risks | Memo packet, IC standards, precedent | 02_challenge/output/ |
 | 03_conditions | Convert unresolved issues into decision questions and conditions | Challenge pack, decision standards | 03_conditions/output/ |
-| 04_capture | Capture what the pressure test changed for future use | Final IC outcome, pressure-test pack | 04_capture/output/ + _store/ |
+| 04_capture | Capture validated learning and handoff flags for future use | Final IC outcome, pressure-test pack | 04_capture/output/ + _store/ |
 
 ## How Stages Connect
 - 01 -> 02: The normalized memo packet becomes the challenge input. Challenge should not reassemble the memo or recompute the model.

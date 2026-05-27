@@ -27,6 +27,8 @@ Copy `architectures/firm-memory-loop/` to `workspaces/<name>/`. Populate `_confi
 
 Load and name constraints: 06, 09, 03, 04, 08, 10.
 
+Load and name modules: `validated-memory-store`, `handoff-brief`.
+
 ### Phase 3: Orientation
 
 Explain that the store is the deliverable, and that causal claims do not enter the store without human validation.

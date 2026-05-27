@@ -26,6 +26,8 @@ Copy `architectures/ic-pressure-test/` to `workspaces/<name>/`. Customize `CLAUD
 
 Load and name constraints: 06, 09, 02, 08, 10.
 
+Load and name modules: `verified-fact-pack`, `decision-challenge`, `validated-memory-store`, `handoff-brief`.
+
 ### Phase 3: Orientation
 
 Explain that this workspace improves a pending decision, does not run IC, does not author the memo, and never recomputes model outputs.

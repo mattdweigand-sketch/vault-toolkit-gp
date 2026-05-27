@@ -3,6 +3,10 @@
 ## Overview
 Three-stage loop: Signal -> Analysis -> Capture.
 
+## Modules Used
+- `modules/validated-memory-store/CONTRACT.md`
+- `modules/handoff-brief/CONTRACT.md`
+
 ## Stage Map
 
 | Stage | Purpose | Inputs | Output Location |

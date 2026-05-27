@@ -3,6 +3,8 @@
 ## Purpose
 Turn the challenge pack into IC-ready decision questions, approval conditions, and pre-meeting work items.
 
+This stage implements the decision-condition output in `modules/decision-challenge/CONTRACT.md`.
+
 ## Inputs
 - `02_challenge/output/challenge-[deal]-[date].md`.
 - `_config/ic-standards.md`.

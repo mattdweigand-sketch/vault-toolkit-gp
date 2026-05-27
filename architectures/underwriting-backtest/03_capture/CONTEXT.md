@@ -3,6 +3,8 @@
 ## Purpose
 Validate the proposed attribution, then commit the record to the store and update the rolled-up calibration patterns. This is where the loop closes — the per-run attribution becomes part of the workspace's memory. It is also the control gate: nothing enters the store as institutional memory without the underwriter / head of acquisitions / IC signing off on the causal claims, and especially on the skill-vs-luck split.
 
+This stage implements `modules/validated-memory-store/CONTRACT.md`. When the capture creates a calibration signal another workspace should use, it also implements `modules/handoff-brief/CONTRACT.md`.
+
 ## Inputs
 - **02_attribution/output/analysis-[deal]-[date].md**: The structured attribution with its skill-vs-luck split, proposed why, classifications, and confidence flags.
 - **_config/store-schema.md**: The structure a stored record must follow.

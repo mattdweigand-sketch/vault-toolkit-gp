@@ -22,5 +22,11 @@ portfolio-intervention/
 - **Owners and dates are part of the output.** An action plan without an owner is a narrative, not an intervention.
 - **The platform owns actuals.** AI never calculates the official variance, mark, NAV, IRR, or MOIC.
 
+## Modules Used
+- `modules/verified-fact-pack/CONTRACT.md`
+- `modules/decision-challenge/CONTRACT.md`
+- `modules/response-posture/CONTRACT.md`
+- `modules/handoff-brief/CONTRACT.md`
+
 ## Constraints That Apply
 Universal **06** and **09**, plus **02**, **04**, **08**, and **10** when asset reports are unvetted.

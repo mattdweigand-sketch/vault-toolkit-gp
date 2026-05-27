@@ -3,10 +3,12 @@
 ## Purpose
 Normalize the pending IC packet into a clean memo brief: ask, thesis, model outputs of record, diligence evidence, open issues, and precedent context.
 
+This stage consumes `modules/handoff-brief/CONTRACT.md` outputs when diligence has already produced them, and applies `modules/verified-fact-pack/CONTRACT.md` to model outputs and evidence of record.
+
 ## Inputs
 - IC memo or draft memo.
 - Model outputs of record, not working scratch math.
-- Diligence evidence and open issue list.
+- Diligence evidence, open issue list, or upstream handoff brief.
 - `_config/ic-standards.md`.
 - `_store/` and any IC precedent memory available.
 

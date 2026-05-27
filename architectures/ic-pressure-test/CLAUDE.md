@@ -23,6 +23,12 @@ ic-pressure-test/
 - **Questions over answers.** The highest-value output is often the question that prevents a weak approval, not a polished memo paragraph.
 - **No model math.** Return outputs, sensitivities, debt sizing, and valuation come from the model of record. AI challenges assumptions and evidence, but does not recompute them.
 
+## Modules Used
+- `modules/verified-fact-pack/CONTRACT.md`
+- `modules/decision-challenge/CONTRACT.md`
+- `modules/validated-memory-store/CONTRACT.md`
+- `modules/handoff-brief/CONTRACT.md`
+
 ## Constraints That Apply
 Universal **06 (Layer Triage)** and **09 (Platform Boundary)**, plus **02 (Output Drift)**, **08 (Handoff Readiness)**, and **10 (Source Provenance)**.
 

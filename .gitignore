@@ -6,3 +6,9 @@
 
 # Local Claude Code settings (machine-specific)
 .claude/settings.local.json
+
+# Setup state runtime lock
+_shared-config/setup-session.lock
+
+# Local setup testing clone
+_sandbox/

@@ -26,6 +26,8 @@ Copy `architectures/portfolio-intervention/` to `workspaces/<name>/`. Populate `
 
 Load and name constraints: 06, 09, 02, 04, 08, 10 when asset reports are unvetted.
 
+Load and name modules: `verified-fact-pack`, `decision-challenge`, `response-posture`, `handoff-brief`.
+
 ### Phase 3: Orientation
 
 Explain that the platform owns actuals and dashboards; this workspace owns diagnosis and action.

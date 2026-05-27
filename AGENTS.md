@@ -17,10 +17,11 @@ remains the durable signal that setup completed.
 ## What This Repository Is
 
 The GP Operating Toolkit helps private equity and commercial real estate firms put AI on the
-high-judgment layer above their platforms. It has four parts:
+high-judgment layer above their platforms. It has five parts:
 
 - `architectures/` - eight active reference workspaces, plus `_variants/` for archived lifecycle examples.
 - `constraints/` - ten reference files for safe AI workflow design.
+- `modules/` - reusable Office Truth Layer contracts used by the architectures.
 - `skill-starters/` - active workflow builders, plus `_variants/` for archived builders.
 - `workspaces/` - the live workflows created during setup.
 

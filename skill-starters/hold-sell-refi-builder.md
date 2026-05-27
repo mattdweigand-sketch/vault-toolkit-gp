@@ -26,6 +26,8 @@ Copy `architectures/hold-sell-refi/` to `workspaces/<name>/`. Populate `_config/
 
 Load and name constraints: 06, 09, 01, 02, 08, 10 when source packs are unvetted.
 
+Load and name modules: `verified-fact-pack`, `decision-challenge`, `grounded-draft`, `handoff-brief`.
+
 ### Phase 3: Orientation
 
 Explain that AI frames the alternative decision, but model, broker, lender, and fund-admin systems own the numbers.

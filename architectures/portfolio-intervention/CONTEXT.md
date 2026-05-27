@@ -3,6 +3,12 @@
 ## Overview
 Four-stage intervention loop: Signal -> Diagnosis -> Action Plan -> Follow-Up. It converts portfolio data into attention and action.
 
+## Modules Used
+- `modules/verified-fact-pack/CONTRACT.md`
+- `modules/decision-challenge/CONTRACT.md`
+- `modules/response-posture/CONTRACT.md`
+- `modules/handoff-brief/CONTRACT.md`
+
 ## Stage Map
 
 | Stage | Purpose | Inputs | Output Location |

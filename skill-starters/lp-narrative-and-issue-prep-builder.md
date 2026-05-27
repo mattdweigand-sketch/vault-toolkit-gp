@@ -26,6 +26,8 @@ Copy `architectures/lp-narrative-and-issue-prep/` to `workspaces/<name>/`. Popul
 
 Load and name constraints: 06, 09, 01, 02, 05, 08.
 
+Load and name modules: `verified-fact-pack`, `grounded-draft`, `response-posture`, `handoff-brief`.
+
 ### Phase 3: Orientation
 
 Explain that Juniper Square or the investor platform owns DDQ, figures, records, entitlements, portal delivery, and audit; this workspace owns explanation and prep.

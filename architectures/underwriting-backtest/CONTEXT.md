@@ -3,13 +3,17 @@
 ## Overview
 A three-stage loop: Reconcile → Attribution → Capture, closing back into a store the next run reads from. Triggered each time a deal realizes — exited, sold, or fully returned. (An interim checkpoint — end of a business-plan year, a refinance, stabilization — is allowed as a sub-case, flagged as a partial backtest against the assumptions due by that point.) The stages are linear within a run, but the workflow is a loop across runs: each capture feeds the store, and the store feeds every future run and every workspace that sets an underwriting assumption.
 
+## Modules Used
+- `modules/validated-memory-store/CONTRACT.md`: stage 03 capture and pattern updates.
+- `modules/handoff-brief/CONTRACT.md`: flags calibration signals to diligence, IC pressure test, and investment-box updates.
+
 ## Stage Map
 
 | Stage | Purpose | Inputs | Output Location |
 |---|---|---|---|
 | 01_reconcile | Assemble the factual variance record | The trigger (deal realized), the approved IC model of record + realized actuals from fund accounting / the exit, store (for context) | 01_reconcile/output/ |
 | 02_attribution | Forensic on why each material assumption missed; skill vs. luck | Variance record, underwriting questions, store patterns | 02_attribution/output/ |
-| 03_capture | Validate the attribution, write to the store, update patterns | Attribution, store schema, assumption taxonomy | 03_capture/output/ + _store/ |
+| 03_capture | Validate the attribution, write to the store, update patterns, and emit handoff flags | Attribution, store schema, assumption taxonomy | 03_capture/output/ + _store/ |
 
 ## How the Loop Closes
 - 01 → 02: Reconcile produces the factual variance — what we underwrote, what actually happened, and the gap per material assumption and on the headline return, ending in the outperformed / in-line / underperformed outcome. Attribution works from facts, never from impression. If attribution is reconstructing the numbers rather than explaining the variance, reconcile did not finish.

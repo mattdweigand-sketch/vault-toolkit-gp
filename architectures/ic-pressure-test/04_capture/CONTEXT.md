@@ -3,6 +3,8 @@
 ## Purpose
 After the IC decision, capture what the pressure test changed and which questions mattered.
 
+This stage implements `modules/validated-memory-store/CONTRACT.md`. Use `modules/handoff-brief/CONTRACT.md` for any lesson that should flow to diligence, underwriting backtest, or firm memory.
+
 ## Inputs
 - `03_conditions/output/ic-questions-and-conditions-[deal]-[date].md`.
 - Final IC decision and conditions.

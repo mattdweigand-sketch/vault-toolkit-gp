@@ -18,7 +18,7 @@ This repository is the GP Operating Toolkit, built for private equity and commer
 estate firms. Its worked examples name commercial-real-estate systems of record (Argus, Yardi,
 MRI, RealPage); when building for a PE deal team, read those as placeholders for the firm's own
 deal model and portfolio or fund-accounting systems — the logic transfers unchanged. It has
-three parts:
+four parts:
 
 - **architectures/** — reference workspaces for the high-judgment layer above GP platforms:
   IC pressure testing, diligence evidence mapping, underwriting backtests, portfolio intervention,
@@ -28,13 +28,16 @@ three parts:
   user's workspace.
 - **constraints/** — ten reference files, each solving a specific problem GPs hit when
   working with AI. You load these selectively, matched to the workflow being built.
+- **modules/** — reusable Office Truth Layer contracts. They turn repeated constraints into
+  work units such as source provenance, verified fact packs, grounded drafts, decision challenge,
+  response posture, validated memory stores, and handoff briefs.
 - **skill-starters/** — builder skills, one per architecture or variant. Each runs a diagnostic
   interview, then assembles a workspace from the answers. These do the actual building.
 
 Legacy lifecycle templates live under `architectures/_variants/` and
 `skill-starters/_variants/`. They are reference material, not primary setup routes.
 
-> **Where the toolkit lives.** Before the firm finalizes, these three folders and this
+> **Where the toolkit lives.** Before the firm finalizes, these four folders and this
 > `SETUP.md` sit at the repo root. After finalize, they move together into `_kit/` and this
 > file becomes `_kit/SETUP.md`. Everything in this file works in both states; where a path
 > differs, it is called out as "root before finalize, `_kit/` after."
@@ -85,6 +88,22 @@ Load levels:
 Load only what the matrix names. Do not open every constraint, every architecture, or all of
 `_shared-config/` because it feels safer. If a build truly needs extra context, say why, then
 load the smallest file or section that answers the question.
+
+## Module Routing
+
+Load module contracts only for the selected workflow. Module files live under `modules/` before
+finalize and `_kit/modules/` after.
+
+| Workflow | Load these modules |
+|---|---|
+| `underwriting-backtest` | `validated-memory-store`, `handoff-brief` |
+| `ic-pressure-test` | `verified-fact-pack`, `decision-challenge`, `validated-memory-store`, `handoff-brief` |
+| `diligence-evidence-map` | `source-provenance`, `handoff-brief` |
+| `portfolio-intervention` | `verified-fact-pack`, `decision-challenge`, `response-posture`, `handoff-brief` |
+| `hold-sell-refi` | `verified-fact-pack`, `decision-challenge`, `grounded-draft`, `handoff-brief` |
+| `market-thesis-to-investment-box` | `source-provenance`, `grounded-draft`, `decision-challenge`, `handoff-brief` |
+| `lp-narrative-and-issue-prep` | `verified-fact-pack`, `grounded-draft`, `response-posture`, `handoff-brief` |
+| `firm-memory-loop` | `validated-memory-store`, `handoff-brief` |
 
 ## Run Setup Starts Here
 
@@ -183,13 +202,14 @@ questions and assembly rules; they do not replace this protocol.
 4. Ask builder questions one at a time. After each answer, record it in
    `_shared-config/setup-session.json` with `scripts/setup_state.py record`.
 5. Load only the constraints named in **Constraint Routing** for the workflow being built.
-6. Copy the architecture into `workspaces/<name>/` and customize from the user's answers. Do not
+6. Load only the module contracts named in **Module Routing** for the workflow being built.
+7. Copy the architecture into `workspaces/<name>/` and customize from the user's answers. Do not
    improvise a new structure when a matching architecture exists.
-7. Populate `_config/` with real values from shared config and the diagnostic answers. Mark
+8. Populate `_config/` with real values from shared config and the diagnostic answers. Mark
    high-stakes unknowns as `[NEEDS CONFIRMATION - <owner>]` and routine missing inputs as `[TBD]`.
-8. Populate `_config/before-you-trust-this.md` with every high-stakes unknown, owner, and status.
-9. Name the loaded constraints in the workspace `CLAUDE.md`.
-10. Run the Onboarding Complete checklist and report `MVP ready` or `Operating ready`.
+9. Populate `_config/before-you-trust-this.md` with every high-stakes unknown, owner, and status.
+10. Name the loaded constraints and modules in the workspace `CLAUDE.md`.
+11. Run the Onboarding Complete checklist and report `MVP ready` or `Operating ready`.
 
 ## The Onboarding Sequence
 
@@ -212,10 +232,11 @@ Run these steps in order. Each one names the file to read or run next.
    questions. Ask one question at a time and wait for each answer. The answers become the content
    of the workspace. Do not skip ahead to assembly.
 
-4. **Load the constraints this workflow needs.** Before assembling, read the constraint files
+4. **Load the constraints and modules this workflow needs.** Before assembling, read the constraint files
    named for this workflow in the constraint routing table below. They shape the stage
-   contracts and the `_config` files you are about to write. Load only those. Loading all ten
-   is the context-hygiene mistake the toolkit exists to prevent.
+   contracts and the `_config` files you are about to write. Then read only the module contracts
+   named in **Module Routing**. Loading all constraints and all modules is the context-hygiene
+   mistake the toolkit exists to prevent.
 
 5. **Instantiate the workspace.** Copy the matching architecture — `architectures/<workflow>/`
    before finalize, `_kit/architectures/<workflow>/` after — into `workspaces/<name>/` (rename it
@@ -366,13 +387,13 @@ and the team can use it when the first live input arrives.
 - [ ] **High-stakes values gated.** `_config/before-you-trust-this.md` lists every
       `[NEEDS CONFIRMATION]` value with its owner and status. Nothing client-facing ships until
       the high-stakes rows are cleared. (Constraint 08 defines the convention.)
-- [ ] **Constraints loaded and named.** The constraints from the routing table were read, and
-      the workspace `CLAUDE.md` names which ones apply.
+- [ ] **Constraints and modules loaded and named.** The constraints from the routing table and
+      modules from Module Routing were read, and the workspace `CLAUDE.md` names which ones apply.
 - [ ] **MVP state recorded.** `_shared-config/setup-progress.md` and the OS map describe the
       workspace as `MVP ready` when no live stage has run yet, with open confirmations named.
 - [ ] **One stage run end to end.** For `Operating ready`, at least one stage produced real output,
       checked against
-      its "Done Looks Like" line. Compare it to the architecture's `_example`, when present, to see
+      its "Done Looks Like" line and the relevant module contract. Compare it to the architecture's `_example`, when present, to see
       what finished output looks like. If there is no live input yet (a backtest with no realized
       deal, a learning loop with no resolved record, a brand-new cycle), the workspace's own
       `_example/` is the stand-in run, and the workspace is marked "stands up now, activates on
@@ -397,6 +418,7 @@ what was built.
 
 Before adding or modifying a workflow, compare:
 - `architectures/<workflow>/`
+- `modules/` references named by the architecture
 - `skill-starters/<workflow>-builder.md`
 - the Diagnose -> Route table
 - the Constraint Routing table
@@ -444,7 +466,7 @@ and runs whenever you add or change a workflow.
 - `workspaces/` — your live workspaces. Each has its own `CLAUDE.md` that maps it; open the
   workspace folder and read that file to work in it.
 - The toolkit, at {KIT_LOCATION} — the setup engine (`SETUP.md`) and the workflow library
-  (`architectures/`, `constraints/`, `skill-starters/`). You rarely open these directly; you
+  (`architectures/`, `constraints/`, `modules/`, `skill-starters/`). You rarely open these directly; you
   reach them by saying "add a workflow."
 
 ## Workspaces built
@@ -534,14 +556,14 @@ toolkit repo — only a firm's own working copy.
 
 Steps:
 1. Create `_kit/` at the repo root.
-2. Move the toolkit into it: `SETUP.md`, `architectures/`, `constraints/`, and `skill-starters/`
+2. Move the toolkit into it: `SETUP.md`, `architectures/`, `constraints/`, `modules/`, and `skill-starters/`
    all move into `_kit/`. (This file becomes `_kit/SETUP.md`.) Do **not** move `_shared-config/`,
    `workspaces/`, `AGENTS.md`, `CLAUDE.md`, `README.md`, or `LICENSE` — those stay at the root.
 3. Update the OS-map `AGENTS.md`: change `{KIT_POINTER}` from `SETUP.md` to `_kit/SETUP.md`, and
    change **both occurrences** of `{KIT_LOCATION}` from `the repo root` to `` `_kit/` ``.
 4. Write `_kit/RESTORE.md` from the template below.
 5. Update `README.md`: anywhere it locates the toolkit folders (`architectures/`, `constraints/`,
-   `skill-starters/`) at the repo root, note they now live under `_kit/`. A standing parenthetical
+   `modules/`, `skill-starters/`) at the repo root, note they now live under `_kit/`. A standing parenthetical
    is enough — the goal is that a reader following `README.md` after finalize looks in the right
    place. (Restore reverses this.)
 6. Record the finalize in `_shared-config/setup-progress.md` (a dated "Finalized" line).
@@ -561,14 +583,14 @@ This repository was finalized: the GP Operating Toolkit was moved from the repo 
 `_kit/` so the root reads as the firm's operating system. This file reverses that move.
 
 ## What finalize did
-- Moved `SETUP.md`, `architectures/`, `constraints/`, and `skill-starters/` into `_kit/`.
+- Moved `SETUP.md`, `architectures/`, `constraints/`, `modules/`, and `skill-starters/` into `_kit/`.
 - Updated `AGENTS.md` (the OS map) so "add a workflow" points to `_kit/SETUP.md`.
 - Noted in `README.md` that the toolkit folders now live under `_kit/`.
 - Recorded the finalize in `_shared-config/setup-progress.md`.
 
 ## To restore the original root layout
-1. Move the four items back to the repo root:
-   `mv _kit/SETUP.md _kit/architectures _kit/constraints _kit/skill-starters .`
+1. Move the five items back to the repo root:
+   `mv _kit/SETUP.md _kit/architectures _kit/constraints _kit/modules _kit/skill-starters .`
 2. In `AGENTS.md`, change the kit pointer from `_kit/SETUP.md` back to `SETUP.md`, and change
    both kit-location mentions from `_kit/` back to `the repo root`.
 3. In `README.md`, remove the `_kit/` note so it again locates the toolkit at the repo root.

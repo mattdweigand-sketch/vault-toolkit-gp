@@ -61,6 +61,10 @@ underwriting-backtest/
 ## Constraints That Apply
 Built against the GP Operating Toolkit. Most relevant: **04 (Session Consistency)** — the load-bearing one here, **10 (Source Provenance)** — the model of record and the actuals are sourced data, **03 (Context Hygiene)**, **08 (Handoff Readiness)**, and the universal **06 (Layer Triage)** and **09 (Platform Boundary)**.
 
+## Modules Used
+- `modules/validated-memory-store/CONTRACT.md`
+- `modules/handoff-brief/CONTRACT.md`
+
 ## Layer Annotations
 - CLAUDE.md: L0 (always loaded, orientation)
 - CONTEXT.md: L1 (workflow routing)

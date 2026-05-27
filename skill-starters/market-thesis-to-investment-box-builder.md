@@ -26,6 +26,8 @@ Copy `architectures/market-thesis-to-investment-box/` to `workspaces/<name>/`. P
 
 Load and name constraints: 06, 09, 01, 02, 10.
 
+Load and name modules: `source-provenance`, `grounded-draft`, `decision-challenge`, `handoff-brief`.
+
 ### Phase 3: Orientation
 
 Explain that the thesis is not done until it names the investment-box update and downstream owner.

@@ -66,4 +66,5 @@ After building, walk the user through:
 - This is sensitive intelligence — it documents the firm's own systematic underwriting errors and the candid skill-vs-luck read on its track record. Address access and handling in store-schema.md; the skill-vs-luck ledger stays internal to the deal team and IC.
 - It does not replace the model or fund accounting — it rides on them. The numbers are the platform's; this workspace adds the why, the skill-vs-luck split, and the memory. The loop is triggered by realized deals and pays back into the assumptions other workspaces underwrite on.
 - Load and name the constraints this workflow uses: 04 (Session Consistency) — the load-bearing one, 10 (Source Provenance), 03 (Context Hygiene), 08 (Handoff Readiness), plus the universal 06 and 09.
+- Load and name the modules this workflow uses: `validated-memory-store` and `handoff-brief`.
 - Always annotate files with their ICM layer (L0–L4); note that _store/ is an L3/L4 hybrid — the signature of the learning-loop shape.

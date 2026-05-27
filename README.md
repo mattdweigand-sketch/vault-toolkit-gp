@@ -2,7 +2,7 @@
 
 For private equity and commercial real estate GPs that want to build controlled AI workflows around the work their platforms do not already own.
 
-This toolkit helps a firm put AI in the judgment layer: IC pressure testing, diligence evidence, portfolio intervention, LP issue prep, market thesis, and firm memory. It does not replace fund accounting, fund administration, investor portals, CRM, pipeline software, data rooms, dashboards, valuation systems, or approval controls.
+This toolkit helps a firm put AI in the judgment layer: IC pressure testing, diligence evidence, portfolio intervention, LP issue prep, market thesis, and firm memory. Its reusable module layer packages the Office Truth Layer patterns behind those workflows: source provenance, verified fact packs, grounded drafts, decision challenge, response posture, validated memory, and handoff briefs. It does not replace fund accounting, fund administration, investor portals, CRM, pipeline software, data rooms, dashboards, valuation systems, or approval controls.
 
 The rule is simple: platform for the record, deterministic tools for the math, rules for routing, AI for judgment, and humans for approval.
 
@@ -44,6 +44,7 @@ CLAUDE.md        Claude Code wrapper that imports AGENTS.md
 SETUP.md         setup engine for building workflows
 _shared-config/  firm profile, voice, setup progress, and learnings
 constraints/     design principles for reliable AI work
+modules/         reusable Office Truth Layer contracts
 architectures/   reference workflow structures
 skill-starters/  builders that setup runs
 workspaces/      workflows created for your firm
@@ -53,7 +54,7 @@ The toolkit keeps three layers separate:
 
 - `_shared-config/` holds firm-level context.
 - `workspaces/` holds live workflow context.
-- `architectures/`, `constraints/`, and `skill-starters/` hold reusable methodology.
+- `constraints/`, `modules/`, `architectures/`, and `skill-starters/` hold reusable methodology.
 
 After finalize, the methodology moves into `_kit/` and the root reads like the firm's operating system rather than a setup kit.
 
@@ -73,6 +74,20 @@ The active architectures are the high-judgment workflows most worth building fir
 Each architecture maps the AI's job, the human review point, and the system of record that stays authoritative. Older lifecycle examples are preserved under `architectures/_variants/` for reference and migration, but they are not the primary setup routes.
 
 The active `underwriting-backtest` architecture includes a worked `_example/` so you can see finished output alongside the empty folder shape.
+
+## Modules
+
+The `modules/` folder turns repeated Trust Layer patterns into reusable contracts:
+
+- `source-provenance`
+- `verified-fact-pack`
+- `grounded-draft`
+- `decision-challenge`
+- `response-posture`
+- `validated-memory-store`
+- `handoff-brief`
+
+Architectures reference these contracts instead of rewriting the same rules in every workflow. Builders should load only the modules used by the selected architecture.
 
 ## Constraints
 
@@ -98,6 +113,6 @@ Systems of record stay authoritative. The workflows can read from them, but noth
 
 Once you have built the workflows you need, say `finalize` or `make this our operating system`.
 
-Finalize moves `SETUP.md`, `architectures/`, `constraints/`, and `skill-starters/` into `_kit/`, leaving your firm's workspaces and operating-system map at the root. It is reversible: `_kit/RESTORE.md` explains how to put the setup kit back.
+Finalize moves `SETUP.md`, `architectures/`, `constraints/`, `modules/`, and `skill-starters/` into `_kit/`, leaving your firm's workspaces and operating-system map at the root. It is reversible: `_kit/RESTORE.md` explains how to put the setup kit back.
 
 Built by Matt Weigand. Released under the [MIT License](LICENSE).

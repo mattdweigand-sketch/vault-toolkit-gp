@@ -22,5 +22,9 @@ diligence-evidence-map/
 - **Authority is explicit.** If three files disagree, the workspace flags the conflict. It does not pick a winner silently.
 - **Questions are the output.** A good evidence map gives diligence owners the next questions to resolve.
 
+## Modules Used
+- `modules/source-provenance/CONTRACT.md`
+- `modules/handoff-brief/CONTRACT.md`
+
 ## Constraints That Apply
 Universal **06** and **09**, plus **10 (Source Provenance)**, **02 (Output Drift)**, and **08 (Handoff Readiness)**.
