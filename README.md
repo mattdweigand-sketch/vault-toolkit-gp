@@ -1,118 +1,95 @@
-# The GP Operating Toolkit
+# Kit
 
-For private equity and commercial real estate GPs that want to build controlled AI workflows around the work their platforms do not already own.
+Kit helps a business apply AI to the work its platforms cannot own: messy inputs, source interpretation, decision prep, exception handling, stakeholder response prep, and institutional memory.
 
-This toolkit helps a firm put AI in the judgment layer: IC pressure testing, diligence evidence, portfolio intervention, LP issue prep, market thesis, and firm memory. Its reusable module layer packages the Office Truth Layer patterns behind those workflows: source provenance, verified fact packs, grounded drafts, decision challenge, response posture, validated memory, and handoff briefs. It does not replace fund accounting, fund administration, investor portals, CRM, pipeline software, data rooms, dashboards, valuation systems, or approval controls.
+Your CRM, ticketing system, project tracker, finance platform, document system, approval workflow, dashboard, and audit trail stay the source of truth. Kit builds the judgment layer above them.
 
-The rule is simple: platform for the record, deterministic tools for the math, rules for routing, AI for judgment, and humans for approval.
+## Quick start
 
-## Start here
+1. Open this folder in any AI coding agent that can read files and make edits.
+2. Tell the agent: `Read AGENTS.md, then run setup.`
+3. Setup captures the organization profile, picks the right architecture, asks a few diagnostic questions, and creates a workspace under `workspaces/`.
 
-You need an AI coding assistant that can read a folder and edit files: Claude Code, Codex, Cursor, Copilot agent mode, or the Gemini CLI all work.
+If your agent automatically reads repo instructions, `Run setup` is enough. A plain browser chat can still use the reference files, but it cannot run setup or create workspaces.
 
-1. Download or clone this repo.
-2. Open the folder in your agent.
-3. Say `Run setup`.
+## The boundary
 
-Setup asks a few questions about your firm, then builds your first workspace in `workspaces/`. Later, say `add a workflow` to build another.
+Use this rule before building anything:
 
-Use the repo with any agent that can read files and make edits. If your agent does not automatically load repo instructions, tell it to read `AGENTS.md` first. A plain browser chat can still use the reference files, but it cannot run setup.
+> If a platform can own the record, workflow state, entitlement, calculation, or audit trail, do not make it a toolkit architecture. If the work depends on firm judgment, source interpretation, decision framing, or institutional memory, it belongs here.
 
-## Where AI belongs
+In practice:
 
-Most GP work should not go to a language model.
+| Layer | Owns |
+|---|---|
+| Platforms | Facts, records, status, permissions, calculations, delivery, audit |
+| Automation | Known rules, routing, checklists, templates, repeatable handoffs |
+| Kit | Interpretation, judgment, exceptions, decision prep, response framing, memory |
+| Humans | Approval, accountability, external sends, irreversible actions |
 
-Roughly 60% belongs in existing software or a normal process. Another 30% belongs in rules, scripts, or repeatable automation. The remaining 10% is where AI is useful: judgment, synthesis, exception handling, narrative, and institutional memory.
+Every workspace should answer:
 
-That matters because strong GP platforms already exist. Juniper Square and similar systems own fund administration, investor records, data rooms, reporting, capital activity, portals, entitlements, and audit trails. Dealpath, DealCloud, and other investment platforms own pipeline state and execution tracking. Chronograph, iLevel-style tools, Canoe, and portfolio-monitoring platforms own extraction, structured portfolio data, dashboards, and valuation workflows.
+1. What platform owns the record?
+2. What deterministic tool owns the math or rule?
+3. What routing or template can be automated?
+4. What judgment does AI add?
+5. What human approves the output?
 
-Do not rebuild those systems here. Use this toolkit for the work above them:
+## The six architectures
 
-- investment judgment: thesis, diligence, IC challenge, bid strategy, market thesis
-- portfolio intervention: variance diagnosis, watchlist review, action planning, hold / sell / refinance framing
-- investor communication: LP narratives, issue prep, likely questions, response framing
-- source control: data-room maps, authority ranking, conflict logs, source-backed deliverables
-- firm memory: underwriting backtests, IC precedent, win/loss learning, LP objection learning, post-mortems
+| If the team needs to... | Use |
+|---|---|
+| Turn messy emails, calls, notes, screenshots, forms, or files into a clean brief | `messy-input-intake` |
+| Figure out what a source set supports, conflicts with, or leaves unanswered | `evidence-review` |
+| Prepare options, tradeoffs, risks, assumptions, and conditions for a human decision | `decision-prep` |
+| Handle a case that does not fit the normal process | `exception-handling` |
+| Prepare high-context communication from verified facts | `stakeholder-response-prep` |
+| Capture validated lessons so future work improves | `institutional-memory-loop` |
 
-If you read only two constraints, read [Layer Triage](constraints/06-layer-triage.md) and [Platform Boundary](constraints/09-platform-boundary.md). Those two decide whether AI belongs in the workflow at all.
+## Reusable modules
+
+Modules are optional patterns that attach to an architecture. They do not create new architecture families.
+
+| If the workflow needs to... | Attach |
+|---|---|
+| Turn messy sources into trustworthy decks, workbooks, memos, diligence maps, IC materials, LP narratives, or one-off deliverables | `modules/artifact-trust-layer/` |
 
 ## What is in here
 
+```text
+AGENTS.md        canonical project instructions
+CLAUDE.md        Claude Code compatibility wrapper
+SETUP.md         setup and workspace-build engine
+_shared-config/  organization profile, voice, setup progress, learnings
+constraints/     principles for reliable AI work
+architectures/   six architecture families and examples
+modules/         reusable patterns that attach to architectures
+skill-starters/  six builders, one per architecture
+workspaces/      live workflows created during setup
 ```
-AGENTS.md        canonical agent instructions
-CLAUDE.md        Claude Code wrapper that imports AGENTS.md
-SETUP.md         setup engine for building workflows
-_shared-config/  firm profile, voice, setup progress, and learnings
-constraints/     design principles for reliable AI work
-modules/         reusable Office Truth Layer contracts
-architectures/   reference workflow structures
-skill-starters/  builders that setup runs
-workspaces/      workflows created for your firm
-```
 
-The toolkit keeps three layers separate:
+## Examples
 
-- `_shared-config/` holds firm-level context.
-- `workspaces/` holds live workflow context.
-- `constraints/`, `modules/`, `architectures/`, and `skill-starters/` hold reusable methodology.
+Each architecture has a small worked example under `architectures/_examples/`:
 
-After finalize, the methodology moves into `_kit/` and the root reads like the firm's operating system rather than a setup kit.
+- `vendor-request-intake`
+- `contract-renewal-evidence-review`
+- `pricing-exception-decision-prep`
+- `customer-escalation-exception`
+- `service-issue-stakeholder-response`
+- `lost-renewal-memory-loop`
 
-## Core architectures
+## Useful references
 
-The active architectures are the high-judgment workflows most worth building first:
+Start with:
 
-- `ic-pressure-test`
-- `diligence-evidence-map`
-- `portfolio-intervention`
-- `hold-sell-refi`
-- `market-thesis-to-investment-box`
-- `lp-narrative-and-issue-prep`
-- `underwriting-backtest`
-- `firm-memory-loop`
+- `constraints/06-layer-triage.md`
+- `constraints/09-platform-boundary.md`
 
-Each architecture maps the AI's job, the human review point, and the system of record that stays authoritative. Older lifecycle examples are preserved under `architectures/_variants/` for reference and migration, but they are not the primary setup routes.
-
-The active `underwriting-backtest` architecture includes a worked `_example/` so you can see finished output alongside the empty folder shape.
-
-## Modules
-
-The `modules/` folder turns repeated Trust Layer patterns into reusable contracts:
-
-- `source-provenance`
-- `verified-fact-pack`
-- `grounded-draft`
-- `decision-challenge`
-- `response-posture`
-- `validated-memory-store`
-- `handoff-brief`
-
-Architectures reference these contracts instead of rewriting the same rules in every workflow. Builders should load only the modules used by the selected architecture.
-
-## Constraints
-
-The ten files in `constraints/` explain how to keep AI work reliable: source authority, context separation, output drift, platform boundaries, handoff readiness, and related failure modes.
-
-They are portable. You can use them in this repo, in Claude Projects, in Cursor or VS Code, or pasted into a browser chat when you only need the reference material.
-
-## Skill starters
-
-The files in `skill-starters/` ask diagnostic questions, then assemble a workspace skeleton from your answers. They are the builders setup uses when you say `Run setup` or `add a workflow`.
-
-The active builders match the eight core architectures. Older lifecycle builders are archived under `skill-starters/_variants/`.
-
-## Your data
-
-This toolkit is plain files on your machine. It has no server or database of its own and uploads nothing by itself.
-
-Whatever AI tool you use will send the context it reads to that tool's model provider. Apply your firm's policy on what may go to which model, and use an enterprise or zero-retention plan where the data requires it.
-
-Systems of record stay authoritative. The workflows can read from them, but nothing writes back or goes to an LP without a human in the loop.
+Those two explain what belongs to AI and what belongs to platforms or deterministic automation.
 
 ## Finalize
 
-Once you have built the workflows you need, say `finalize` or `make this our operating system`.
-
-Finalize moves `SETUP.md`, `architectures/`, `constraints/`, `modules/`, and `skill-starters/` into `_kit/`, leaving your firm's workspaces and operating-system map at the root. It is reversible: `_kit/RESTORE.md` explains how to put the setup kit back.
+When the organization is ready, say `finalize`. The agent moves toolkit methodology into `_kit/`, leaving the organization's live operating system at the root.
 
 Built by Matt Weigand. Released under the [MIT License](LICENSE).

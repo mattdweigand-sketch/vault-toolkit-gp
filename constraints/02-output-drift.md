@@ -4,7 +4,7 @@
 
 You gave clear instructions. The model gave you something adjacent to what you wanted but not quite right. Maybe it answered a question you did not ask. Maybe it added sections you did not request. Maybe it followed the spirit of your instruction but missed the specifics. You fix it, re-prompt, and it drifts again in a different direction.
 
-This is not the model being bad at following instructions. It is the model being good at inference. When your instruction leaves gaps, the model fills them with its best guess at what you probably meant. Those guesses trend toward the most common version of that type of task in its training data. If you asked for a "deal memo," it infers a structure, a tone, and a length from the countless memos and reports it has processed. If that inference does not match how your firm writes a memo, the output drifts.
+This is not the model being bad at following instructions. It is the model being good at inference. When your instruction leaves gaps, the model fills them with its best guess at what you probably meant. Those guesses trend toward the most common version of that type of task in its training data. If you asked for a "status memo," it infers a structure, a tone, and a length from the countless memos and reports it has processed. If that inference does not match how your team writes a memo, the output drifts.
 
 Drift is a specificity problem, not an intelligence problem.
 
@@ -18,7 +18,7 @@ The most useful framework here is not from software. It is from journalism. The 
 
 **What "done" looks like, stated upfront, prevents most drift.**
 
-There is a body of research on instruction clarity in education that applies directly. Bloom's Taxonomy (1956, revised 2001) distinguishes between levels of cognitive task: remember, understand, apply, analyze, evaluate, create. Telling a model to "summarize the diligence" is a create-level task with no constraints. Telling it to "summarize diligence findings against the thesis conditions, 300 words, structured as condition / finding / impact on returns" is a create-level task with tight scope. The second one drifts less because there is less room to drift.
+There is a body of research on instruction clarity in education that applies directly. Bloom's Taxonomy (1956, revised 2001) distinguishes between levels of cognitive task: remember, understand, apply, analyze, evaluate, create. Telling a model to "summarize the research" is a create-level task with no constraints. Telling it to "summarize the research findings against the project goals, 300 words, structured as finding / evidence / impact on the plan" is a create-level task with tight scope. The second one drifts less because there is less room to drift.
 
 **Traditional tools that handle this:**
 - **Any outlining tool** (pen and paper, a notes app, a whiteboard): If you can outline what you want before you prompt, the outline becomes the instruction. This sounds obvious. Most people skip it.
@@ -38,7 +38,7 @@ If you are working in Claude Projects, your knowledge sources persist across con
 Most models support requesting output in specific formats: JSON, markdown with defined headers, tables with specific columns. Structural constraints reduce drift because the model has less freedom to infer structure. If your output must be a risk register with columns [Risk | Severity | Source | Mitigation], the model cannot drift into a narrative essay.
 
 **A review skill that checks output against your spec**
-Build or use a review pass that scores generated output against your standards: your control standards for an operations task, your compliance checklist for an LP communication, your investment criteria for a deal memo. Useful as a second pass: generate the output, then run the reviewer against the spec. The reviewer catches drift you might miss on a quick read. This is the same second-set-of-eyes control the `lp-narrative-and-issue-prep` architecture builds into its posture and approval pass.
+Build or use a review pass that scores generated output against your standards: your control standards for an operations task, your compliance checklist for a customer communication, your acceptance criteria for a project memo. Useful as a second pass: generate the output, then run the reviewer against the spec. The reviewer catches drift you might miss on a quick read. This is the same second-set-of-eyes control the recurring-report architecture builds into its distribution-stage compliance pass.
 
 **Any diff tool**
 If you are iterating on a document across multiple prompts, use a diff tool (built into VS Code, available in any code editor) to see exactly what changed between versions. Models sometimes "improve" sections you did not ask them to touch. A diff catches this instantly.
@@ -94,7 +94,7 @@ If you cannot, the model cannot hit it. This is not a limitation of the model. I
 This is the negative specification. Most people can describe what they do NOT want more easily than what they do want. Use that. Your rejection criteria are your "Must NOT include" list. Three to five of these, stated explicitly, eliminate the most common drift paths.
 
 **3. Where in your workflow does drift actually cost you?**
-If you are pressure-testing a deal thesis, drift is a feature. The model exploring adjacent risks or angles might surface something you had not considered. If you are producing an IC memo or an investor notice, drift is a defect. Know which mode you are in. Exploratory stages should have loose contracts. Deliverable stages, anything an LP or the committee sees, should have tight ones. The same workflow can have both.
+If you are pressure-testing a strategy or brainstorming options, drift is a feature. The model exploring adjacent angles might surface something you had not considered. If you are producing a decision memo or a customer-facing notice, drift is a defect. Know which mode you are in. Exploratory stages should have loose contracts. Deliverable stages, anything a customer or the approval board sees, should have tight ones. The same workflow can have both.
 
 ---
 

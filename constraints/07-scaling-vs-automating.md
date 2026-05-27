@@ -2,7 +2,7 @@
 
 ## The Problem
 
-You built something that works. You have a process for creating content, or delivering client work, or handling operations. It works when you do it. But when you try to do more of it, faster, or hand it to someone else, it breaks. The instinct is to automate: set up bots, build pipelines, create systems that run without you. So you automate your investor updates, automate your deal screening, automate your LP outreach. And the output is technically faster but qualitatively worse. LPs notice. Brokers notice. You notice.
+You built something that works. You have a process for creating content, or delivering client work, or handling operations. It works when you do it. But when you try to do more of it, faster, or hand it to someone else, it breaks. The instinct is to automate: set up bots, build pipelines, create systems that run without you. So you automate your customer updates, automate your lead screening, automate your outreach. And the output is technically faster but qualitatively worse. Customers notice. Partners notice. You notice.
 
 The problem is a conflation. Automation and scaling are not the same thing. Automation means a task runs without human involvement. Scaling means your capacity increases without proportional increase in effort. These overlap but they are not identical. You can automate something that does not scale (an automated DM that annoys people faster). You can scale something that is not automated (a well-documented process that a new team member can follow on day one).
 
@@ -49,9 +49,9 @@ In ICM, the workspace IS the scaling mechanism. It scales your capacity not by a
 
 **The critical insight:**
 
-A managing partner who personally calls every LP after a hard quarter is doing something that sounds unscalable. It is often the only thing that scales the relationship. Every LP on that call knows they are talking to a principal, not a portal. The "scalable" alternative, an automated update blast, would have produced faster outreach and worse retention.
+A founder who personally calls every key customer after a rough quarter is doing something that sounds unscalable. It is often the only thing that scales the relationship. Every customer on that call knows they are talking to a principal, not a portal. The "scalable" alternative, an automated update blast, would have produced faster outreach and worse retention.
 
-This is not an argument against automation. It is an argument for knowing which parts of your work create value through human judgment and which parts create value through throughput. Automate the throughput parts (data assembly, formatting, notice generation). Keep the judgment parts human (the thesis call, the hard LP conversation). Scale the judgment parts by making your context and thinking accessible, not by removing yourself.
+This is not an argument against automation. It is an argument for knowing which parts of your work create value through human judgment and which parts create value through throughput. Automate the throughput parts (data assembly, formatting, notice generation). Keep the judgment parts human (the strategy call, the hard customer conversation). Scale the judgment parts by making your context and thinking accessible, not by removing yourself.
 
 **What actually scales versus what just gets faster:**
 
@@ -100,7 +100,7 @@ That unwritten knowledge is your scaling bottleneck. It lives in your head. Unti
 
 | If this is your situation | Start here |
 |---|---|
-| Automated investor outreach is getting cold or negative reactions | The human judgment is the value. Remove the automation. Scale with better documentation instead. |
+| Automated customer outreach is getting cold or negative reactions | The human judgment is the value. Remove the automation. Scale with better documentation instead. |
 | You are the bottleneck on everything | Identify which steps actually need your judgment. Document those criteria. Delegate the rest. |
 | Your AI pipeline produces "technically correct" but qualitatively weak output | You removed the human review checkpoint. Add it back at the leverage points. |
 | New team members take weeks to ramp up | Your process lives in your head, not in files. Build a workspace with annotated stage contracts. |

@@ -53,16 +53,16 @@ In ICM, the structure IS the documentation. A well-built workspace can be handed
 workspace/
   CLAUDE.md               # "Where am I?" - Entry point. Map of the workspace.
   CONTEXT.md              # "Where do I go?" - Workflow overview. Stage connections.
-  01_sourcing/
-    CONTEXT.md            # "What do I do?" - Stage contract for sourcing.
-    output/               # Where the screen and thesis go. Input for next stage.
-  02_diligence/
+  01_intake/
+    CONTEXT.md            # "What do I do?" - Stage contract for intake.
+    output/               # Where the triage and brief go. Input for next stage.
+  02_review/
     CONTEXT.md
     output/
-  03_ic/
+  03_approval/
     CONTEXT.md
     output/
-  _config/                # Reference material. Fund terms, underwriting standards, constraints.
+  _config/                # Reference material. Policies, standards, constraints.
   _references/            # Reusable references for stage work.
 ```
 
@@ -111,7 +111,7 @@ Before handing off a workspace, verify:
 
 3. **Can someone run a stage without asking you?** Each stage CONTEXT.md has Inputs, Process, and Outputs clearly defined. The inputs reference specific files. The outputs describe what "done" looks like.
 
-4. **Can someone change a reference without breaking things?** Reference material (_config) is separate from stage logic. Updating the underwriting standards does not require editing stage contracts.
+4. **Can someone change a reference without breaking things?** Reference material (_config) is separate from stage logic. Updating the pricing standards does not require editing stage contracts.
 
 5. **Can someone understand why things are this way?** Key decisions are logged in CLAUDE.md or in a decisions log. The "why" is as important as the "what."
 
@@ -119,12 +119,12 @@ If the answer to any of these is no, the workspace is not ready for handoff. Fix
 
 **Unconfirmed values: flag them, never invent them.**
 
-The handoff fails differently when a value is wrong than when it is missing. A missing value announces itself. An invented one passes silently into a letter, an IC memo, or an LP response and gets trusted because it looks finished. When you build or populate a workspace and a value is not something you were given, a compliance disclosure, a financial threshold, an investor roster, a return hurdle, do not guess it. Mark it with one of two flags so the next person, or the next stage, knows exactly what is safe to use:
+The handoff fails differently when a value is wrong than when it is missing. A missing value announces itself. An invented one passes silently into a report, a customer email, or an approval decision and gets trusted because it looks finished. When you build or populate a workspace and a value is not something you were given, a compliance disclosure, a pricing threshold, a customer roster, an approval limit, do not guess it. Mark it with one of two flags so the next person, or the next stage, knows exactly what is safe to use:
 
-- `[NEEDS CONFIRMATION — <owner>]`: a value the firm must verify before the workspace produces anything client-facing. Use it wherever being wrong is expensive: compliance and disclosure language, hold or sell thresholds, who is authorized on an account, return hurdles. Name the human who signs off (counsel, the managing partner, the IR lead).
-- `[TBD]`: a value that is simply not available yet and will arrive as real data (a model version, a closing date, a figure the platform exports). No judgment is required, only time.
+- `[NEEDS CONFIRMATION — <owner>]`: a value the team must verify before the workspace produces anything customer-facing. Use it wherever being wrong is expensive: compliance and disclosure language, go or no-go thresholds, who is authorized on an account, pricing or discount limits. Name the human who signs off (counsel, the team lead, the account owner).
+- `[TBD]`: a value that is simply not available yet and will arrive as real data (a model version, a launch date, a figure the platform exports). No judgment is required, only time.
 
-The distinction is load-bearing. `[TBD]` waits for data; `[NEEDS CONFIRMATION]` waits for a person with authority. A workspace that ships with invented compliance text, presented as if it were firm policy, is more dangerous than one that ships with the field visibly blank.
+The distinction is load-bearing. `[TBD]` waits for data; `[NEEDS CONFIRMATION]` waits for a person with authority. A workspace that ships with invented compliance text, presented as if it were company policy, is more dangerous than one that ships with the field visibly blank.
 
 **The "Before You Trust This" sheet.**
 
@@ -132,11 +132,11 @@ Collect every flag in one place so the person receiving the workspace does not h
 
 **When one workspace feeds another: the handoff brief.**
 
-Workspaces chain. A diligence evidence map feeds IC pressure testing, portfolio intervention can feed hold/sell/refi, a market thesis can update the investment box, and LP issue prep can capture objections into a memory loop. The handoff between two workspaces is the same discipline as the handoff between two stages, one level up. The upstream workspace produces a single **handoff brief**, a markdown file the downstream's first stage consumes instead of re-deriving the work. A minimal brief carries:
+Workspaces chain. An intake feeds the delivery pipeline, a delivered project feeds account management, an account feeds renewal, results feed the board report. The handoff between two workspaces is the same discipline as the handoff between two stages, one level up. The upstream workspace produces a single **handoff brief**, a markdown file the downstream's first stage consumes instead of re-deriving the work. A minimal brief carries:
 
-- **Subject**: the deal, asset, fund, or cycle the brief is about, and its id.
+- **Subject**: the case, project, account, or cycle the brief is about, and its id.
 - **Origin**: which workspace and stage produced it, and the date.
-- **Carried-forward decision**: the conclusion the downstream inherits (the box-fit screen, the approved business plan, the realized return), with the key figures and each figure's source.
+- **Carried-forward decision**: the conclusion the downstream inherits (the qualified opportunity, the approved plan, the realized result), with the key figures and each figure's source.
 - **Open items**: what the downstream must still test or resolve, so it spends effort there rather than re-working settled ground.
 - **Flags**: any `[NEEDS CONFIRMATION]` values traveling with the brief, so they are not silently trusted downstream.
 
@@ -153,7 +153,7 @@ Try it. Ask someone unfamiliar with the project to open the folder and tell you 
 Write those questions down. Answer them in the CLAUDE.md or in the relevant stage contract. Every question someone would need to ask you is documentation that is missing.
 
 **3. What would break if you changed one reference file?**
-If changing the fund terms requires updating three stage contracts and the CLAUDE.md, your workspace has tight coupling. Reference material should be referenced, not duplicated. Change the reference in one place and every stage that references it picks up the change.
+If changing the pricing standards requires updating three stage contracts and the CLAUDE.md, your workspace has tight coupling. Reference material should be referenced, not duplicated. Change the reference in one place and every stage that references it picks up the change.
 
 ---
 

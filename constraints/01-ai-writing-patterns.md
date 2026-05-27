@@ -2,7 +2,7 @@
 
 ## The Problem
 
-You asked for a paragraph in a quarterly LP letter and got a press release. The output uses words you would never say to an investor, structures you would never choose, and a tone that sounds like it was optimized for the widest possible audience. Because it was. Language models generate text by sampling likely next words, and their post-training tunes them toward a safe, broadly acceptable register. Unless you give the model a specific standard to hit, it defaults to that register. The result is competent, safe, and generic. It reads like a committee wrote it.
+You asked for a paragraph in a monthly board report and got a press release. The output uses words you would never say to a reader, structures you would never choose, and a tone that sounds like it was optimized for the widest possible audience. Because it was. Language models generate text by sampling likely next words, and their post-training tunes them toward a safe, broadly acceptable register. Unless you give the model a specific standard to hit, it defaults to that register. The result is competent, safe, and generic. It reads like a committee wrote it.
 
 This is not a prompting problem. It is a probability problem. And it has solutions at every level.
 
@@ -39,10 +39,10 @@ The AI community has already built targeted solutions for common writing pattern
 **blader/humanizer** (github.com/blader/humanizer, 3,000+ stars)
 The most established writing cleanup skill. Based on Wikipedia's "Signs of AI writing" guide maintained by WikiProject AI Cleanup. Identifies and rewrites patterns like significance inflation ("marking a pivotal moment in the evolution of..."), AI vocabulary ("delve," "landscape," "leverage," "tapestry"), and hedging language ("It's worth noting that..."). Includes an audit pass after the first rewrite to catch patterns that survived.
 
-Forks exist that run a more aggressive multi-pass edit (covering structure, rhythm, and grammar-level patterns) if a draft needs heavier cleanup than the original handles. The core skill is enough for most investor communications.
+Forks exist that run a more aggressive multi-pass edit (covering structure, rhythm, and grammar-level patterns) if a draft needs heavier cleanup than the original handles. The core skill is enough for most stakeholder communications.
 
 **Build a cleanup or review pass into your own workflow**
-The pattern these skills use transfers directly to a GP. Wrap your own "de-slop" or review step that runs after a draft is generated and checks it against your constraints file (Constraint 05) and, for anything investor-facing, your compliance checklist. It is the same idea as a marketing team's content-review skill, pointed at LP issue prep and IC memos instead of campaign copy. The toolkit's `lp-narrative-and-issue-prep` architecture keeps that review near the response-posture stage.
+The pattern these skills use transfers directly to a team. Wrap your own "de-slop" or review step that runs after a draft is generated and checks it against your constraints file (Constraint 05) and, for anything customer-facing or externally published, your compliance checklist. It is the same idea as a marketing team's content-review skill, pointed at board reports and customer release notes instead of campaign copy. The toolkit's recurring-report architecture already places this as the distribution-stage compliance pass.
 
 **Important caveat about all of these:** Skills that clean up AI writing are treating symptoms. They catch patterns after the model produces them. This works, and you should use them. But the architectural fix is deeper.
 
@@ -52,17 +52,17 @@ The pattern these skills use transfers directly to a GP. Wrap your own "de-slop"
 
 The reason AI writing sounds like AI writing is that the model is working from an undifferentiated context. It has no specific standard to hit, so it hits the average. The fix is not better prompting. It is better context architecture.
 
-In the Interpreted Context Methodology (ICM) framework, writing quality is a function of what sits at Layer 3 (reference material) and Layer 2 (stage contract). If your L3 reference describes a detailed, specific standard, the model hits that standard. If your L2 contract says "write the quarterly letter," you get a generic quarterly letter. If it says "open with the period net IRR in the first sentence, one paragraph per asset with the key operating metric, address the largest valuation markdown head-on, close with the next 90 days, no summary," you get something specific.
+In the Interpreted Context Methodology (ICM) framework, writing quality is a function of what sits at Layer 3 (reference material) and Layer 2 (stage contract). If your L3 reference describes a detailed, specific standard, the model hits that standard. If your L2 contract says "write the monthly report," you get a generic monthly report. If it says "open with the single headline metric in the first sentence, one paragraph per workstream with the key operating number, address the largest miss head-on, close with the next 30 days, no summary," you get something specific.
 
 This maps to a principle David Parnas formalized in 1972: information hiding. Each module (or in this case, each stage of your workflow) should only see the information it needs to do its job. When a writing stage sees everything, the token soup that is your entire brand, every past draft, all your notes, and a voice file, the model has to sort through all of it to figure out what matters. It trends toward the generic center because that is the safest path through ambiguous context.
 
 The three-file voice architecture solves this:
 
 **File 1: Voice and Tone** (directional, not rigid)
-How the fund sounds to its investors, how it delivers good news and bad. This file gives alignment without a straightjacket. It describes the conditions under which your voice emerges rather than prescribing what your voice is. A model that knows "state the result plainly, explain the drivers, then address what the LP is most worried about before they have to ask" will produce different output than one that knows "be transparent and confident."
+How the organization sounds to its readers, how it delivers good news and bad. This file gives alignment without a straightjacket. It describes the conditions under which your voice emerges rather than prescribing what your voice is. A model that knows "state the result plainly, explain the drivers, then address what the reader is most worried about before they have to ask" will produce different output than one that knows "be transparent and confident."
 
 **File 2: Format Patterns** (structural guidance per format)
-How a quarterly LP letter differs from a capital call notice differs from an IC memo. Short paragraph per format. This scopes the model's structural decisions without locking every communication into the same skeleton.
+How a monthly board report differs from a customer release note differs from an internal decision memo. Short paragraph per format. This scopes the model's structural decisions without locking every communication into the same skeleton.
 
 **File 3: Constraints** (the never-do list)
 Read every time. These are the hard boundaries. No em dashes. No bullet-heavy structure when a paragraph would work. No significance inflation. No "it's worth noting." This file is the cheapest in tokens and the highest in impact because it eliminates the most common failure modes in a few lines.
@@ -75,14 +75,14 @@ The key insight: do not describe your voice TO the model. Describe the condition
 
 Answer these before you use this constraint. Your answers shape how you implement it.
 
-**1. What does your firm's investor voice actually sound like?**
-Not what you wish it sounded like. What your managing partner sounds like explaining a quarter to an LP on the phone, or what your last well-received letter sounded like. That is your baseline. If you cannot describe it in two sentences, pull your three best prior letters and read how they open, how they handle a markdown, and how they close. That is closer to your voice than anything a model will infer.
+**1. What does your organization's voice actually sound like?**
+Not what you wish it sounded like. What your lead sounds like explaining a month's results to the leadership team on a call, or what your last well-received report sounded like. That is your baseline. If you cannot describe it in two sentences, pull your three best prior reports and read how they open, how they handle a miss, and how they close. That is closer to your voice than anything a model will infer.
 
-**2. What patterns does your firm use that generic AI avoids?**
-Do you name the asset and the issue directly rather than abstracting it? Do you state the headline number in the first sentence? Do you pair every problem with the action being taken? These are the textures that make an investor letter sound like your firm and not a template. Most firms have 3-5 of these. Write them down. Put them in your constraints file as things the model SHOULD do, not just things it should avoid.
+**2. What patterns does your organization use that generic AI avoids?**
+Do you name the project and the issue directly rather than abstracting it? Do you state the headline number in the first sentence? Do you pair every problem with the action being taken? These are the textures that make a report sound like your team and not a template. Most teams have 3-5 of these. Write them down. Put them in your constraints file as things the model SHOULD do, not just things it should avoid.
 
 **3. At what point in your workflow does "sounding like us" actually matter?**
-If you are generating a first draft that finance and compliance will heavily edit, spending tokens on voice alignment at the draft stage is waste. Save the voice files for the editing or polishing stage. If you are generating a notice that goes out with minimal editing, voice alignment matters from the start. Know which situation you are in. This determines when you load the voice constraints, not whether you load them.
+If you are generating a first draft that finance and legal will heavily edit, spending tokens on voice alignment at the draft stage is waste. Save the voice files for the editing or polishing stage. If you are generating a notice that goes out with minimal editing, voice alignment matters from the start. Know which situation you are in. This determines when you load the voice constraints, not whether you load them.
 
 ---
 

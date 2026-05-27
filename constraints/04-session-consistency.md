@@ -57,10 +57,10 @@ Where are you in the workflow? Which stages are complete? What is the next step?
 
 ```
 ## Current State
-- Sourcing: Complete. Thesis in 01_sourcing/output/
-- Diligence: In progress. Underwriting v2 in 02_diligence/output/
-- IC: Not started.
-- Next step: Resolve the environmental finding flagged in 02_diligence/output/risk-register.md before IC
+- Intake: Complete. Brief in 01_intake/output/
+- Drafting: In progress. Draft v2 in 02_drafting/output/
+- Review: Not started.
+- Next step: Resolve the open pricing question flagged in 02_drafting/output/open-questions.md before review
 ```
 
 3. **What worked and what did not** (goes in a session log or the relevant stage's notes)
