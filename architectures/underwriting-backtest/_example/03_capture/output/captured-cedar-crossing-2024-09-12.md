@@ -28,7 +28,7 @@ Validation:
   (Cedar, Maple) and one mixed (Junction). Dated 2024-09-16.
 
 ## Flag to Other Workspaces
-To deal-screening (_config/economics-assumptions.md) and deal-pipeline underwriting:
+To future screening assumptions, diligence questions, underwriting standards, and IC pressure tests:
 - **Exit cap, Phoenix multifamily value-add:** underwrite flat-to-+25 bps over going-in. Stop
   assuming compression — it has carried our recent returns and is not repeatable skill.
 - **Lease-up, multifamily value-add (full reno):** add ~6 months to the standard stabilization

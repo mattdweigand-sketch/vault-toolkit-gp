@@ -33,7 +33,7 @@ Rules:
 - A one-off miss is logged but does not move a pattern until it recurs.
 
 ## Privacy / Handling
-The calibration adjustments (exit-cap, lease-up, etc.) may flow to deal-screening's
-economics-assumptions and to deal-pipeline underwriting. The **skill-vs-luck ledger** — our candid
+The calibration adjustments (exit-cap, lease-up, etc.) may flow to future screening assumptions,
+diligence questions, underwriting standards, and IC pressure tests. The **skill-vs-luck ledger** — our candid
 read on how much of the track record is market beta — stays internal to the deal team and the IC,
 and does not leave this workspace.

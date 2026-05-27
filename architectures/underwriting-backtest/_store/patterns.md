@@ -1,7 +1,7 @@
 # Underwriting Calibration
 
 Rolled-up intelligence across the backtest records. This is the file the next underwrite — and
-deal-pipeline underwriting / deal-screening economics-assumptions — reads first. A pattern is
+future underwriting standards, screening assumptions, diligence questions, and IC pressure tests — reads first. A pattern is
 "stated" at 3+ supporting records; below that it is "emerging"; before any records exist it is a
 "hypothesis." Records are append-only; patterns are revised in place with dated notes.
 

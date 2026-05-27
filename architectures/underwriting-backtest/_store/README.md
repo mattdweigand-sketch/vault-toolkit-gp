@@ -13,8 +13,8 @@ Contents:
                   optimistic or conservative and by roughly how much, in which
                   segments, plus the skill-vs-luck ledger on realized returns.
                   Updated on each capture. This is the payoff-grain output and
-                  the file other workspaces (deal-pipeline underwriting and
-                  diligence, deal-screening's economics assumptions) read.
+                  the file future underwriting standards, screening assumptions,
+                  diligence questions, and IC pressure tests read.
 
 How the value compounds:
 - One record is nearly worthless. Ten begin to suggest. A hundred, tagged
@@ -28,7 +28,7 @@ Handling:
 - This is sensitive intelligence: it documents the firm's own systematic
   underwriting errors and the candid skill-vs-luck read on its track record.
   Treat access and any export accordingly (see _config/store-schema.md). The
-  calibration adjustments may flow to deal-screening and deal-pipeline; the
+  calibration adjustments may flow to future investment work; the
   "how much of our track record is luck" read stays internal to the team and IC.
 
 Starting state:

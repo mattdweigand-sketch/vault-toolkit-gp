@@ -6,15 +6,15 @@ A workspace for learning, systematically, why the firm's realized deals beat or 
 This is not a portfolio-accounting system and it does not produce the returns of record — fund accounting and your deal model own those numbers. This workspace does the one thing they do not: it explains *why* the realized result diverged from the underwriting, separates skill from luck, and remembers.
 
 ## A Different Shape: the Learning Loop
-This is the second instance in the toolkit of the **learning-loop** shape — the sibling of `deal-win-loss-learning`, pointed at realized-deal calibration instead of competitive bidding. The other workspaces are linear — a request or a deal or a reporting cycle flows through stages and the output leaves. This one is a **loop**. Its output does not leave; it is deposited into the workspace's own memory (`_store/`) and read back to inform future runs and other workspaces. Three properties make it different:
+This is the flagship specialized instance of the **learning-loop** shape. Other workspaces often flow forward to a decision or deliverable. This one loops: its output is deposited into the workspace's own memory (`_store/`) and read back to inform future runs and future investment judgment. Three properties make it different:
 - **The flow is circular.** `01_reconcile` and `02_attribution` read from the store for context; `03_capture` writes back to it. The output's destination is the system's own future input.
 - **The deliverable is the store, not the per-run record.** A single backtest is nearly worthless alone. The asset is the accumulating corpus and the calibration patterns that emerge across it.
 - **It is retrospective.** It is triggered by an outcome that already happened, and it exists to digest that outcome, not to produce a forward deliverable.
 
-If you have used `deal-win-loss-learning`, this is the same loop with the config swapped: the bid table becomes the assumption table, and the broker's "why you lost" becomes the market's "why you hit your number." (Same shape, swap the config and the taxonomy.)
+If you need the same loop for bid strategy, LP objections, or portfolio post-mortems, use `firm-memory-loop` and swap the config and taxonomy.
 
-## One Thing That Differs From the Win/Loss Sibling
-The win/loss loop is qualitative end to end. This one has a **deterministic core**: `01_reconcile` is largely a numeric variance computation — underwritten value minus actual, per assumption — and the store rolls up into a quantitative calibration table. That arithmetic is not an AI task (Constraint 06); it is a data join over the approved model and fund accounting. AI's job begins at `02_attribution`, where the *why* is judgment. Keep that line bright: the model never invents or estimates an actual, and it never recomputes a return it can source.
+## Deterministic Core
+This loop has a **deterministic core**: `01_reconcile` is largely a numeric variance computation — underwritten value minus actual, per assumption — and the store rolls up into a quantitative calibration table. That arithmetic is not an AI task (Constraint 06); it is a data join over the approved model and fund accounting. AI's job begins at `02_attribution`, where the *why* is judgment. Keep that line bright: the model never invents or estimates an actual, and it never recomputes a return it can source.
 
 ## Current State
 - This is a reference architecture. The store is empty. A fully worked, populated copy lives in `_example/` — read it to see what the loop looks like after a few runs.
@@ -55,7 +55,7 @@ underwriting-backtest/
 - **Skill vs. luck is the load-bearing defense.** The single most damaging thing this workspace can do is credit a market tailwind — cap-rate compression, a rate move, a sector run — to the firm's own underwriting skill. That inflates confidence and quietly miscalibrates every future model, teaching the firm it is a better underwriter than the evidence supports. Two defenses: the canonical questions force the skill and luck portions of the return apart, and the human validation gate at capture stops an unvalidated attribution from entering the store. This is the analog of the win/loss sibling's stated-vs-assessed-reason defense.
 - **The variance is arithmetic; the why is judgment.** Reconcile computes; attribution explains. If the model is "estimating" an actual or recomputing an IRR it could pull, it has left its lane (Constraint 06).
 - **A human validates the attribution before it is captured.** The attribution is the model's proposed explanation. Causal claims about why a deal hit or missed — and especially the skill-vs-luck split — are exactly the thing that, if wrong, poisons the store. The underwriter / head of acquisitions / IC confirms the attribution before it becomes institutional memory.
-- **The store feeds other workspaces.** `_store/patterns.md` is meant to retune `deal-pipeline` underwriting and diligence and `deal-screening`'s `_config/economics-assumptions.md` — the calibration produces concrete numeric adjustments to the assumptions those workspaces run on, not just loose guidance.
+- **The store feeds future investment work.** `_store/patterns.md` is meant to retune the firm's underwriting standards, screening assumptions, diligence questions, and IC pressure tests. The calibration produces concrete assumption adjustments, not just loose guidance.
 - **Treat the store as sensitive.** It documents the firm's own systematic underwriting errors and the honest skill-vs-luck read on its track record. That is candid internal intelligence; handle and store accordingly, and be deliberate about what leaves this workspace.
 
 ## Constraints That Apply

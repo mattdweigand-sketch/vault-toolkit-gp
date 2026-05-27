@@ -5,7 +5,7 @@ Assemble the factual variance record for a deal that has realized. Pull the assu
 
 ## Inputs
 - **The trigger**: a deal has realized. Name the deal, the outcome lane (Outperformed / In-line / Underperformed vs. underwriting, or Interim-checkpoint as a flagged sub-case), and the realization date.
-- **The approved IC model of record** (the deal system / deal-pipeline workspace): the assumptions the deal was *approved* on — going-in cap, rent/revenue growth, opex growth, lease-up/absorption, exit cap, hold period, leverage/cost of debt, capex/renovation budget, terminal value, underwritten IRR/MOIC. Record the model version and date so the backtest measures against a fixed target, not a moving one.
+- **The approved IC model of record** (the deal system / model repository): the assumptions the deal was *approved* on — going-in cap, rent/revenue growth, opex growth, lease-up/absorption, exit cap, hold period, leverage/cost of debt, capex/renovation budget, terminal value, underwritten IRR/MOIC. Record the model version and date so the backtest measures against a fixed target, not a moving one.
 - **Realized actuals** (fund accounting / the exit): the actual NOI trajectory, realized rents, actual exit price and cap, actual hold, realized IRR/MOIC, actual capex. From the system of record, not from memory.
 - **_store/** (for context): any prior record in the same asset type, market, strategy, or vintage, and records sharing a decisive driver, so this record is assembled with awareness of what the store already knows.
 - **_config/assumption-taxonomy.md**: to tag the deal per the controlled vocabulary, including the controlled list of assumption categories.

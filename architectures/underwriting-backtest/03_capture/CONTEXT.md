@@ -14,7 +14,7 @@ Validate the proposed attribution, then commit the record to the store and updat
 2. Normalize the validated attribution into the store schema: the standard fields, the taxonomy tags, the underwritten vs. actual on each material assumption and the gap, the decisive driver, the cause class, the validated why with its final confidence, the skill-vs-luck attribution, and the calibration adjustment.
 3. Write the record to `_store/records/[deal]-[date].md`. Do not overwrite prior records; the store is append-only history.
 4. Update `_store/patterns.md`: does this record strengthen a calibration pattern (add to its evidence), extend one (a new segment, strategy, or vintage), or contradict one (revise or qualify it)? Make the pattern change explicit and dated. A contradiction revises the pattern; it is not discarded to protect the existing story. Respect the minimum-support threshold before a pattern is treated as more than a hypothesis.
-5. Note anything that should flow to another workspace now — a concrete assumption edit for deal-screening's economics assumptions, a calibration deal-pipeline underwriting should apply, a segment to underwrite more conservatively.
+5. Note anything that should flow to future investment work now — a concrete assumption edit, a diligence question to add, a pressure-test prompt to strengthen, or a segment to underwrite more conservatively.
 6. Record the capture in output.
 
 ## Output
@@ -35,7 +35,7 @@ Validation: [causal claims confirmed / corrected — note any changes, especiall
  strengthened / extended / contradicted-and-revised. Dated.]
 
 ## Flag to Other Workspaces
-[The concrete assumption edit deal-screening / deal-pipeline should pick up now
+[The concrete assumption edit, diligence question, or pressure-test prompt the investment process should pick up now
  — assumption, segment, direction, rough magnitude — or "none."]
 ```
 

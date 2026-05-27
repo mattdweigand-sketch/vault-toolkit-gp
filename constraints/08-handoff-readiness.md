@@ -132,7 +132,7 @@ Collect every flag in one place so the person receiving the workspace does not h
 
 **When one workspace feeds another: the handoff brief.**
 
-Workspaces chain. A screen feeds the deal pipeline, a closed deal feeds asset management, an asset feeds disposition, results feed the LP letter. The handoff between two workspaces is the same discipline as the handoff between two stages, one level up. The upstream workspace produces a single **handoff brief**, a markdown file the downstream's first stage consumes instead of re-deriving the work. A minimal brief carries:
+Workspaces chain. A diligence evidence map feeds IC pressure testing, portfolio intervention can feed hold/sell/refi, a market thesis can update the investment box, and LP issue prep can capture objections into a memory loop. The handoff between two workspaces is the same discipline as the handoff between two stages, one level up. The upstream workspace produces a single **handoff brief**, a markdown file the downstream's first stage consumes instead of re-deriving the work. A minimal brief carries:
 
 - **Subject**: the deal, asset, fund, or cycle the brief is about, and its id.
 - **Origin**: which workspace and stage produced it, and the date.

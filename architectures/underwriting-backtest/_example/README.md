@@ -8,7 +8,7 @@ whole point of the loop is what emerges across records.
 
 ## The fictional setup
 **Ridgeline Capital Partners** is a value-add CRE GP (multifamily, industrial, and mixed-use) — the same firm
-used in the deal-win-loss-learning example, here running the *other* learning loop. The deal team
+used in the firm-memory-loop pattern, here running the specialized underwriting calibration loop. The deal team
 runs the backtest each time a deal realizes. The store below holds three realized deals; one of
 them (Cedar Crossing Apartments) is shown running through all three stages so you can follow a
 single pass end to end.

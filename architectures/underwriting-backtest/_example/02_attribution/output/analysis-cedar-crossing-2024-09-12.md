@@ -57,7 +57,7 @@ any pattern. Sharpens the skill-vs-luck ledger toward "much of the recent track 
 
 ## Implied Calibration Adjustment
 - **Exit cap (Phoenix MF value-add):** underwrite flat-to-+25 bps vs. going-in; stop assuming
-  compression. Flag to deal-screening economics-assumptions and deal-pipeline underwriting.
+  compression. Flag to screening assumptions, diligence questions, underwriting standards, and IC pressure tests.
 - **Lease-up (MF value-add, full reno):** add ~6 months to the standard stabilization assumption.
 
 ## For the Validator

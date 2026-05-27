@@ -2,11 +2,12 @@
 
 <!--
 THE FIRM'S VOICE, IN ONE PLACE. This is the single source of truth for how the firm sounds in
-writing. Every writing workspace (lp-reporting, lp-inquiries, market-thesis, and the memo-producing
-workspaces) reads this file for the firm's core voice, then layers its own register on top — a
-quarterly letter, a quick LP email, a market thesis, and an IC memo are the same firm but different
-registers. This file holds what is the SAME across all of them. The register-specific differences
-live in each workspace (its format-patterns / response-standards / thesis-format file).
+writing. Every writing workspace (`lp-narrative-and-issue-prep`,
+`market-thesis-to-investment-box`, `ic-pressure-test`, and other memo-producing workspaces) reads
+this file for the firm's core voice, then layers its own register on top. An LP issue explanation,
+a market thesis, and an IC memo are the same firm but different registers. This file holds what is
+the SAME across all of them. The register-specific differences live in each workspace's own
+standards file.
 
 Captured once, during Run Setup's firm orientation, and refined the first time a writing workspace
 is built. It changes rarely. See Constraint 05 (Voice Architecture) for the full rationale.

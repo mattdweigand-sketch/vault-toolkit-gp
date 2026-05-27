@@ -42,7 +42,7 @@ The most established writing cleanup skill. Based on Wikipedia's "Signs of AI wr
 Forks exist that run a more aggressive multi-pass edit (covering structure, rhythm, and grammar-level patterns) if a draft needs heavier cleanup than the original handles. The core skill is enough for most investor communications.
 
 **Build a cleanup or review pass into your own workflow**
-The pattern these skills use transfers directly to a GP. Wrap your own "de-slop" or review step that runs after a draft is generated and checks it against your constraints file (Constraint 05) and, for anything investor-facing, your compliance checklist. It is the same idea as a marketing team's content-review skill, pointed at LP letters and IC memos instead of campaign copy. The toolkit's lp-reporting architecture already places this as the distribution-stage compliance pass.
+The pattern these skills use transfers directly to a GP. Wrap your own "de-slop" or review step that runs after a draft is generated and checks it against your constraints file (Constraint 05) and, for anything investor-facing, your compliance checklist. It is the same idea as a marketing team's content-review skill, pointed at LP issue prep and IC memos instead of campaign copy. The toolkit's `lp-narrative-and-issue-prep` architecture keeps that review near the response-posture stage.
 
 **Important caveat about all of these:** Skills that clean up AI writing are treating symptoms. They catch patterns after the model produces them. This works, and you should use them. But the architectural fix is deeper.
 

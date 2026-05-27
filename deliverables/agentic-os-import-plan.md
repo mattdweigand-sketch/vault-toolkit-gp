@@ -1,5 +1,8 @@
 # Agentic OS Import Plan for GP Operating Toolkit
 
+> Historical note: this plan predates the May 2026 architecture trim. It is kept as a completed
+> implementation artifact, not as current setup routing. Current routing lives in `SETUP.md`.
+
 ## Decision
 
 Use Agentic OS as a pattern source, not a code source.
@@ -296,22 +299,26 @@ Optional `scripts/verify-workspace.sh <workspace>`:
 
 ## Files to Change
 
+Historical note: the builder list below reflects the pre-trim architecture set. Current active
+builders live at `skill-starters/*-builder.md`; archived lifecycle builders live under
+`skill-starters/_variants/`.
+
 Required:
 
 - `SETUP.md`
 - `README.md`
 - `_shared-config/learnings.md`
-- `skill-starters/deal-screening-builder.md`
-- `skill-starters/deal-pipeline-builder.md`
-- `skill-starters/asset-management-builder.md`
-- `skill-starters/disposition-builder.md`
-- `skill-starters/lp-reporting-builder.md`
-- `skill-starters/lp-inquiries-builder.md`
-- `skill-starters/deal-win-loss-learning-builder.md`
+- `skill-starters/_variants/deal-screening-builder.md`
+- `skill-starters/_variants/deal-pipeline-builder.md`
+- `skill-starters/_variants/asset-management-builder.md`
+- `skill-starters/_variants/disposition-builder.md`
+- `skill-starters/_variants/lp-reporting-builder.md`
+- `skill-starters/_variants/lp-inquiries-builder.md`
+- `skill-starters/_variants/deal-win-loss-learning-builder.md`
 - `skill-starters/underwriting-backtest-builder.md`
-- `skill-starters/ic-memo-intelligence-builder.md`
-- `skill-starters/market-thesis-builder.md`
-- `skill-starters/one-off-deliverable-builder.md`
+- `skill-starters/_variants/ic-memo-intelligence-builder.md`
+- `skill-starters/_variants/market-thesis-builder.md`
+- `skill-starters/_variants/one-off-deliverable-builder.md`
 
 Optional:
 

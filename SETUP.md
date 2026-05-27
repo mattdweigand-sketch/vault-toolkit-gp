@@ -20,16 +20,19 @@ MRI, RealPage); when building for a PE deal team, read those as placeholders for
 deal model and portfolio or fund-accounting systems — the logic transfers unchanged. It has
 three parts:
 
-- **architectures/** — eleven reference workspaces. Ten span the GP lifecycle (deal-screening,
-  deal-pipeline, asset-management, disposition, lp-reporting, lp-inquiries,
-  deal-win-loss-learning, underwriting-backtest, ic-memo-intelligence, market-thesis); the
-  eleventh, one-off-deliverable, produces a single deliverable from an unvetted source set when the
-  work maps to no lifecycle stage. Each is a working folder structure with its own `CLAUDE.md`,
-  `CONTEXT.md`, and stage contracts. You copy and customize one to build the user's workspace.
+- **architectures/** — reference workspaces for the high-judgment layer above GP platforms:
+  IC pressure testing, diligence evidence mapping, underwriting backtests, portfolio intervention,
+  hold/sell/refi decisions, market thesis to investment-box updates, LP narrative and issue prep,
+  firm memory loops, plus lifecycle and one-off variants. Each is a working folder structure with
+  its own `CLAUDE.md`, `CONTEXT.md`, and stage contracts. You copy and customize one to build the
+  user's workspace.
 - **constraints/** — ten reference files, each solving a specific problem GPs hit when
   working with AI. You load these selectively, matched to the workflow being built.
-- **skill-starters/** — eleven builder skills, one per architecture. Each runs a diagnostic
+- **skill-starters/** — builder skills, one per architecture or variant. Each runs a diagnostic
   interview, then assembles a workspace from the answers. These do the actual building.
+
+Legacy lifecycle templates live under `architectures/_variants/` and
+`skill-starters/_variants/`. They are reference material, not primary setup routes.
 
 > **Where the toolkit lives.** Before the firm finalizes, these three folders and this
 > `SETUP.md` sit at the repo root. After finalize, they move together into `_kit/` and this
@@ -70,46 +73,81 @@ Load levels:
 
 | Workflow | `_shared-config/firm-profile.md` | `_shared-config/voice-and-tone.md` | `_shared-config/learnings.md` | Constraints | Architecture | Builder |
 |---|---|---|---|---|---|---|
-| `deal-screening` | full | summary | `## General`, `## deal-screening` | routed list | pointer | full |
-| `deal-pipeline` | full | summary | `## General`, `## deal-pipeline` | routed list | pointer | full |
-| `asset-management` | full | summary | `## General`, `## asset-management` | routed list | pointer | full |
-| `disposition` | full | summary | `## General`, `## disposition` | routed list | pointer | full |
-| `lp-reporting` | full | full | `## General`, `## lp-reporting` | routed list | pointer | full |
-| `lp-inquiries` | full | full | `## General`, `## lp-inquiries` | routed list | pointer | full |
-| `deal-win-loss-learning` | full | summary | `## General`, `## deal-win-loss-learning` | routed list | pointer | full |
 | `underwriting-backtest` | full | summary | `## General`, `## underwriting-backtest` | routed list | pointer | full |
-| `ic-memo-intelligence` | full | summary | `## General`, `## ic-memo-intelligence` | routed list | pointer | full |
-| `market-thesis` | full | full | `## General`, `## market-thesis` | routed list | pointer | full |
-| `one-off-deliverable` | full | full when writing | `## General`, `## one-off-deliverable` | routed list | pointer | full |
+| `ic-pressure-test` | full | summary | `## General`, `## ic-pressure-test` | routed list | pointer | full |
+| `diligence-evidence-map` | full | summary | `## General`, `## diligence-evidence-map` | routed list | pointer | full |
+| `portfolio-intervention` | full | summary | `## General`, `## portfolio-intervention` | routed list | pointer | full |
+| `hold-sell-refi` | full | summary | `## General`, `## hold-sell-refi` | routed list | pointer | full |
+| `market-thesis-to-investment-box` | full | full | `## General`, `## market-thesis-to-investment-box` | routed list | pointer | full |
+| `lp-narrative-and-issue-prep` | full | full | `## General`, `## lp-narrative-and-issue-prep` | routed list | pointer | full |
+| `firm-memory-loop` | full | summary | `## General`, `## firm-memory-loop` | routed list | pointer | full |
 
 Load only what the matrix names. Do not open every constraint, every architecture, or all of
 `_shared-config/` because it feels safer. If a build truly needs extra context, say why, then
 load the smallest file or section that answers the question.
 
-## Run Setup / Add a Workflow
+## Run Setup Starts Here
 
 This is the entry point. When the user says **"Run setup"**, **"add a workflow"**, **"build a
 &lt;workflow&gt;"**, or opens a session with no specific task, do this first:
 
-1. **Check whether the firm has been set up before** — does `_shared-config/setup-progress.md`
-   exist? That file is written at the end of the first setup; its existence is the hard signal
-   that setup has already run. (Do not judge by placeholder text — key off the file.)
-   - **No (first-time setup):** run **Firm Orientation** (below), then **The Onboarding
-     Sequence** to build the first workspace, then write `_shared-config/setup-progress.md`
-     recording what was built, then run **After First Setup: Write the OS Map** to turn the root
-     `AGENTS.md` into the firm's operating-system map.
-   - **Yes (returning):** read `_shared-config/firm-profile.md` and
-     `_shared-config/setup-progress.md`, greet the firm by name, summarize what has been built,
-     and offer to add another workflow, set up another instance of one already built, update
-     shared config, or resume an unfinished one. Do **not** re-run orientation. "Run setup,"
-     "add a workflow," and "build a &lt;workflow&gt;" are all the same add-a-workflow intent on
-     this path. After the build, run **Keeping the OS Map Current**.
-2. Always ask before building, and stop with a working, populated workspace the firm can use.
+1. Run `python3 scripts/setup_state.py status`. If you need machine-readable output, run
+   `python3 scripts/setup_state.py status --json`.
+2. If the status is `not_started`, run `python3 scripts/setup_state.py init-session`, then run
+   **Firm Orientation** and **Value Triage Before Workflow Routing**.
+3. If the status is `in_progress` or `ready_to_build`, read `_shared-config/setup-session.json`
+   and follow **Resume Rules**. Do not restart orientation or re-ask answered questions.
+4. If the status is `complete`, read `_shared-config/firm-profile.md` and
+   `_shared-config/setup-progress.md`, greet the firm by name, summarize what has been built, and
+   offer to add another workflow, set up another instance of one already built, update shared
+   config, or resume an unfinished one. Do not re-run orientation. After the build, run
+   **Keeping the OS Map Current**.
+5. For any confusing or contradictory state, run `python3 scripts/setup_state.py doctor`, report
+   the open items, and fix only the item needed to continue.
 
-Do not make onboarding feel like a form. Ask one question at a time, skip anything already
-answered in a prior response, and acknowledge the skip briefly so the user knows you heard it.
-When the user's answer clearly maps to a workflow, recommend that workflow and explain why. Show
-the full workflow menu only if the user asks for it or the mapping is genuinely ambiguous.
+`_shared-config/setup-session.json` is temporary working state. `_shared-config/setup-progress.md`
+is still the durable signal that first-time setup completed.
+
+Always ask before building, and stop with a working, populated workspace the firm can use. Do not
+make onboarding feel like a form. Ask one question at a time, skip anything already answered in a
+prior response, and acknowledge the skip briefly so the user knows you heard it. Show the full
+workflow menu only if the user asks for it or the mapping is genuinely ambiguous.
+
+### Resume Rules
+
+If `_shared-config/setup-session.json` exists, resume from it:
+
+- Use `current_phase`, `current_step`, and `current_question` to find the next action.
+- Treat populated `firm_orientation`, `value_triage`, `selected_workflow`, and `answers` as
+  already answered unless the user says they changed.
+- After each setup answer, record it with
+  `python3 scripts/setup_state.py record --field <dotted.path> --value '<json-or-text>'`.
+- Record high-stakes unknowns in `open_confirmations`; do not silently fill them.
+- Clear the session only after setup completes, or when the user explicitly asks to restart setup:
+  `python3 scripts/setup_state.py clear-session`.
+
+### Value Triage Before Workflow Routing
+
+Before naming a workflow, apply the platform-boundary filter. If the user wants AI to own records,
+workflow state, entitlement, calculations, audit, dashboards, data extraction, fund accounting,
+capital activity, DDQ execution, or pipeline tracking, route that work to the relevant platform.
+The toolkit may still build the judgment layer above it: interpretation, narrative, exception
+handling, decision framing, or memory.
+
+Then ask what recurring or high-stakes work is painful, expensive, risky, or slow today. Score each
+candidate from 1 to 5 on:
+
+- **Frequency:** how often the work recurs.
+- **Risk:** how expensive a wrong output or missed handoff would be.
+- **Data readiness:** whether the source material is accessible and has an owner.
+- **Decision leverage:** whether better synthesis changes an investment, reporting, or operating
+  decision.
+- **Adoption ease:** whether one team can use the workspace without a platform migration.
+
+Recommend the highest-scoring workflow and explain why. If the user has no strong preference and
+the scores tie, use this tie-breaker: `ic-pressure-test`, then `diligence-evidence-map`, then
+`portfolio-intervention`, then `firm-memory-loop`. If the user clearly names a workflow, still
+apply the platform-boundary filter before building.
 
 ### Firm Orientation (first run only)
 
@@ -134,14 +172,34 @@ firm's real values rather than appending alongside them:
 Orientation is firm-level and runs once. Every builder reads `_shared-config/` and does not
 re-ask these facts.
 
+## Shared Builder Kernel
+
+Every workflow builder uses the same kernel. The `skill-starters/` files add workflow-specific
+questions and assembly rules; they do not replace this protocol.
+
+1. Read `_shared-config/firm-profile.md`.
+2. Read `_shared-config/voice-and-tone.md` only at the depth named in the **Context Matrix**.
+3. Read `_shared-config/learnings.md`, but only `## General` and the current workflow section.
+4. Ask builder questions one at a time. After each answer, record it in
+   `_shared-config/setup-session.json` with `scripts/setup_state.py record`.
+5. Load only the constraints named in **Constraint Routing** for the workflow being built.
+6. Copy the architecture into `workspaces/<name>/` and customize from the user's answers. Do not
+   improvise a new structure when a matching architecture exists.
+7. Populate `_config/` with real values from shared config and the diagnostic answers. Mark
+   high-stakes unknowns as `[NEEDS CONFIRMATION - <owner>]` and routine missing inputs as `[TBD]`.
+8. Populate `_config/before-you-trust-this.md` with every high-stakes unknown, owner, and status.
+9. Name the loaded constraints in the workspace `CLAUDE.md`.
+10. Run the Onboarding Complete checklist and report `MVP ready` or `Operating ready`.
+
 ## The Onboarding Sequence
 
 Run these steps in order. Each one names the file to read or run next.
 
 1. **Route the work.** The firm itself is already captured in `_shared-config/` (from Firm
-   Orientation). Ask only what work the user wants to run with AI, and map their answer to one of
-   the workflows using the routing table below. If they name more than one, handle the
-   highest-priority workflow first and return for the others. Do not build them all at once.
+   Orientation). Use **Value Triage Before Workflow Routing** unless the user already named a
+   workflow. Map the highest-value answer to one workflow using the routing table below. If they
+   name more than one, handle the highest-priority workflow first and return for the others. Do not
+   build them all at once. Record the selected workflow in `_shared-config/setup-session.json`.
 
 2. **Pick the skill-starter.** Check the **Context Matrix** for the workflow, then open the
    matching builder in `skill-starters/` (root before
@@ -150,8 +208,9 @@ Run these steps in order. Each one names the file to read or run next.
    firm-profile, voice, learnings, constraints, and architecture files named by the matrix and
    routing table.
 
-3. **Run the diagnostic interview.** Ask the builder's questions one at a time. Wait for each
-   answer. The answers become the content of the workspace. Do not skip ahead to assembly.
+3. **Run the diagnostic interview.** Use the **Shared Builder Kernel** and the selected builder's
+   questions. Ask one question at a time and wait for each answer. The answers become the content
+   of the workspace. Do not skip ahead to assembly.
 
 4. **Load the constraints this workflow needs.** Before assembling, read the constraint files
    named for this workflow in the constraint routing table below. They shape the stage
@@ -186,17 +245,14 @@ Match the user's primary work to a workflow and its builder. (Builder paths are 
 
 | If the user's core work is… | Workflow | Builder to run |
 |---|---|---|
-| Triaging inbound deal flow — deciding which opportunities merit diligence | deal-screening | `skill-starters/deal-screening-builder.md` |
-| Acquiring assets — sourcing, diligence, investment committee, closing | deal-pipeline | `skill-starters/deal-pipeline-builder.md` |
-| Monitoring owned assets — business-plan-vs-actual reviews, watchlist | asset-management | `skill-starters/asset-management-builder.md` |
-| Exiting an asset — hold/sell decision through sale and capital return | disposition | `skill-starters/disposition-builder.md` |
-| Investor communications — quarterly letters, capital account statements, notices | lp-reporting | `skill-starters/lp-reporting-builder.md` |
-| Handling inbound LP questions between formal events | lp-inquiries | `skill-starters/lp-inquiries-builder.md` |
-| Learning why we win or lose competitive deals to sharpen the next bid | deal-win-loss-learning | `skill-starters/deal-win-loss-learning-builder.md` |
+| Pressure-testing a pending IC memo before committee | ic-pressure-test | `skill-starters/ic-pressure-test-builder.md` |
+| Inspecting a diligence room, ranking sources, and mapping open questions | diligence-evidence-map | `skill-starters/diligence-evidence-map-builder.md` |
+| Turning portfolio signals or variances into diagnosis and owned actions | portfolio-intervention | `skill-starters/portfolio-intervention-builder.md` |
+| Deciding whether to hold, sell, refinance, recapitalize, or revisit an asset | hold-sell-refi | `skill-starters/hold-sell-refi-builder.md` |
+| Turning a market thesis into a sourcing or screening criteria change | market-thesis-to-investment-box | `skill-starters/market-thesis-to-investment-box-builder.md` |
+| Preparing LP narrative, likely questions, and issue posture around platform-verified facts | lp-narrative-and-issue-prep | `skill-starters/lp-narrative-and-issue-prep-builder.md` |
+| Creating a reusable memory loop for repeated GP judgment | firm-memory-loop | `skill-starters/firm-memory-loop-builder.md` |
 | Learning why realized deals beat or missed their underwriting, to calibrate future models | underwriting-backtest | `skill-starters/underwriting-backtest-builder.md` |
-| Learning how the investment committee decides — its standing conditions, risk appetite, and precedent — to sharpen future memos | ic-memo-intelligence | `skill-starters/ic-memo-intelligence-builder.md` |
-| Building the firm's market/sector view to guide acquisitions | market-thesis | `skill-starters/market-thesis-builder.md` |
-| Producing one serious deliverable from a messy, unvetted source set, with no recurring cycle | one-off-deliverable | `skill-starters/one-off-deliverable-builder.md` |
 
 If the user is unsure which they need, or wants to know where AI belongs at all before
 building anything, start them with **Constraint 06 (Layer Triage)** and **Constraint 09
@@ -207,44 +263,42 @@ Recurring back-office operations — capital calls, distributions, transfers, on
 deliberately not on this list. They are platform-governed transactions (capital accounts, the
 waterfall, the audit trail), and they belong on the fund-administration platform, not in an AI
 workspace. Do not build a workspace to process them. AI's role around these events is the
-language and the judgment on top of the platform: drafting a notice from platform-verified
-figures (lp-reporting) or fielding the questions they generate (lp-inquiries). See Constraint 09.
+language and the judgment on top of the platform: preparing LP narrative and issue posture around
+platform-verified facts. See Constraint 09.
 
-Capital formation — the raise itself, subscriptions, investor onboarding, and the data room — is
-out of scope for the same reason: the investor-management and fund-administration platform owns
-that pipeline and the investor record. AI's contribution is the language and judgment around it
-(narrative, tailoring, and the LP-commit/pass debrief that feeds deal-win-loss-learning), not a
+Capital formation — the raise itself, subscriptions, investor onboarding, DDQ execution, and the
+data room — is out of scope for the same reason: the investor-management and fund-administration
+platform owns that pipeline and the investor record. AI's contribution is the language and judgment
+around it (narrative, tailoring, and the LP-commit/pass debrief that feeds a memory loop), not a
 workspace that runs the raise.
 
 ### If the work matches none of the rows
 
-The rows above are not an exhaustive catalog. They are instances of four structural *shapes*,
+The rows above are not an exhaustive catalog. They are instances of five structural *shapes*,
 and most GP work is a variant of one of them. Do not jam an off-list workflow into the closest
 row by topic. Classify it by shape first:
 
-- **Gated decision pipeline** (deal-screening, deal-pipeline, disposition): advance one item
+- **Gated decision pipeline** (ic-pressure-test, hold-sell-refi): advance one item
   through sequential stages, each a go/no-go, toward a terminal decision or action. Use when the
   work has review gates (e.g., a development project to delivery, a refinancing to close).
-- **Recurring operations queue** (lp-inquiries): intake → process → deliver, repeated per
+- **Recurring operations queue** (portfolio-intervention, lp-narrative-and-issue-prep): intake → process → deliver, repeated per
   request. Use when the same *type* of request arrives over and over (e.g., vendor onboarding,
   a tenant-credit review queue). Note the boundary: this shape fits the *language and judgment*
   around recurring requests, not the platform-governed processing of capital events themselves
   (see Constraint 09).
-- **Recurring document production** (lp-reporting, asset-management, market-thesis): verified
+- **Recurring document production** (market-thesis-to-investment-box, lp-narrative-and-issue-prep): verified
   data → drafted narrative → distribution, on a cycle. Use when you produce a document from
-  numbers you do not invent (e.g., a JV/co-GP partner report, an internal IC update). The
-  *non-recurring* version of this shape — one serious deliverable from an unvetted source set,
-  no cycle — has its own architecture, **one-off-deliverable**: inventory the sources, review,
-  then draft. Reach for it when the deliverable matters but maps to no lifecycle stage.
-- **Learning loop** (deal-win-loss-learning, underwriting-backtest, ic-memo-intelligence): capture
+  numbers you do not invent and the output changes downstream behavior.
+- **Source provenance** (diligence-evidence-map): inspect a source set,
+  rank authority, log conflicts, then map evidence to claims or questions. Use when the risk is
+  that the model will blend stale, duplicate, or conflicting sources before a human knows what is
+  in the room.
+- **Learning loop** (firm-memory-loop, underwriting-backtest): capture
   an outcome → analyze why → write to a store → read it back to inform the next time. Use when the
   goal is to make a repeated activity compound — the deliverable is the accumulating store, not any
-  single record. The toolkit ships three instances: deal-win-loss-learning (why we win or lose
-  competitive bids), underwriting-backtest (why realized deals beat or missed their underwriting,
-  the worked realized-deal post-mortem that sharpens future models), and ic-memo-intelligence (how
-  the investment committee decides — its standing conditions, revealed risk appetite, and precedent
-  — captured at decision time to sharpen future memos). The same loop also fits an LP-commit/pass
-  debrief that sharpens the next raise — same loop, swap the config.
+  single record. `underwriting-backtest` is the specialized flagship instance; `firm-memory-loop`
+  covers new post-mortem patterns such as bid strategy, LP objections, portfolio interventions, or
+  fundraising commit/pass learning.
 
 If the work maps to a shape, copy the nearest architecture, rename its stages, and run the
 matching builder — the decomposition logic transfers; only the specifics change. If it maps to
@@ -265,8 +319,9 @@ Drift)** and **10 (Source Provenance)** for the same reasons the document-produc
 above do. Match the constraints to the shape, not just to the fallback.
 
 Before building anything new, apply the platform-boundary filter (Constraint 09): if an
-enterprise platform already owns the workflow — CRM, pipeline, fund accounting — do not rebuild
-it. Build the language-and-judgment layer that rides on top of it.
+enterprise platform already owns the workflow — CRM, pipeline, fund accounting, DDQ execution,
+data extraction, dashboards, investor records, entitlement, calculations, or audit — do not
+rebuild it. Build the language-and-judgment layer that rides on top of it.
 
 ## Constraint Routing
 
@@ -278,40 +333,46 @@ after.)
 | Workflow | Load these constraints | Why |
 |---|---|---|
 | **All workflows** | 06 (Layer Triage), 09 (Platform Boundary) | Decide what is AI vs. deterministic vs. platform before building. Roughly 60% traditional, 30% rule-based, 10% AI. |
-| **deal-pipeline** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff Readiness) | Memos and theses must read clean and survive a handoff to asset management. |
-| **lp-reporting** | + 01 (AI Writing Patterns), 02 (Output Drift), 05 (Voice Architecture) | The letter must sound like the firm and stay consistent cycle to cycle. |
-| **deal-screening** | + 02 (Output Drift); 10 (Source Provenance) when an opportunity arrives with a fuller data set | Screens must be comparable deal to deal; opportunities arrive as unvetted source sets. |
-| **asset-management** | + 02 (Output Drift), 04 (Session Consistency), 08 (Handoff Readiness), 10 (Source Provenance) | Reviews repeat on a cycle, hand off to the IC, and ingest unvetted asset reports. |
-| **disposition** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff Readiness) | The hold/sell case and disposition package must read clean and hand off cleanly at close. |
-| **lp-inquiries** | + 02 (Output Drift), 04 (Session Consistency), 05 (Voice Architecture) | Responses must be consistent and on-voice across many responders. |
-| **deal-win-loss-learning** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff Readiness) | Records must be comparable to aggregate; the store stays clean and handoff-readable, and broker spin must be kept out of it. |
 | **underwriting-backtest** | + 04 (Session Consistency), 10 (Source Provenance), 03 (Context Hygiene), 08 (Handoff Readiness) | Records must be comparable to aggregate into a calibration table (04, load-bearing); the approved model and actuals are sourced data — pin which model version is the underwriting of record (10); the store stays clean and handoff-readable (03, 08). |
-| **ic-memo-intelligence** | + 04 (Session Consistency), 10 (Source Provenance), 03 (Context Hygiene), 08 (Handoff Readiness) | Records must be comparable to aggregate into decision precedent (04, load-bearing); the memo, minutes, and decision are sourced data the model narrates and never invents (10); the store stays clean and handoff-readable (03, 08). |
-| **market-thesis** | + 01 (AI Writing Patterns), 02 (Output Drift), 10 (Source Provenance) | The thesis must read sharp, stay consistent, and rest on vetted sources. |
-| **one-off-deliverable** | + 10 (Source Provenance), 01 (AI Writing Patterns), 02 (Output Drift) | The workspace *is* a provenance pass made concrete; the deliverable must also read clean and stay internally consistent. |
+| **ic-pressure-test** | + 02 (Output Drift), 08 (Handoff Readiness), 10 (Source Provenance) | The pressure test must stay tied to source evidence and produce IC-ready questions and conditions. |
+| **diligence-evidence-map** | + 10 (Source Provenance), 02 (Output Drift), 08 (Handoff Readiness) | The workspace is a source-control pass for diligence evidence and open questions. |
+| **portfolio-intervention** | + 02 (Output Drift), 04 (Session Consistency), 08 (Handoff Readiness), 10 (Source Provenance) | Repeated interventions must be comparable, source-backed, and action-ready. |
+| **hold-sell-refi** | + 01 (AI Writing Patterns), 02 (Output Drift), 08 (Handoff Readiness), 10 (Source Provenance) | The alternatives case must read clean, cite model outputs, and hand off to execution. |
+| **market-thesis-to-investment-box** | + 01 (AI Writing Patterns), 02 (Output Drift), 10 (Source Provenance), 08 (Handoff Readiness) | The thesis must change downstream sourcing or screening behavior. |
+| **lp-narrative-and-issue-prep** | + 01 (AI Writing Patterns), 02 (Output Drift), 05 (Voice Architecture), 08 (Handoff Readiness) | LP-facing explanation must stay on voice, source platform-verified facts, and route sensitive issues. |
+| **firm-memory-loop** | + 03 (Context Hygiene), 04 (Session Consistency), 08 (Handoff Readiness), 10 (Source Provenance) | Records must be comparable and causal claims must be validated before becoming memory. |
 | **Scaling any workflow** | + 07 (Scaling vs. Automating) | When the same workflow runs many times, decide what to template vs. automate. |
 | **Context degrading mid-build** | + 03 (Context Hygiene) | If your own context gets noisy during a long onboarding, this is the fix. |
 | **Ingesting a data room or unvetted source set** | + 10 (Source Provenance) | Inventory and rank inputs before any stage drafts. AI flags provenance, duplicates, and conflicts; the platform owns the figures. |
 
 ## Onboarding Complete
 
-Onboarding is done when every item below is true. Report each as pass or open.
+Onboarding has two valid completion states. Report every item below as pass or open, then name the
+state.
+
+**MVP ready** means the workspace is configured, gates are present, open confirmations are listed,
+and the team can use it when the first live input arrives.
+
+**Operating ready** means MVP ready plus one stage has run end to end against live or sample input.
 
 - [ ] **Workflow identified.** The user confirmed which workflow(s) they are building.
 - [ ] **Workspace instantiated.** The architecture was copied and renamed; it has a
       `CLAUDE.md`, a `CONTEXT.md`, and a `CONTEXT.md` for every processing stage. (A raw
-      input-drop folder such as one-off-deliverable's `00_sources/` intentionally has none.)
+      input-drop folder such as diligence-evidence-map's `00_sources/` intentionally has none.)
 - [ ] **`_config` populated.** The required reference files hold the user's real values, not
       placeholder text. Any value the firm did not supply is flagged, not invented: use
-      `[NEEDS CONFIRMATION — <owner>]` for high-stakes values (compliance language, financial
+      `[NEEDS CONFIRMATION - <owner>]` for high-stakes values (compliance language, financial
       thresholds, rosters) and `[TBD]` for data not yet available. See Constraint 08.
 - [ ] **High-stakes values gated.** `_config/before-you-trust-this.md` lists every
       `[NEEDS CONFIRMATION]` value with its owner and status. Nothing client-facing ships until
       the high-stakes rows are cleared. (Constraint 08 defines the convention.)
 - [ ] **Constraints loaded and named.** The constraints from the routing table were read, and
       the workspace `CLAUDE.md` names which ones apply.
-- [ ] **One stage run end to end.** At least one stage produced real output, checked against
-      its "Done Looks Like" line. Compare it to the lp-reporting architecture's `_example` to see
+- [ ] **MVP state recorded.** `_shared-config/setup-progress.md` and the OS map describe the
+      workspace as `MVP ready` when no live stage has run yet, with open confirmations named.
+- [ ] **One stage run end to end.** For `Operating ready`, at least one stage produced real output,
+      checked against
+      its "Done Looks Like" line. Compare it to the architecture's `_example`, when present, to see
       what finished output looks like. If there is no live input yet (a backtest with no realized
       deal, a learning loop with no resolved record, a brand-new cycle), the workspace's own
       `_example/` is the stand-in run, and the workspace is marked "stands up now, activates on
@@ -319,8 +380,9 @@ Onboarding is done when every item below is true. Report each as pass or open.
 - [ ] **Handoff-ready.** A new team member could open the workspace folder and understand it
       without you in the room (Constraint 08 is the test for this).
 
-If any box is open, return to the step that produces it. A half-built workspace handed off as
-"done" is the failure mode this checklist exists to prevent.
+If a required MVP box is open, return to the step that produces it. Do not call the workspace
+`Operating ready` until the stage-run box is complete. A half-built workspace handed off as "done"
+is the failure mode this checklist exists to prevent.
 
 ## After a Build
 
@@ -363,7 +425,7 @@ Fill the parametric fields from the firm's files:
   `the repo root` (the kit folders and `SETUP.md` sit at the top level); after finalize, `` `_kit/` ``.
   It appears in **two** places in the template below; fill both with the same value.
 - `{BUILT_LIST}` — one line per workspace in `_shared-config/setup-progress.md`.
-- `{AVAILABLE_LIST}` — the workflow types from the eleven not yet built.
+- `{AVAILABLE_LIST}` — the workflow types not yet built.
 
 Write exactly this structure (substituting the fields):
 
@@ -397,7 +459,7 @@ routes to {KIT_POINTER}, which runs the build.
 
 Building *copies* a template into a new `workspaces/<name>/`; it never consumes the template. So
 every workflow type stays available forever, and you can build the same type more than once (for
-example, a second `deal-pipeline` for a different deal — just give it a distinct name).
+example, a second `ic-pressure-test` for a different committee cycle — just give it a distinct name).
 
 Workflow types still available to build:
 {AVAILABLE_LIST}
@@ -436,7 +498,7 @@ that first-time setup has already run. This file and the OS-map `AGENTS.md` must
 | 1 | `workspaces/{name}/` | {workflow} | {YYYY-MM-DD} | {one-line state} |
 
 ## Workflow types still available to build
-{comma-separated list of the eleven types not yet built}
+{comma-separated list of workflow types not yet built}
 
 ## Finalized
 {Omit until finalize runs. Then add one dated line per finalize/restore event.}

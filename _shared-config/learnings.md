@@ -8,24 +8,23 @@ This is not a task log. Write only lessons that should change future behavior. D
 
 ## setup
 
-## deal-screening
-
-## deal-pipeline
-
-## asset-management
-
-## disposition
-
-## lp-reporting
-
-## lp-inquiries
-
-## deal-win-loss-learning
-
 ## underwriting-backtest
 
-## ic-memo-intelligence
+## ic-pressure-test
 
-## market-thesis
+## diligence-evidence-map
 
-## one-off-deliverable
+## portfolio-intervention
+
+## hold-sell-refi
+
+## market-thesis-to-investment-box
+
+## lp-narrative-and-issue-prep
+
+## firm-memory-loop
+
+## Variant workflows
+
+Archived lifecycle examples live under `architectures/_variants/` and `skill-starters/_variants/`.
+Record reusable lessons here only if a firm deliberately builds from one of those archived variants.

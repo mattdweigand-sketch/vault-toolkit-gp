@@ -15,7 +15,7 @@ A three-stage loop: Reconcile → Attribution → Capture, closing back into a s
 - 01 → 02: Reconcile produces the factual variance — what we underwrote, what actually happened, and the gap per material assumption and on the headline return, ending in the outperformed / in-line / underperformed outcome. Attribution works from facts, never from impression. If attribution is reconstructing the numbers rather than explaining the variance, reconcile did not finish.
 - 02 → 03: Attribution produces the proposed "why," structured against the canonical questions, with the firm's *skill* held distinct from market *luck*. Capture is where a human validates that explanation and then commits it to the store. Unvalidated causal claims — and unvalidated skill-vs-luck splits — do not enter the store.
 - 03 → _store → 01 (the loop): Capture writes the record into `_store/records/` and updates `_store/patterns.md`. The next run's reconcile and attribution stages read those back for context, so the firm analyzes each new realization against everything it has already learned. This back-edge is what makes it a loop rather than a queue.
-- _store → other workspaces: `_store/patterns.md` is read by deal-pipeline underwriting and diligence and by deal-screening's economics assumptions. The loop pays off outside itself — its calibration adjusts the assumptions other workspaces underwrite on.
+- _store → future investment work: `_store/patterns.md` is read before underwriting, screening assumptions, diligence questions, and IC pressure tests. The loop pays off outside itself — its calibration adjusts the assumptions the firm underwrites on.
 
 ## Reference Material (in _config/)
 - underwriting-questions.md: The canonical question set every attribution answers, in the same order. This is what makes records comparable. Loaded in stage 02.
@@ -29,7 +29,7 @@ A three-stage loop: Reconcile → Attribution → Capture, closing back into a s
 
 ## When to Add Stages
 - **00_trigger** before reconcile: if you want an explicit step that detects realized deals from the fund-accounting / portfolio system and queues them, rather than running the loop manually per exit.
-- **04_review** after capture, periodically (not per-run): a standing calibration review that reads the whole store and writes a synthesis for the deal team ahead of an underwriting push or a fund deployment — and proposes the concrete edits to deal-screening's and deal-pipeline's assumption files. This is the loop's intelligence consumed deliberately rather than incidentally.
+- **04_review** after capture, periodically (not per-run): a standing calibration review that reads the whole store and writes a synthesis for the deal team ahead of an underwriting push or a fund deployment — and proposes concrete edits to underwriting standards, screening assumptions, diligence questions, and IC pressure-test prompts. This is the loop's intelligence consumed deliberately rather than incidentally.
 
 ## AI vs. Platform: Where Each Step Lives
 

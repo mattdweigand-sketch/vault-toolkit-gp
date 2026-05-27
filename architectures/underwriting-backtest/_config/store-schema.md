@@ -58,5 +58,5 @@ Rules:
 candid skill-vs-luck read on its track record. State here who may access the store
 and any redaction rules for anything that leaves this workspace. In particular,
 the skill-vs-luck ledger is sensitive — the calibration adjustments may flow to
-deal-screening and deal-pipeline, but the "how much of our track record is luck"
+screening assumptions, diligence questions, underwriting standards, and IC pressure tests, but the "how much of our track record is luck"
 read should stay internal to the team and the IC.]

@@ -1,7 +1,7 @@
 # Ridgeline Underwriting Calibration
 
 Rolled-up intelligence across the backtest records. This is the file the next underwrite — and
-deal-pipeline underwriting / deal-screening economics-assumptions — reads first. A pattern is
+future underwriting standards, screening assumptions, diligence questions, and IC pressure tests — reads first. A pattern is
 "stated" at 3+ supporting records; below that it is "emerging." Records are append-only; patterns
 are revised in place with dated notes.
 
@@ -26,7 +26,7 @@ rate-cycle artifact, not a Ridgeline edge.
 **Last updated:** 2024-09-16 (Cedar Crossing added; promoted from emerging to stated).
 **Action / calibration:** Underwrite exit caps **flat-to-+25 bps over going-in**; do not assume
 compression. Treat any deal whose underwriting *requires* cap compression to clear the hurdle as a
-red flag. (Flows to deal-screening economics-assumptions and deal-pipeline underwriting.)
+red flag. (Flows to screening assumptions, diligence questions, underwriting standards, and IC pressure tests.)
 
 ---
 

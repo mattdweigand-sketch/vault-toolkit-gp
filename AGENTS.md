@@ -5,33 +5,29 @@ Shared project instructions for the GP Operating Toolkit.
 `AGENTS.md` is canonical. Codex and other AGENTS-aware tools read it directly. Claude Code reads
 it through the thin `CLAUDE.md` wrapper.
 
-## Where to go from here
+## Setup Entry Point
 
-**If `_shared-config/setup-progress.md` does not exist, setup has not run yet.** Read `SETUP.md`
-and follow it. It runs the firm's one-time orientation, builds the first workspace, and then
-rewrites this file into the firm's operating-system map. To begin, the user need only say
-**"Run setup."**
+When the user says **"Run setup"**, **"add a workflow"**, or **"build a <workflow>"**, read
+`SETUP.md` and follow **Run Setup Starts Here**.
 
-**If `_shared-config/setup-progress.md` exists, setup has already run** and this file should
-already be the firm's OS map. If you are still reading this bootstrap text, something interrupted
-the first setup; re-read `SETUP.md` and resume from **After First Setup: Write the OS Map**.
+Setup now uses `_shared-config/setup-session.json` as temporary resumable state. If setup is
+interrupted, resume from that file instead of restarting orientation. `_shared-config/setup-progress.md`
+remains the durable signal that setup completed.
 
-## What this repository is
+## What This Repository Is
 
-The GP Operating Toolkit, built for private equity and commercial real estate firms. It has
-four parts: `architectures/` (eleven reference workspaces), `constraints/` (ten reference files),
-`skill-starters/` (eleven builder skills), and `workspaces/` (the workflows you build). `SETUP.md`
-is the engine that runs setup, builds workspaces, and, when the firm is ready, finalizes the repo
-into its operating system. `SETUP.md` explains all of it; do not load the folders yourself unless
-that file routes you there.
+The GP Operating Toolkit helps private equity and commercial real estate firms put AI on the
+high-judgment layer above their platforms. It has four parts:
 
-## Adding workflows, and after setup
+- `architectures/` - eight active reference workspaces, plus `_variants/` for archived lifecycle examples.
+- `constraints/` - ten reference files for safe AI workflow design.
+- `skill-starters/` - active workflow builders, plus `_variants/` for archived builders.
+- `workspaces/` - the live workflows created during setup.
 
-You can keep building forever: new workflow types, or more instances of ones already built. Say
-**"Run setup"**, **"add a workflow"**, or **"build a <workflow>"**. That routes to `SETUP.md`.
-Once the first setup finishes, `SETUP.md` overwrites this file with the firm's OS map, which
-headlines how to add a workflow and lists what is built and what is still available. The
-`CLAUDE.md` wrapper stays thin and continues to import this file for Claude Code.
+Do not load the whole toolkit by default. `SETUP.md` routes you to the smallest files needed for
+the current setup step.
 
-An optional, reversible **finalize** step later moves the toolkit into `_kit/` so the root reads
-purely as the firm's operating system. `SETUP.md` describes it.
+## Finalize
+
+When the user explicitly asks to finalize, make this repo read purely as the firm's operating
+system by following the **Finalize** section in `SETUP.md`. Finalize is optional and reversible.

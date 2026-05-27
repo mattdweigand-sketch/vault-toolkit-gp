@@ -1,8 +1,8 @@
 # The GP Operating Toolkit
 
-For private equity and commercial real estate GPs who want to build with AI instead of just use it. It turns your firm's recurring deal, investor, and fund work into controlled AI workflows, without rebuilding the systems of record that already hold your data, and without the data-risk of pointing a model at everything at once.
+For private equity and commercial real estate GPs who want to build with AI instead of just use it. It helps your firm put AI where it belongs: investment judgment, portfolio intervention, investor communication, source control, and firm memory. It does not rebuild the systems of record that already hold your data.
 
-**Who this is for:** anyone at a GP firm who runs the same work on a cycle (quarterly LP letters, deal screening, investor questions, fund reporting) and wants AI to speed it up without giving it free run of the firm's data or final say over decisions. In practice that means the COO, Head of IR, CFO or controller, acquisitions or asset-management lead, or whoever owns AI and technology.
+**Who this is for:** anyone at a GP firm who runs high-judgment recurring work (IC prep, diligence, portfolio intervention, LP issue prep, market thesis, or firm learning loops) and wants AI to speed it up without giving it free run of the firm's data or final say over decisions. In practice that means the COO, Head of IR, CFO or controller, acquisitions or portfolio lead, or whoever owns AI and technology.
 
 **What this is not:** a replacement for your fund-accounting or fund-administration platform, your investor-management system, your deal pipeline, or your CRM; a data warehouse; a compliance approval system; a prompt library; or a way to skip human review.
 
@@ -10,7 +10,7 @@ For private equity and commercial real estate GPs who want to build with AI inst
 
 A setup guide for putting AI to work at a GP firm in ways that are actually useful, compliant, and secure.
 
-Most firms land at one of two extremes: avoiding AI because they cannot control it, or pointing it at everything and trusting output they cannot verify. This guide is the path between them. It helps your team stand up AI workflows for the recurring work you already do, like drafting LP letters, screening deals, fielding investor questions, and building IC memos. It adds the controls that keep the model on your firm's voice and rules, keep your systems of record (not the model) as the source of truth, and keep it out of decisions it should not make.
+Most firms land at one of two extremes: avoiding AI because they cannot control it, or pointing it at everything and trusting output they cannot verify. This guide is the path between them. It helps your team stand up AI workflows for the judgment layer above the platforms you already use: pressure-testing an IC memo, mapping diligence evidence, explaining portfolio variance, preparing LP narratives, and capturing what the firm learns. It keeps your systems of record, not the model, as the source of truth.
 
 It works in three parts: reference files that show where AI genuinely helps and where it does not (constraints), example workspaces you can copy and study (architectures), and skills that interview you and assemble a starting workspace from your answers (skill-starters). Together they take you from "we should use AI" to a working, governed setup.
 
@@ -38,6 +38,20 @@ The toolkit keeps methodology, firm context, and live workflow context in differ
 Roughly 60% of what people throw at AI is better handled by traditional software, databases, or an established process. Another 30% suits rule-based automation or a prebuilt routine. Only about 10% genuinely needs the judgment a language model brings.
 
 So if you are reaching for Claude to recalculate a waterfall your fund-accounting platform already owns, you are spending tokens on something deterministic. The constraint files tell you when that is the case.
+
+For a GP, this filter matters because strong platforms already exist. Juniper Square and similar systems own fund administration, investor records, data rooms, investor reporting, capital activity, portals, entitlements, and audit trails. Dealpath, DealCloud, and other investment platforms own pipeline state, relationship history, deal workflows, and execution tracking. Chronograph, iLevel-style tools, Canoe, and portfolio-monitoring platforms own collection, extraction, structured portfolio data, dashboards, and valuation workflows.
+
+The toolkit should not compete with those systems. If a platform can own the record, workflow state, entitlement, calculation, or audit trail, leave it there. Use this toolkit for the judgment layer above the platform: source interpretation, decision framing, narrative, exception handling, and institutional memory.
+
+The highest-leverage GP uses of AI are therefore:
+
+- **Investment judgment:** deal thesis, diligence evidence, IC pressure testing, bid strategy, market thesis.
+- **Portfolio intervention:** variance attribution, watchlist diagnosis, action planning, hold / sell / refinance framing.
+- **Investor communication:** LP narratives, issue prep, likely questions, response framing around platform-verified data.
+- **Source control:** data-room maps, authority ranking, conflict logs, source-backed deliverables.
+- **Firm memory:** underwriting backtests, IC precedent, win/loss learning, LP objection learning, post-mortems.
+
+The rule is simple: platform for the record, deterministic tools for the math, rules for routing, AI for judgment, and humans for approval.
 
 ## Your data
 
@@ -87,8 +101,8 @@ CLAUDE.md        Claude Code wrapper that imports AGENTS.md
 SETUP.md         the engine that builds and adds workflows
 _shared-config/  firm profile, voice, setup progress, and learnings
 constraints/     the principles (10 files)
-architectures/   example workflows (11)
-skill-starters/  the builders setup runs (11)
+architectures/   core and variant workflow architectures
+skill-starters/  the builders setup runs
 workspaces/      the workflows you build
 ```
 
@@ -99,15 +113,19 @@ These are foundational principles of AI and computer science. They hold for anyo
 
 If you read only two, read [constraint 06 (Layer Triage)](constraints/06-layer-triage.md) and [constraint 09 (Platform Boundary)](constraints/09-platform-boundary.md). The first tells you which problems at your firm are even worth pointing AI at. The second tells you what to build yourself and what to leave to your platform. Those are the two calls most firms get wrong.
 
-### [/architectures](architectures/) (11 example workflows)
-Real folder structures, one per GP workflow, that you copy and adapt. Each is built on one of four shapes. A **gated decision pipeline** moves one item through go/no-go stages to a decision (deal-screening, deal-pipeline, disposition). A **recurring operations queue** runs intake, process, deliver, per request (lp-inquiries). **Recurring document production** turns verified data into a drafted, distributed document on a cycle (lp-reporting, asset-management, market-thesis). A **learning loop** captures an outcome, analyzes it, and reads it back so the work compounds (deal-win-loss-learning, underwriting-backtest, ic-memo-intelligence). An eleventh, **one-off-deliverable**, sits off the lifecycle for a single serious deliverable from a messy source set.
+### [/architectures](architectures/) (core and variant workflows)
+Real folder structures, one per GP workflow, that you copy and adapt. The current examples cover the lifecycle, but the design principle is narrower: architectures should capture the high-judgment 10% that platforms do not already own.
 
-Not one of the eleven? Say "add a workflow" and setup classifies yours by shape and builds from the nearest; if it fits no shape, it builds from scratch using constraints 03, 06, 08, and 09. Each architecture also maps, step by step, what is the AI's job, what a tool or automation handles, and what belongs to your platform of record. The software names (Argus, Yardi, MRI, RealPage) are real-estate stand-ins; a PE firm reads its own deal model and fund-accounting systems.
+Each architecture should map to one of five shapes. A **gated decision pipeline** moves one item through go/no-go stages to a decision. A **recurring operations queue** runs intake, process, deliver, per request. **Recurring document production** turns verified data into a drafted, distributed document on a cycle. A **learning loop** captures an outcome, analyzes it, and reads it back so the work compounds. **Source provenance** inspects and ranks a source set before anyone relies on it.
 
-Five ship with a fully worked `_example/` so you see finished output, not the empty shape: a quarterly LP letter where every figure traces to its data pack, three learning-loop stores that show the defensible-reasoning checks catching broker spin and false precedent, and a hold/sell case built from a deliberately conflicting source set.
+The highest-value architecture candidates are IC pressure testing, diligence evidence mapping, underwriting backtests, portfolio intervention, hold / sell / refinance decisions, market thesis to investment-box updates, LP narrative and issue prep, and firm memory loops. Workflows like DDQ execution, investor records, capital activity, pipeline tracking, dashboards, data extraction, and fund calculations belong in the platforms built for them. The toolkit can support the judgment around those workflows, but should not rebuild them.
 
-### [/skill-starters](skill-starters/) (11 diagnostic skills)
-Skills that ask before they build. Each opens with diagnostic questions about your workflow, then assembles a workspace skeleton from your answers: the decomposition logic is built in, your answers supply the specifics. One per architecture: deal-screening-builder, deal-pipeline-builder, asset-management-builder, disposition-builder, lp-reporting-builder, lp-inquiries-builder, deal-win-loss-learning-builder, underwriting-backtest-builder, ic-memo-intelligence-builder, market-thesis-builder, one-off-deliverable-builder.
+Not one of the listed workflows? Say "add a workflow" and setup classifies yours by shape and builds from the nearest; if it fits no shape, it builds from scratch using constraints 03, 06, 08, and 09. Each architecture also maps, step by step, what is the AI's job, what a tool or automation handles, and what belongs to your platform of record. The software names (Argus, Yardi, MRI, RealPage) are real-estate stand-ins; a PE firm reads its own deal model and fund-accounting systems.
+
+The active `underwriting-backtest` architecture ships with a fully worked `_example/` so you see finished output, not the empty shape. Older worked examples are preserved under `architectures/_variants/` for reference and migration.
+
+### [/skill-starters](skill-starters/) (diagnostic skills)
+Skills that ask before they build. Each opens with diagnostic questions about your workflow, then assembles a workspace skeleton from your answers: the decomposition logic is built in, your answers supply the specifics. Core builders are `ic-pressure-test`, `diligence-evidence-map`, `portfolio-intervention`, `hold-sell-refi`, `market-thesis-to-investment-box`, `lp-narrative-and-issue-prep`, `underwriting-backtest`, and `firm-memory-loop`. Older lifecycle examples are archived under `_variants/` for reference, not primary routing.
 
 ---
 
