@@ -55,7 +55,15 @@ def agents_path(root: Path) -> Path:
 
 
 def setup_path(root: Path) -> Path:
-    return root / "SETUP.md"
+    return toolkit_dir(root) / "SETUP.md"
+
+
+def toolkit_dir(root: Path) -> Path:
+    if (root / "SETUP.md").is_file():
+        return root
+    if (root / "_kit" / "SETUP.md").is_file():
+        return root / "_kit"
+    return root
 
 
 def default_session() -> dict:
@@ -169,18 +177,19 @@ def table_missing_items(text: str, items) -> list:
 
 
 def doctor(root: Path) -> dict:
+    kit = toolkit_dir(root)
     architectures = sorted(
         path.name
-        for path in (root / "architectures").iterdir()
+        for path in (kit / "architectures").iterdir()
         if path.is_dir() and path.name != "_variants"
-    ) if (root / "architectures").is_dir() else []
+    ) if (kit / "architectures").is_dir() else []
     builders = sorted(
         path.name.removesuffix("-builder.md")
-        for path in (root / "skill-starters").glob("*-builder.md")
-    ) if (root / "skill-starters").is_dir() else []
+        for path in (kit / "skill-starters").glob("*-builder.md")
+    ) if (kit / "skill-starters").is_dir() else []
     constraints = sorted(
-        path.name for path in (root / "constraints").glob("*.md")
-    ) if (root / "constraints").is_dir() else []
+        path.name for path in (kit / "constraints").glob("*.md")
+    ) if (kit / "constraints").is_dir() else []
     setup_text = read_text(setup_path(root))
     readme_text = read_text(root / "README.md")
 
